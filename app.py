@@ -1115,9 +1115,7 @@ if __name__ == '__main__':
     
     # Start the restart checker thread
     threading.Thread(target=restart_check_thread, daemon=True).start()
-        
-    # For production, use a proper WSGI server
-    if os.environ.get('FLASK_ENV') == 'production':
-        app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
-    else:
-        app.run(debug=True) 
+    
+    # Always bind to 0.0.0.0 and use PORT from environment if available
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=os.environ.get('FLASK_DEBUG', '0') == '1') 
