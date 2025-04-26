@@ -59,7 +59,7 @@ vulners>=1.5.13
 # exploitdb>=2.1.0
 pymetasploit3>=1.0.3
 nvdlib>=0.7.3
-rapid7vmconsole>=0.0.18
+# rapid7vmconsole>=0.0.18
 
 # Analysis and visualization
 numpy>=1.24.3
