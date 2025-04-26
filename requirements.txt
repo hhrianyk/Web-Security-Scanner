@@ -56,7 +56,7 @@ python-whois>=0.7.3
 
 # Exploit databases and vulnerability APIs
 vulners>=1.5.13
-exploitdb>=2.1.0
+# exploitdb>=2.1.0
 pymetasploit3>=1.0.3
 nvdlib>=0.7.3
 rapid7vmconsole>=0.0.18
@@ -91,3 +91,9 @@ rich>=13.3.5
 # Testing
 pytest>=7.3.1
 pytest-cov>=4.1.0 
+ 
+# pymetasploit3>=1.0.3  # Might cause issues
+
+# Remove or replace these lines:
+# exploitdb>=2.1.0  # Not available on PyPI
+# pymetasploit3>=1.0.3  # Might cause issues
