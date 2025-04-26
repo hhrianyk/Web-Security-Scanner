@@ -1,0 +1,400 @@
+{
+    "timestamp": "2025-04-26 15:48:21",
+    "target": "example.com",
+    "port_scan": {
+        "96.7.128.198": {
+            "status": "up",
+            "os_detection": [
+                {
+                    "name": "Linux 5.0 - 5.4",
+                    "accuracy": "98",
+                    "line": "68121",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "98",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 4.15 - 5.8",
+                    "accuracy": "94",
+                    "line": "67250",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "4.X",
+                            "accuracy": "94",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:4"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "94",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 5.0 - 5.5",
+                    "accuracy": "93",
+                    "line": "68098",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 5.1",
+                    "accuracy": "93",
+                    "line": "68139",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5.1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 2.6.32 - 3.13",
+                    "accuracy": "93",
+                    "line": "56610",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "2.6.X",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:2.6"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "3.X",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:3"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 2.6.39",
+                    "accuracy": "93",
+                    "line": "58199",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "2.6.X",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:2.6.39"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 2.6.22 - 2.6.36",
+                    "accuracy": "91",
+                    "line": "51885",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "2.6.X",
+                            "accuracy": "91",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:2.6"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 3.10 - 4.11",
+                    "accuracy": "91",
+                    "line": "63448",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "3.X",
+                            "accuracy": "91",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:3"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "4.X",
+                            "accuracy": "91",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 5.0",
+                    "accuracy": "91",
+                    "line": "68054",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "91",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5.0"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Linux 3.10",
+                    "accuracy": "91",
+                    "line": "63038",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "3.X",
+                            "accuracy": "91",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:3.10"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "ports": {
+                "tcp": {
+                    "53": {
+                        "state": "closed",
+                        "service": "domain",
+                        "product": "",
+                        "version": "",
+                        "extrainfo": "",
+                        "reason": "reset",
+                        "cpe": ""
+                    },
+                    "80": {
+                        "state": "open",
+                        "service": "http",
+                        "product": "AkamaiGHost",
+                        "version": "",
+                        "extrainfo": "Akamai's HTTP Acceleration/Mirror service",
+                        "reason": "syn-ack",
+                        "cpe": ""
+                    },
+                    "443": {
+                        "state": "open",
+                        "service": "http",
+                        "product": "AkamaiGHost",
+                        "version": "",
+                        "extrainfo": "Akamai's HTTP Acceleration/Mirror service",
+                        "reason": "syn-ack",
+                        "cpe": ""
+                    }
+                }
+            }
+        }
+    },
+    "ssl_analysis": {
+        "certificate": {
+            "subject": {
+                "countryName": "US",
+                "stateOrProvinceName": "California",
+                "localityName": "Los Angeles",
+                "organizationName": "Internet Corporation for Assigned Names and Numbers",
+                "commonName": "*.example.com"
+            },
+            "issuer": {
+                "countryName": "US",
+                "organizationName": "DigiCert Inc",
+                "commonName": "DigiCert Global G3 TLS ECC SHA384 2020 CA1"
+            },
+            "valid_from": "Jan 15 00:00:00 2025 GMT",
+            "valid_until": "Jan 15 23:59:59 2026 GMT",
+            "san": [
+                [
+                    "DNS",
+                    "*.example.com"
+                ],
+                [
+                    "DNS",
+                    "example.com"
+                ]
+            ]
+        },
+        "connection": {
+            "protocol": "TLSv1.3",
+            "cipher_suite": "TLS_AES_256_GCM_SHA384",
+            "encryption_method": "TLSv1.3",
+            "bits": 256
+        },
+        "security_assessment": {
+            "is_secure_protocol": true,
+            "recommendations": []
+        }
+    },
+    "network_devices": {},
+    "traffic_analysis": {},
+    "firewall_detection": {
+        "target": "example.com",
+        "firewall_detected": false,
+        "firewall_type": "Unknown",
+        "port_responses": {
+            "21": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "22": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "25": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "80": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "443": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "3306": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "3389": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            }
+        },
+        "behavior_analysis": {}
+    },
+    "vulnerability_correlation": {
+        "vulnerabilities_found": 0,
+        "severity_summary": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "low": 0,
+            "info": 0
+        },
+        "vulnerabilities": [],
+        "correlation_timestamp": "2025-04-26 15:49:34"
+    }
+}

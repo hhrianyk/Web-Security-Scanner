@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Report - {{ target_url }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .vulnerability-path {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-left: 4px solid #dc3545;
+            background-color: #f8f9fa;
+            border-radius: 0.25rem;
+        }
+        .ai-analysis {
+            border-left: 4px solid #0d6efd;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem;
+        }
+        .remediation-step {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-left: 4px solid #198754;
+            background-color: #f8f9fa;
+            border-radius: 0.25rem;
+        }
+        .code-block {
+            font-size: 0.875rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <i class="fas fa-shield-alt"></i> Web Security Scanner
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#about">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h1>Security Assessment Report</h1>
+                    <div>
+                        <a href="/" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left"></i> Back to Scanner
+                        </a>
+                        <button onclick="window.print()" class="btn btn-outline-dark ms-2">
+                            <i class="fas fa-print"></i> Print Report
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Report Badge -->
+                {% if scan_type == 'ai' %}
+                <div class="alert alert-info mb-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-robot fs-3 me-3"></i>
+                        <div>
+                            <h5 class="alert-heading mb-1">AI-Enhanced Security Analysis</h5>
+                            <p class="mb-0">This report was generated using our advanced AI-powered vulnerability scanner.</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">System Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Target URL:</strong> {{ target_url }}</p>
+                        <p><strong>Report Date:</strong> {{ scan_id }}</p>
+                        <p><strong>Scan Type:</strong> 
+                            {% if scan_type == 'ai' %}
+                            <span class="badge bg-info">AI-Enhanced</span>
+                            {% else %}
+                            <span class="badge bg-secondary">Standard</span>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Scan Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Target URL:</strong> <a href="{{ target_url }}" target="_blank">{{ target_url }}</a></p>
+                                <p><strong>Scan ID:</strong> {{ scan_id }}</p>
+                                <p><strong>Scan Type:</strong> 
+                                    {% if scan_type == 'ai' %}
+                                    <span class="badge bg-info">AI-Enhanced</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">Standard</span>
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Status:</strong> <span class="badge bg-{{ 'success' if status == 'Completed' else 'danger' }}">{{ status }}</span></p>
+                                <p><strong>Vulnerabilities Found:</strong> <span class="badge bg-{{ 'success' if not vulnerabilities else 'danger' }}">{{ vulnerabilities|length }}</span></p>
+                                <p><strong>Report Date:</strong> {{ scan_id }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- System Architecture Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-sitemap"></i> System Architecture
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <h6><i class="fas fa-server"></i> Web Server</h6>
+                                    <p class="ms-3 mb-0">{{ system_info.web_server }}</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6><i class="fas fa-desktop"></i> Operating System</h6>
+                                    <p class="ms-3 mb-0">{{ system_info.operating_system }}</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6><i class="fas fa-network-wired"></i> IP Address</h6>
+                                    <p class="ms-3 mb-0">{{ system_info.ip_address }}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <h6><i class="fas fa-code"></i> Frameworks</h6>
+                                    {% if system_info.frameworks %}
+                                        <ul class="mb-0">
+                                            {% for framework in system_info.frameworks %}
+                                                <li>{{ framework }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <p class="ms-3 mb-0">No frameworks detected</p>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h6><i class="fas fa-tools"></i> Technologies</h6>
+                                    {% if system_info.technologies %}
+                                        <ul class="mb-0">
+                                            {% for tech in system_info.technologies %}
+                                                <li>{{ tech }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <p class="ms-3 mb-0">No technologies detected</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-{{ 'success' if not vulnerabilities else 'danger' }} text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-{{ 'check-circle' if not vulnerabilities else 'exclamation-circle' }}"></i>
+                            Vulnerability Summary
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if vulnerabilities %}
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Severity</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for vuln in vulnerabilities %}
+                                            <tr>
+                                                <td>{{ vuln.type }}{% if vuln.subtype %} ({{ vuln.subtype }}){% endif %}</td>
+                                                <td>
+                                                    <span class="badge bg-{{ 'danger' if vuln.severity == 'Critical' or vuln.severity == 'High' 
+                                                                        else 'warning' if vuln.severity == 'Medium' 
+                                                                        else 'info' if vuln.severity == 'Low'
+                                                                        else 'secondary' }}">
+                                                        {{ vuln.severity }}
+                                                    </span>
+                                                </td>
+                                                <td>{{ vuln.details }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success mb-0">
+                                <i class="fas fa-check-circle"></i> No vulnerabilities were found in the scan.
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Vulnerable Components Section -->
+                {% if vulnerable_components %}
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-crosshairs"></i> Vulnerable Components
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% for component in vulnerable_components %}
+                            <div class="vulnerability-path mb-4">
+                                <h5 class="mb-3">{{ component.vulnerability_type }} in {{ component.component_name }}</h5>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <h6><i class="fas fa-exclamation-triangle"></i> Severity</h6>
+                                        <span class="badge bg-{{ 'danger' if component.severity == 'Critical' or component.severity == 'High' 
+                                                             else 'warning' if component.severity == 'Medium' 
+                                                             else 'info' if component.severity == 'Low'
+                                                             else 'secondary' }}">
+                                            {{ component.severity }}
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6><i class="fas fa-cubes"></i> Affected Components</h6>
+                                        <ul class="mb-0">
+                                            {% for affected in component.affected_components %}
+                                                <li>{{ affected }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <h6><i class="fas fa-bug"></i> Exploit Description</h6>
+                                <p class="mb-3">{{ component.exploit_description }}</p>
+                                
+                                <h6><i class="fas fa-code"></i> Exploit Example</h6>
+                                <pre class="bg-light p-3 rounded code-block mb-3"><code>{{ component.exploit_example }}</code></pre>
+                                
+                                <h6><i class="fas fa-shield-alt"></i> Remediation Steps</h6>
+                                <ol class="mb-0">
+                                    {% for step in component.remediation_steps %}
+                                        <li>{{ step }}</li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                            {% if not loop.last %}<hr>{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- AI Analysis Section (if available) -->
+                {% if scan_type == 'ai' and ai_analysis and vulnerabilities %}
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-brain"></i> AI Vulnerability Analysis
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if ai_analysis.vulnerability_types %}
+                            {% for vuln_type in ai_analysis.vulnerability_types %}
+                                <div class="ai-analysis mb-4">
+                                    <h5>{{ vuln_type.type }}</h5>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <h6><i class="fas fa-unlock-alt"></i> Exploitation Conditions:</h6>
+                                            <p>{{ vuln_type.exploitation_conditions }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6><i class="fas fa-bomb"></i> Impact:</h6>
+                                            <p>{{ vuln_type.impact }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6><i class="fas fa-exclamation-triangle"></i> Risk Assessment:</h6>
+                                            <p><strong>Severity:</strong> {{ vuln_type.severity }}<br>
+                                               <strong>Exploitability:</strong> {{ vuln_type.exploitability }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6><i class="fas fa-link"></i> Potential Attack Chains:</h6>
+                                            <p>{{ vuln_type.potential_chains }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            
+                            <h5>Overall Assessment</h5>
+                            <div class="alert alert-warning">
+                                {{ ai_analysis.overall_assessment }}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-info mb-0">
+                                {{ ai_analysis.analysis }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Exploitation Paths Section -->
+                {% if vulnerabilities %}
+                    {% if scan_type == 'ai' and exploitation_paths.vulnerability_paths %}
+                        <!-- AI-Enhanced Exploitation Paths -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="card-title mb-0">
+                                    <i class="fas fa-route"></i> Exploitation Paths
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                {% for path in exploitation_paths.vulnerability_paths %}
+                                    <div class="vulnerability-path">
+                                        <h5 class="mb-3">{{ path.type }}</h5>
+                                        
+                                        <h6><i class="fas fa-list-ol"></i> Exploitation Steps:</h6>
+                                        <ol class="mb-4">
+                                            {% for step in path.exploitation_steps %}
+                                                <li>{{ step }}</li>
+                                            {% endfor %}
+                                        </ol>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <h6><i class="fas fa-tools"></i> Tools:</h6>
+                                                <ul>
+                                                    {% for tool in path.tools %}
+                                                        <li>{{ tool }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6><i class="fas fa-check-square"></i> Required Conditions:</h6>
+                                                <p>{{ path.required_conditions }}</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <h6><i class="fas fa-level-up-alt"></i> Escalation Paths:</h6>
+                                        <p>{{ path.escalation_paths }}</p>
+                                        
+                                        <h6><i class="fas fa-code"></i> Sample Payloads:</h6>
+                                        <pre class="bg-light p-3 rounded code-block"><code>{{ path.sample_payloads }}</code></pre>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <!-- Standard Exploitation Details -->
+                        {% set vuln_types = vulnerabilities|map(attribute='type')|unique|list %}
+                        {% for vtype in vuln_types %}
+                            {% if vtype != 'Error' and vtype in exploitation_examples %}
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-bug"></i> {{ vtype }} - Detailed Analysis
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="mb-3">What is {{ vtype }}?</h6>
+                                        <p>{{ exploitation_examples[vtype].description }}</p>
+                                        
+                                        <h6 class="mb-3">How It Manifests</h6>
+                                        {% if vtype == 'XSS' %}
+                                            <p>XSS vulnerabilities were found in the following parameter(s):</p>
+                                            <ul>
+                                                {% for param in exploitation_examples[vtype].vulnerable_params %}
+                                                    <li>{{ param }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% elif vtype == 'SQL Injection' %}
+                                            <p>SQL Injection vulnerabilities were found in the following parameter(s):</p>
+                                            <ul>
+                                                {% for param in exploitation_examples[vtype].vulnerable_params %}
+                                                    <li>{{ param }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% elif vtype == 'SSL/TLS' %}
+                                            <p>The following SSL/TLS issues were detected:</p>
+                                            <ul>
+                                                {% for issue in exploitation_examples[vtype].detected_issues %}
+                                                    <li>{{ issue }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% elif vtype == 'Open Port' %}
+                                            <p>The following open ports were detected:</p>
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Port</th>
+                                                            <th>Protocol</th>
+                                                            <th>Service</th>
+                                                            <th>Risk Level</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for port in exploitation_examples[vtype].detected_ports %}
+                                                            {% set is_dangerous = port.port|string in [21, 22, 23, 25, 53, 3306, 3389, 5432, 8080, 8443]|map('string') %}
+                                                            <tr>
+                                                                <td>{{ port.port }}</td>
+                                                                <td>{{ port.protocol }}</td>
+                                                                <td>{{ port.service }}</td>
+                                                                <td>
+                                                                    <span class="badge bg-{{ 'danger' if is_dangerous else 'info' }}">
+                                                                        {{ 'High' if is_dangerous else 'Low' }}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        {% elif vtype == 'Directory Traversal' %}
+                                            <p>Directory traversal vulnerabilities were detected with the following payloads:</p>
+                                            <ul>
+                                                {% for vuln in exploitation_examples[vtype].detected_vulnerabilities %}
+                                                    <li>
+                                                        <strong>Payload:</strong> {{ vuln.payload }}<br>
+                                                        <strong>URL:</strong> {{ vuln.url }}<br>
+                                                        <strong>Response:</strong> <code>{{ vuln.response_preview }}</code>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% elif vtype == 'Security Headers' %}
+                                            <p>The following security headers are missing:</p>
+                                            <ul>
+                                                {% for header in exploitation_examples[vtype].missing_headers %}
+                                                    <li>{{ header }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                        
+                                        <h6 class="mb-3">Exploitation Scenario</h6>
+                                        {% if vtype in ['XSS', 'SQL Injection', 'Directory Traversal'] %}
+                                            <p>Sample exploitation code:</p>
+                                            <pre class="bg-light p-3 rounded code-block"><code>{{ exploitation_examples[vtype].exploitation_code }}</code></pre>
+                                        {% elif vtype in ['SSL/TLS', 'Open Port', 'Security Headers'] %}
+                                            <div class="bg-light p-3 rounded">
+                                                <p class="mb-0">{{ exploitation_examples[vtype].exploitation_scenario|replace('\n', '<br>')|safe }}</p>
+                                            </div>
+                                        {% endif %}
+                                        
+                                        <h6 class="mb-3">Potential Impact</h6>
+                                        <div class="alert alert-danger">
+                                            <i class="fas fa-exclamation-triangle"></i> {{ exploitation_examples[vtype].impact }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+                
+                <!-- Remediation Section -->
+                {% if vulnerabilities %}
+                    {% if scan_type == 'ai' and remediation.remediation_strategies %}
+                        <!-- AI-Enhanced Remediation -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="card-title mb-0">
+                                    <i class="fas fa-wrench"></i> Remediation Plan
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                {% for strategy in remediation.remediation_strategies %}
+                                    <div class="remediation-step">
+                                        <h5 class="mb-3">{{ strategy.type }}</h5>
+                                        
+                                        <h6><i class="fas fa-list-ol"></i> Remediation Steps:</h6>
+                                        <ol class="mb-4">
+                                            {% for step in strategy.remediation_steps %}
+                                                <li>{{ step }}</li>
+                                            {% endfor %}
+                                        </ol>
+                                        
+                                        <h6><i class="fas fa-code"></i> Code Examples:</h6>
+                                        <div class="row mb-4">
+                                            <div class="col-md-6">
+                                                <h6 class="text-danger">Vulnerable Code:</h6>
+                                                <pre class="bg-light p-3 rounded code-block"><code>{{ strategy.code_examples.vulnerable }}</code></pre>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="text-success">Fixed Code:</h6>
+                                                <pre class="bg-light p-3 rounded code-block"><code>{{ strategy.code_examples.fixed }}</code></pre>
+                                            </div>
+                                        </div>
+                                        
+                                        <h6><i class="fas fa-sliders-h"></i> Configuration Changes:</h6>
+                                        <pre class="bg-light p-3 rounded mb-4"><code>{{ strategy.configuration_changes }}</code></pre>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <h6><i class="fas fa-tools"></i> Recommended Tools:</h6>
+                                                <ul>
+                                                    {% for tool in strategy.recommended_tools %}
+                                                        <li>{{ tool }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6><i class="fas fa-vial"></i> Verification Testing:</h6>
+                                                <p>{{ strategy.verification_testing }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                
+                                <h5>Overall Security Improvements</h5>
+                                <div class="alert alert-info">
+                                    {{ remediation.overall_security_improvements }}
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <!-- Standard Remediation Recommendations -->
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header bg-secondary text-white">
+                                <h5 class="card-title mb-0">Recommendations</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="accordion" id="recommendationsAccordion">
+                                    {% if vulnerabilities %}
+                                        {% set vuln_types = vulnerabilities|map(attribute='type')|unique|list %}
+                                        
+                                        {% for vtype in vuln_types %}
+                                            {% if vtype != 'Error' %}
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading{{ loop.index }}">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                                            data-bs-target="#collapse{{ loop.index }}" aria-expanded="{{ 'true' if loop.index == 1 else 'false' }}" 
+                                                            aria-controls="collapse{{ loop.index }}">
+                                                        {{ vtype }} Recommendations
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse{{ loop.index }}" class="accordion-collapse collapse {{ 'show' if loop.index == 1 }}" 
+                                                     aria-labelledby="heading{{ loop.index }}">
+                                                    <div class="accordion-body">
+                                                        {% if vtype == 'XSS' %}
+                                                            <p>To fix Cross-Site Scripting (XSS) vulnerabilities:</p>
+                                                            <ul>
+                                                                <li><strong>Sanitize user input</strong> by escaping special characters using functions appropriate for your framework</li>
+                                                                <li><strong>Implement Content Security Policy (CSP) headers</strong> to restrict script sources</li>
+                                                                <li><strong>Use modern frameworks</strong> that automatically escape output (React, Vue, Angular)</li>
+                                                                <li><strong>Validate input</strong> on both client and server sides, using whitelisting approaches</li>
+                                                                <li><strong>Use the HttpOnly flag</strong> for cookies containing sensitive information</li>
+                                                                <li><strong>Consider using a Web Application Firewall (WAF)</strong> for additional protection</li>
+                                                            </ul>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Code example (for PHP):</h6>
+                                                                <pre class="bg-light p-2 rounded"><code>// Bad (vulnerable):
+echo "Hello, " . $_GET['name'];
+
+// Good (sanitized):
+echo "Hello, " . htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');</code></pre>
+                                                            </div>
+                                                            
+                                                        {% elif vtype == 'SQL Injection' %}
+                                                            <p>To fix SQL Injection vulnerabilities:</p>
+                                                            <ul>
+                                                                <li><strong>Use parameterized queries</strong> or prepared statements instead of string concatenation</li>
+                                                                <li><strong>Apply the principle of least privilege</strong> to database users - limit permissions</li>
+                                                                <li><strong>Validate and sanitize user input</strong> before using it in database queries</li>
+                                                                <li><strong>Consider using an ORM</strong> (Object-Relational Mapping) library that has built-in protection</li>
+                                                                <li><strong>Implement proper error handling</strong> - avoid exposing database errors to users</li>
+                                                                <li><strong>Enable input validation at the web application firewall level</strong> for additional protection</li>
+                                                            </ul>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Code example (for PHP with PDO):</h6>
+                                                                <pre class="bg-light p-2 rounded"><code>// Bad (vulnerable):
+$query = "SELECT * FROM users WHERE id = " . $_GET['id'];
+$result = $conn->query($query);
+
+// Good (prepared statement):
+$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->bind_param("i", $_GET['id']);
+$stmt->execute();</code></pre>
+                                                            </div>
+                                                            
+                                                        {% elif vtype == 'SSL/TLS' %}
+                                                            <p>To fix SSL/TLS vulnerabilities:</p>
+                                                            <ul>
+                                                                <li><strong>Upgrade to TLS 1.2 or higher</strong> - disable older protocols (SSL 2.0, SSL 3.0, TLS 1.0, TLS 1.1)</li>
+                                                                <li><strong>Configure strong cipher suites</strong> and follow modern security practices</li>
+                                                                <li><strong>Implement HTTP Strict Transport Security (HSTS)</strong> with a long max-age value</li>
+                                                                <li><strong>Ensure certificates are valid</strong> and contain proper Subject Alternative Names</li>
+                                                                <li><strong>Keep certificates up-to-date</strong> and implement auto-renewal</li>
+                                                                <li><strong>Test your SSL/TLS configuration</strong> using tools like SSL Labs or testssl.sh</li>
+                                                            </ul>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Example Nginx Configuration:</h6>
+                                                                <pre class="bg-light p-2 rounded"><code>server {
+    listen 443 ssl http2;
+    
+    # Modern SSL settings
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:...;
+    ssl_prefer_server_ciphers on;
+    
+    # HSTS (15768000 seconds = 6 months)
+    add_header Strict-Transport-Security "max-age=15768000; includeSubDomains" always;
+    
+    # Certificate paths
+    ssl_certificate /path/to/fullchain.pem;
+    ssl_certificate_key /path/to/privkey.pem;
+}</code></pre>
+                                                            </div>
+                                                            
+                                                        {% elif vtype == 'Open Port' %}
+                                                            <p>To address open port issues:</p>
+                                                            <ul>
+                                                                <li><strong>Close unnecessary ports</strong> using a firewall (iptables, Windows Firewall, etc.)</li>
+                                                                <li><strong>Restrict access to necessary services</strong> by IP address or IP ranges</li>
+                                                                <li><strong>Use VPN or SSH tunnels</strong> for administrative access instead of direct exposure</li>
+                                                                <li><strong>Implement proper authentication</strong> for all exposed services</li>
+                                                                <li><strong>Keep services up-to-date</strong> with security patches</li>
+                                                                <li><strong>Consider using a reverse proxy</strong> to limit direct exposure of services</li>
+                                                                <li><strong>Regularly audit open ports</strong> and running services</li>
+                                                            </ul>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Example Linux Firewall Rules:</h6>
+                                                                <pre class="bg-light p-2 rounded"><code># Allow only necessary ports and block everything else
+# Allow SSH from specific IP
+iptables -A INPUT -p tcp -s 192.168.1.100 --dport 22 -j ACCEPT
+
+# Allow HTTP/HTTPS from anywhere
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+# Block all other incoming connections
+iptables -A INPUT -j DROP</code></pre>
+                                                            </div>
+                                                            
+                                                        {% elif vtype == 'Directory Traversal' %}
+                                                            <p>To fix Directory Traversal vulnerabilities:</p>
+                                                            <ul>
+                                                                <li><strong>Validate and sanitize user input</strong>, especially file paths</li>
+                                                                <li><strong>Use whitelisting instead of blacklisting</strong> for file access</li>
+                                                                <li><strong>Implement proper access controls</strong> and file permission restrictions</li>
+                                                                <li><strong>Use canonicalization functions</strong> to normalize paths before validation</li>
+                                                                <li><strong>Restrict application execution to a specific directory</strong> (chroot)</li>
+                                                                <li><strong>Run web applications with minimal privileges</strong> needed for operation</li>
+                                                                <li><strong>Consider using indirect file references</strong> (like database IDs) instead of direct paths</li>
+                                                            </ul>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Code example (for PHP):</h6>
+                                                                <pre class="bg-light p-2 rounded"><code>// Bad (vulnerable):
+$file = $_GET['file'];
+include($file);
+
+// Good (secure):
+$allowed_files = ['home.php', 'about.php', 'contact.php'];
+$file = $_GET['file'];
+
+if (in_array($file, $allowed_files)) {
+    include($file);
+} else {
+    // Handle error
+}</code></pre>
+                                                            </div>
+                                                            
+                                                        {% elif vtype == 'Security Headers' %}
+                                                            <p>To improve security headers:</p>
+                                                            <ul>
+                                                                <li><strong>Add X-Frame-Options</strong> to prevent clickjacking: <code>X-Frame-Options: DENY</code> or <code>SAMEORIGIN</code></li>
+                                                                <li><strong>Set X-Content-Type-Options</strong> to prevent MIME-type sniffing: <code>X-Content-Type-Options: nosniff</code></li>
+                                                                <li><strong>Enable Content-Security-Policy</strong> to mitigate XSS attacks: <code>Content-Security-Policy: default-src 'self'</code></li>
+                                                                <li><strong>Add Strict-Transport-Security</strong> for HTTPS enforcement: <code>Strict-Transport-Security: max-age=31536000; includeSubDomains</code></li>
+                                                                <li><strong>Set Referrer-Policy</strong> to control information in the referer header: <code>Referrer-Policy: strict-origin-when-cross-origin</code></li>
+                                                                <li><strong>Consider Permission-Policy</strong> (formerly Feature-Policy) to restrict browser features</li>
+                                                            </ul>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Example Implementation (Apache .htaccess):</h6>
+                                                                <pre class="bg-light p-2 rounded"><code># Security Headers
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Content-Type-Options "nosniff"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://cdnjs.cloudflare.com;"
+Header set Referrer-Policy "strict-origin-when-cross-origin"</code></pre>
+                                                            </div>
+                                                            
+                                                            <div class="mt-3">
+                                                                <h6>Example Implementation (Nginx):</h6>
+                                                                <pre class="bg-light p-2 rounded"><code># Security Headers
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+add_header Content-Security-Policy "default-src 'self';" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;</code></pre>
+                                                            </div>
+                                                            
+                                                        {% else %}
+                                                            <p>General security recommendations:</p>
+                                                            <ul>
+                                                                <li>Keep all software and dependencies up-to-date</li>
+                                                                <li>Implement a security-focused development lifecycle</li>
+                                                                <li>Conduct regular security audits and penetration tests</li>
+                                                                <li>Train developers and staff on security best practices</li>
+                                                            </ul>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        <div class="alert alert-success mb-0">
+                                            <i class="fas fa-check-circle"></i> No vulnerabilities were found, but it's always good to follow security best practices:
+                                            <ul class="mb-0 mt-2">
+                                                <li>Keep all software and dependencies up-to-date</li>
+                                                <li>Implement all recommended security headers</li>
+                                                <li>Use HTTPS with modern TLS protocols</li>
+                                                <li>Conduct regular security audits</li>
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="card-title mb-0">Scan Logs</h5>
+                    </div>
+                    <div class="card-body">
+                        <pre class="bg-light p-3 rounded" style="max-height: 300px; overflow-y: auto;">{% for log in logs %}{{ log }}
+{% endfor %}</pre>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <h5><i class="fas fa-exclamation-triangle"></i> Disclaimer</h5>
+                    <p class="mb-0">This report is provided for educational purposes only. While we strive for accuracy, 
+                       this scan may not detect all vulnerabilities. We recommend thorough manual testing by security professionals.</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="mt-5 mb-3 text-center text-muted">
+            <p>&copy; 2025 Web Security Scanner | For Educational Purposes Only</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

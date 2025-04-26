@@ -1,0 +1,161 @@
+2025-04-25 21:39:39,511 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 21:40:23,051 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 21:40:28,236 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 21:40:28,236 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 21:40:28,236 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 21:40:35,850 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 21:40:36,441 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 21:40:36,441 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 21:40:36,441 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 21:40:42,065 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 21:40:42,535 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 21:40:42,535 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 21:40:42,535 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 21:40:42,539 - UnifiedSecurity - INFO - Starting quick assessment for target: example.com
+2025-04-25 21:40:42,539 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: example.com
+2025-04-25 21:40:42,539 - SecurityPlatform - INFO - Security platform configured
+2025-04-25 21:40:42,539 - SecurityPlatform - INFO - Starting full security assessment for example.com
+2025-04-25 21:40:42,541 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-25 21:40:42,541 - SecurityPlatform - INFO - OSINT reconnaissance module disabled, skipping
+2025-04-25 21:40:42,541 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:40:42,541 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-25 21:40:42,541 - SecurityPlatform - INFO - Comprehensive testing module disabled, skipping
+2025-04-25 21:40:42,541 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-25 21:40:42,541 - SecurityPlatform - ERROR - Error during web vulnerability scan: VulnerabilityScanner.__init__() got an unexpected keyword argument 'target_url'
+2025-04-25 21:40:42,541 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:40:42,541 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:40:42,543 - SecurityPlatform - ERROR - Error during network assessment: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:40:42,543 - SecurityPlatform - INFO - Social engineering module disabled, skipping
+2025-04-25 21:40:42,543 - SecurityPlatform - INFO - AI security analysis module disabled, skipping
+2025-04-25 21:40:42,543 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-25 21:40:42,543 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:40:42,543 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:40:42,543 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:40:42,545 - SecurityPlatform - ERROR - Error generating remediation recommendations: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:40:42,545 - SecurityPlatform - INFO - Generating executive summary
+2025-04-25 21:40:42,545 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:40:42,545 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:40:42,545 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:40:42,545 - SecurityPlatform - ERROR - Error generating executive summary: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:40:42,545 - SecurityPlatform - INFO - Client reporting module disabled, skipping
+2025-04-25 21:40:42,545 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250425_214042\assessment_20250425_214042\security_assessment_20250425_214042.json
+2025-04-25 21:40:42,545 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:40:42,545 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:40:42,545 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:40:42,545 - UnifiedSecurity - ERROR - Error during assessment: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:58:50,679 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 21:58:51,185 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 21:58:51,185 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 21:58:51,185 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 21:59:19,110 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 21:59:19,615 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 21:59:19,615 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 21:59:19,615 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 21:59:19,615 - UnifiedSecurity - INFO - Starting quick assessment for target: example.com
+2025-04-25 21:59:19,617 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: example.com
+2025-04-25 21:59:19,617 - SecurityPlatform - INFO - Security platform configured
+2025-04-25 21:59:19,617 - SecurityPlatform - INFO - Starting full security assessment for example.com
+2025-04-25 21:59:19,617 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-25 21:59:19,618 - SecurityPlatform - INFO - OSINT reconnaissance module disabled, skipping
+2025-04-25 21:59:19,618 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:59:19,618 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-25 21:59:19,618 - SecurityPlatform - INFO - Comprehensive testing module disabled, skipping
+2025-04-25 21:59:19,618 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-25 21:59:19,619 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:59:19,619 - SecurityPlatform - ERROR - Error during web vulnerability scan: 'VulnerabilityScanner' object has no attribute 'scan'
+2025-04-25 21:59:19,619 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:59:19,620 - SecurityPlatform - ERROR - Error during network assessment: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:59:19,620 - SecurityPlatform - INFO - Social engineering module disabled, skipping
+2025-04-25 21:59:19,620 - SecurityPlatform - INFO - AI security analysis module disabled, skipping
+2025-04-25 21:59:19,620 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-25 21:59:19,620 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:59:19,620 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:59:19,620 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:59:19,621 - SecurityPlatform - ERROR - Error generating remediation recommendations: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:59:19,621 - SecurityPlatform - INFO - Generating executive summary
+2025-04-25 21:59:19,621 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:59:19,621 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:59:19,621 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:59:19,621 - SecurityPlatform - ERROR - Error generating executive summary: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 21:59:19,621 - SecurityPlatform - INFO - Client reporting module disabled, skipping
+2025-04-25 21:59:19,622 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250425_215919\assessment_20250425_215919\security_assessment_20250425_215919.json
+2025-04-25 21:59:19,622 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 21:59:19,622 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 21:59:19,622 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 21:59:19,622 - UnifiedSecurity - ERROR - Error during assessment: SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'
+2025-04-25 22:05:20,496 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 22:05:21,040 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 22:05:21,041 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 22:05:21,041 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 22:05:27,833 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-25 22:05:28,361 - SecurityIntegrator - INFO - Discovered 0 security tools
+2025-04-25 22:05:28,361 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 0 tools
+2025-04-25 22:05:28,361 - UnifiedSecurity - INFO - Unified Security System initialized
+2025-04-25 22:05:28,361 - UnifiedSecurity - INFO - Starting quick assessment for target: example.com
+2025-04-25 22:05:28,362 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: example.com
+2025-04-25 22:05:28,362 - SecurityPlatform - INFO - Security platform configured
+2025-04-25 22:05:28,362 - SecurityPlatform - INFO - Starting full security assessment for example.com
+2025-04-25 22:05:28,364 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-25 22:05:28,364 - SecurityPlatform - INFO - OSINT reconnaissance module disabled, skipping
+2025-04-25 22:05:28,364 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 22:05:28,364 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-25 22:05:28,364 - SecurityPlatform - INFO - Comprehensive testing module disabled, skipping
+2025-04-25 22:05:28,364 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-25 22:05:28,365 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 1745604328 for example.com
+2025-04-25 22:05:28,365 - VulnerabilityScanner - INFO - Starting vulnerability scan for example.com
+2025-04-25 22:05:28,365 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 22:05:28,366 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://example.com
+2025-04-25 22:05:28,366 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://example.com
+2025-04-25 22:05:28,366 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://example.com
+2025-04-25 22:05:28,366 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://example.com
+2025-04-25 22:05:28,366 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 22:05:28,366 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://example.com
+2025-04-25 22:05:28,367 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://example.com
+2025-04-25 22:05:28,367 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://example.com
+2025-04-25 22:05:28,368 - VulnerabilityScanner - INFO - Scan results saved to vulnerability_scan\scan_20250425_220528\vulnerability_scan_report.json
+2025-04-25 22:05:28,368 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://example.com
+2025-04-25 22:05:28,368 - VulnerabilityScanner - INFO - Report saved to vulnerability_scan\scan_20250425_220528\vulnerability_scan_report.json
+2025-04-25 22:05:28,368 - SecurityPlatform - INFO - Initializing security framework
+2025-04-25 22:05:28,368 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-25 22:05:28,368 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-25 22:05:28,369 - SecurityFramework - INFO - Initialized SecurityFramework for target: example.com
+2025-04-25 22:05:28,370 - SecurityFramework - INFO - Starting network security assessment
+2025-04-25 22:05:28,370 - AdvancedNetworkTools - INFO - Starting comprehensive network scan on example.com
+2025-04-25 22:05:28,370 - AdvancedNetworkTools - INFO - Starting enhanced port scan on example.com (ports: 1-1000)
+2025-04-25 22:05:28,370 - SecurityFramework - INFO - Initialized SecurityFramework for target: example.com
+2025-04-25 22:05:28,371 - SecurityFramework - INFO - Starting web vulnerability assessment
+2025-04-25 22:05:28,371 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 20250425_220528 for http://example.com
+2025-04-25 22:05:28,371 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://example.com
+2025-04-25 22:05:28,371 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://example.com
+2025-04-25 22:05:28,371 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://example.com
+2025-04-25 22:05:28,371 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://example.com
+2025-04-25 22:05:28,372 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://example.com
+2025-04-25 22:05:28,372 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://example.com
+2025-04-25 22:05:28,372 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://example.com
+2025-04-25 22:05:28,372 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://example.com
+2025-04-25 22:05:28,373 - AdvancedNetworkTools - ERROR - Error during port scan: 'nmap program was not found in path. PATH is : c:\\Users\\User\\.cursor\\extensions\\ms-python.python-2024.12.3-win32-x64\\python_files\\deactivate\\powershell;C:\\Users\\User\\Desktop\\dreiner\\venv\\Scripts;c:\\Users\\User\\.cursor\\extensions\\ms-python.python-2024.12.3-win32-x64\\python_files\\deactivate\\powershell;C:\\Users\\User\\Desktop\\dreiner\\venv\\Scripts;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;c:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin;C:\\Users\\User\\AppData\\Roaming\\npm'
+2025-04-25 22:05:28,373 - VulnerabilityScanner - INFO - Scan results saved to unified_security_reports\assessment_20250425_220527\assessment_20250425_220528\framework\report_20250425_220528\web\scan_20250425_220528\vulnerability_scan_report.json
+2025-04-25 22:05:28,373 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://example.com
+2025-04-25 22:05:28,374 - VulnerabilityScanner - INFO - Report saved to unified_security_reports\assessment_20250425_220527\assessment_20250425_220528\framework\report_20250425_220528\web\scan_20250425_220528\vulnerability_scan_report.json
+2025-04-25 22:05:28,374 - SecurityFramework - INFO - Web vulnerability scan completed successfully
+2025-04-25 22:05:28,374 - SecurityPlatform - INFO - Web vulnerability scan completed successfully
+2025-04-25 22:05:28,384 - AdvancedNetworkTools - INFO - Starting SSL/TLS analysis for example.com:443
+2025-04-25 22:05:28,930 - AdvancedNetworkTools - INFO - Completed SSL/TLS analysis for example.com:443
+2025-04-25 22:05:28,931 - AdvancedNetworkTools - INFO - Starting firewall detection on example.com
+2025-04-25 22:05:28,931 - AdvancedNetworkTools - INFO - Completed firewall detection: Not detected
+2025-04-25 22:05:28,931 - AdvancedNetworkTools - INFO - Starting vulnerability correlation analysis
+2025-04-25 22:05:28,931 - AdvancedNetworkTools - INFO - Completed vulnerability correlation, found 0 issues
+2025-04-25 22:05:28,932 - AdvancedNetworkTools - INFO - Saved scan results to unified_security_reports\assessment_20250425_220527\assessment_20250425_220528\framework\report_20250425_220528\network\example_com_network_scan_20250425_220528.json
+2025-04-25 22:05:28,932 - AdvancedNetworkTools - INFO - Completed all network scans for example.com
+2025-04-25 22:05:28,932 - SecurityFramework - INFO - Network assessment completed successfully
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Network assessment completed successfully
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Social engineering module disabled, skipping
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - AI security analysis module disabled, skipping
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-25 22:05:28,933 - SecurityFramework - INFO - Generating mitigation recommendations
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Remediation recommendations generated successfully
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Generating executive summary
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Executive summary generated successfully
+2025-04-25 22:05:28,933 - SecurityPlatform - INFO - Client reporting module disabled, skipping
+2025-04-25 22:05:28,935 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250425_220527\assessment_20250425_220528\security_assessment_20250425_220528.json
+2025-04-25 22:05:28,935 - UnifiedSecurity - ERROR - Error during assessment: ' font-family'

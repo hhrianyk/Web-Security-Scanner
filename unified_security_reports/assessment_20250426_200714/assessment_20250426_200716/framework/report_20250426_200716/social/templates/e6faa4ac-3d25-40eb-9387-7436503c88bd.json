@@ -1,0 +1,8 @@
+{
+    "id": "e6faa4ac-3d25-40eb-9387-7436503c88bd",
+    "name": "Document Sharing",
+    "subject": "${sender_name} shared a document with you: ${document_name}",
+    "body_html": "\n        <html>\n        <head>\n            <style>\n                body { font-family: Arial, sans-serif; }\n                .header { background-color: #185ABD; color: white; padding: 10px; }\n                .content { padding: 20px; }\n                .button { background-color: #185ABD; color: white; padding: 10px 20px; \n                          text-decoration: none; border-radius: 4px; }\n                .footer { font-size: 12px; color: #666; margin-top: 30px; }\n            </style>\n        </head>\n        <body>\n            <div class=\"header\">\n                <h2>${company_name} Document Sharing</h2>\n            </div>\n            <div class=\"content\">\n                <p>Hi ${first_name},</p>\n                <p>A document has been shared with you by ${sender_name} (${sender_email}).</p>\n                <p><strong>Document name:</strong> ${document_name}</p>\n                <p>You can access this document by clicking the button below:</p>\n                <p><a href=\"${phishing_url}?tid=${tracking_id}\" class=\"button\">View Document</a></p>\n                <p>This link will expire in 7 days.</p>\n                <p>Best regards,<br>\n                ${company_name} Team</p>\n                <div class=\"footer\">\n                    This email was sent by the ${company_name} automatic notification system. Please do not reply to this email.\n                </div>\n            </div>\n        </body>\n        </html>\n        ",
+    "sender_name": "Document Sharing",
+    "created_at": "2025-04-26T20:07:16.378207"
+}

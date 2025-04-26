@@ -1,0 +1,136 @@
+# Security Tools Integration Requirements
+
+# Core dependencies
+requests>=2.25.1
+python-dotenv>=1.0.0
+pyyaml>=6.0
+xmltodict>=0.13.0
+
+# DNS Spoofing Tools
+dnschef>=0.4
+scapy>=2.5.0  # For packet manipulation
+netifaces>=0.11.0  # For network interface detection
+netfilterqueue>=1.0.0  # For DNS packet interception
+
+# Vulnerability scanners
+python-owasp-zap-v2.4>=0.1.0  # ZAP integration
+
+# Network analysis tools
+python-nmap>=0.7.1  # Nmap integration
+scapy>=2.5.0  # For packet manipulation
+pyshark>=0.4.5  # Wireshark integration
+pcapy>=0.11.5  # For packet capture
+
+# Web application testing tools
+sqlmap>=1.6.11  # SQLMap integration
+pycurl>=7.45.1  # For HTTP requests
+beautifulsoup4>=4.9.3  # For HTML parsing
+
+# Penetration testing frameworks
+pymetasploit3>=1.0.3  # Metasploit integration
+beef-api>=0.1.0  # BeEF integration
+
+# DNS analysis
+dnspython>=2.1.0  # DNS toolkit
+
+# Utility libraries
+gitpython>=3.1.30  # For Git operations
+cryptography>=40.0.2  # For cryptographic operations
+lxml>=4.9.2  # XML/HTML processing
+aiohttp>=3.8.4  # Async HTTP client
+packaging>=23.1  # For version comparison
+
+# AI integration dependencies
+openai>=1.3.0  # OpenAI API for w3af AI
+anthropic>=0.5.0  # Anthropic API (Claude)
+google-generativeai>=0.3.0  # Google Gemini API
+
+# IBM Watson integration dependencies
+ibm-watson>=7.0.0  # IBM Watson API
+ibm-cloud-sdk-core>=3.18.0  # IBM Cloud SDK core
+ibm-security-advisor>=5.0.0  # IBM Security Advisor
+ibmcloudsql>=0.4.1  # IBM Cloud SQL
+
+# w3af dependencies
+# (These are installed by the w3af installation script)
+
+# Bandit requirements
+bandit>=1.7.5
+
+# SonarQube requirements
+# (uses requests already included)
+
+# Mitmproxy requirements
+mitmproxy>=9.0.1
+
+# BURP Suite requirements
+# (Java-based, no Python dependencies)
+
+# John the Ripper requirements
+# (External binary, no Python dependencies)
+
+# HashCat requirements
+# (External binary, no Python dependencies)
+
+# Fierce requirements
+fierce>=1.5.0
+
+# Social-Engineer Toolkit requirements
+# (External tool, no Python dependencies)
+
+# Aircrack-ng requirements
+# (External binary, no Python dependencies)
+
+# Kismet requirements
+# (External binary, no Python dependencies)
+
+# Faraday requirements
+faradaysec>=4.0.0
+
+# Dradis requirements
+# (Ruby-based, no Python dependencies)
+
+# Postman requirements
+# (Desktop application, no Python dependencies)
+
+# SoapUI requirements
+# (Java-based, no Python dependencies)
+
+# RIPS requirements
+# (PHP-based, no Python dependencies)
+
+# FindSecBugs requirements
+# (Java-based, no Python dependencies)
+
+# Clair requirements
+# (Go-based, no Python dependencies)
+
+# Trivy requirements
+# (Go-based, no Python dependencies)
+
+# OSSEC requirements
+# (C-based, no Python dependencies)
+
+# Wazuh requirements
+# (C-based, no Python dependencies)
+
+# Exploit-DB requirements
+# (Uses git and basic Python libraries)
+
+# Metasploit requirements
+pymetasploit3>=1.0.3  # Already included
+
+# Vulners Scanner requirements
+vulners>=1.7.0
+
+# NIST NVD requirements
+# (Uses requests already included)
+
+# Rapid7 requirements
+# (Uses requests already included)
+
+# Nessus requirements
+# (Uses requests already included)
+
+# Nuclei requirements
+# (Uses requests already included) 

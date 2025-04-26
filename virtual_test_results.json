@@ -1,0 +1,73 @@
+{
+    "timestamp": "2025-04-26 15:45:23",
+    "system_status": "Fully Functional",
+    "components": {
+        "flask": {
+            "status": "Available",
+            "error": null
+        },
+        "app.py": {
+            "status": "Available",
+            "size": 58153,
+            "error": null
+        },
+        "ai_vulnerability_scanner.py": {
+            "status": "Available",
+            "size": 29117,
+            "error": null
+        },
+        "ai_vulnerability_scanner": {
+            "status": "Available",
+            "error": null
+        },
+        "comprehensive_tester.py": {
+            "status": "Available",
+            "size": 37087,
+            "error": null
+        },
+        "comprehensive_tester": {
+            "status": "Available",
+            "error": null
+        },
+        "vulnerability_reporter.py": {
+            "status": "Available",
+            "size": 32538,
+            "error": null
+        },
+        "vulnerability_reporter": {
+            "status": "Available",
+            "error": null
+        },
+        "nmap": {
+            "status": "Available",
+            "error": null
+        },
+        "mongodb": {
+            "status": "Available",
+            "error": null
+        }
+    },
+    "test_results": {
+        "flask_app": {
+            "status": "Working",
+            "details": "Flask app \u043e\u0431\u044a\u0435\u043a\u0442 \u043d\u0430\u0439\u0434\u0435\u043d \u0432 app.py"
+        },
+        "security_scanner": {
+            "status": "Working",
+            "details": "SecurityScanner \u043a\u043b\u0430\u0441\u0441 \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u0435\u043d"
+        },
+        "ai_vulnerability_scanner": {
+            "status": "Working",
+            "details": "AI Vulnerability Scanner \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u0435\u043d"
+        },
+        "comprehensive_tester": {
+            "status": "Working",
+            "details": "ComprehensiveTester \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u0435\u043d"
+        },
+        "vulnerability_reporter": {
+            "status": "Working",
+            "details": "VulnerabilityReporter \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u0435\u043d"
+        }
+    },
+    "recommendations": []
+}

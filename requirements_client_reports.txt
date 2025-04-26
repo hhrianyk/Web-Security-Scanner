@@ -1,0 +1,27 @@
+# Core dependencies
+requests>=2.25.1
+beautifulsoup4>=4.9.3
+jinja2>=2.11.3
+markdown>=3.3.4
+pdfkit>=1.0.0
+python-dotenv>=0.17.1
+
+# Security testing dependencies
+python-nmap>=0.7.1
+dnspython>=2.1.0
+cryptography>=3.4.7
+
+# Web framework (for optional web interface)
+flask>=2.0.1
+flask-wtf>=0.15.1
+
+# Data processing
+pandas>=1.2.4
+numpy>=1.20.3
+
+# Documentation
+sphinx>=4.0.2
+
+# Testing
+pytest>=6.2.5
+pytest-cov>=2.12.1 

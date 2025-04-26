@@ -1,0 +1,524 @@
+{
+    "scan_id": "1745682078",
+    "timestamp": "20250426_194118",
+    "target": "https://tronscan.org/#/",
+    "summary": {},
+    "reconnaissance": {
+        "passive": {
+            "whois": {
+                "domain_name": "tronscan.org",
+                "registrar": "GoDaddy.com, LLC",
+                "creation_date": "2018-03-23 07:51:17",
+                "expiration_date": "2026-03-23 07:51:17",
+                "name_servers": [
+                    "jerome.ns.cloudflare.com",
+                    "meera.ns.cloudflare.com"
+                ],
+                "status": [
+                    "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+                    "clientRenewProhibited https://icann.org/epp#clientRenewProhibited",
+                    "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+                    "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+                ],
+                "emails": "domainops@godaddy.com"
+            },
+            "dns": {
+                "a_records": [
+                    "172.66.43.46",
+                    "172.66.40.210"
+                ],
+                "aaaa_records": [
+                    "2606:4700:3108::ac42:2b2e",
+                    "2606:4700:3108::ac42:28d2"
+                ],
+                "mx_records": [
+                    "10 inbound-smtp.us-east-1.amazonaws.com."
+                ],
+                "ns_records": [
+                    "jerome.ns.cloudflare.com.",
+                    "meera.ns.cloudflare.com."
+                ],
+                "txt_records": [
+                    "\"v=spf1 include:amazonses.com -all\"",
+                    "\"59a8t01lj2a73cmmspq8ak9f7q\"",
+                    "\"google-site-verification=R5lmiTToRWqZt2hCe7CghHP17H4_vO-sl9tE2wHelNQ\""
+                ],
+                "cname_records": []
+            },
+            "subdomains": {
+                "error": "'OSINTScanner' object has no attribute 'discover_subdomains'"
+            },
+            "wayback_machine": {
+                "available": false
+            }
+        },
+        "active": {
+            "port_scan": [
+                {
+                    "port": 80,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 443,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 3000,
+                    "state": "filtered",
+                    "service": "ppp",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 4000,
+                    "state": "filtered",
+                    "service": "remoteanything",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 4443,
+                    "state": "filtered",
+                    "service": "pharos",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 5000,
+                    "state": "filtered",
+                    "service": "upnp",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 8000,
+                    "state": "filtered",
+                    "service": "http-alt",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 8008,
+                    "state": "filtered",
+                    "service": "http",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 8080,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 8443,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 8800,
+                    "state": "filtered",
+                    "service": "sunwebadmin",
+                    "product": "",
+                    "version": ""
+                }
+            ],
+            "site_structure": {
+                "total_links_found": 0,
+                "unique_paths": []
+            },
+            "technologies": [
+                "Server: cloudflare"
+            ],
+            "directories": {
+                "target": "https://tronscan.org/#/",
+                "directories": [
+                    {
+                        "url": "https://tronscan.org/admin",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.038352
+                    },
+                    {
+                        "url": "https://tronscan.org/administrator",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.035784
+                    },
+                    {
+                        "url": "https://tronscan.org/backup",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.036875
+                    },
+                    {
+                        "url": "https://tronscan.org/backups",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.027307
+                    },
+                    {
+                        "url": "https://tronscan.org/bak",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.041037
+                    },
+                    {
+                        "url": "https://tronscan.org/beta",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.026705
+                    },
+                    {
+                        "url": "https://tronscan.org/conf",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.032126
+                    },
+                    {
+                        "url": "https://tronscan.org/config",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.030448
+                    },
+                    {
+                        "url": "https://tronscan.org/dashboard",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.029465
+                    },
+                    {
+                        "url": "https://tronscan.org/db",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.023363
+                    },
+                    {
+                        "url": "https://tronscan.org/debug",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.029104
+                    },
+                    {
+                        "url": "https://tronscan.org/default",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.03195
+                    },
+                    {
+                        "url": "https://tronscan.org/dev",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.024082
+                    },
+                    {
+                        "url": "https://tronscan.org/develop",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.025548
+                    },
+                    {
+                        "url": "https://tronscan.org/files",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.033423
+                    },
+                    {
+                        "url": "https://tronscan.org/home",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.033182
+                    },
+                    {
+                        "url": "https://tronscan.org/js",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.024284
+                    },
+                    {
+                        "url": "https://tronscan.org/log",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.029615
+                    },
+                    {
+                        "url": "https://tronscan.org/logs",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.038128
+                    },
+                    {
+                        "url": "https://tronscan.org/login",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.037129
+                    },
+                    {
+                        "url": "https://tronscan.org/old",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.150903
+                    },
+                    {
+                        "url": "https://tronscan.org/phpmyadmin",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.026264
+                    },
+                    {
+                        "url": "https://tronscan.org/private",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.022218
+                    },
+                    {
+                        "url": "https://tronscan.org/root",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.079263
+                    },
+                    {
+                        "url": "https://tronscan.org/secret",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.025496
+                    },
+                    {
+                        "url": "https://tronscan.org/secrets",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.027834
+                    },
+                    {
+                        "url": "https://tronscan.org/secure",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.044021
+                    },
+                    {
+                        "url": "https://tronscan.org/security",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.035136
+                    },
+                    {
+                        "url": "https://tronscan.org/server-status",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.041127
+                    },
+                    {
+                        "url": "https://tronscan.org/src",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.02485
+                    },
+                    {
+                        "url": "https://tronscan.org/staging",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.026778
+                    },
+                    {
+                        "url": "https://tronscan.org/storage",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.034875
+                    },
+                    {
+                        "url": "https://tronscan.org/temp",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.038218
+                    },
+                    {
+                        "url": "https://tronscan.org/test",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.03669
+                    },
+                    {
+                        "url": "https://tronscan.org/tmp",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.033865
+                    },
+                    {
+                        "url": "https://tronscan.org/upload",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.031246
+                    },
+                    {
+                        "url": "https://tronscan.org/uploads",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.039852
+                    },
+                    {
+                        "url": "https://tronscan.org/user",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.025551
+                    },
+                    {
+                        "url": "https://tronscan.org/web",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.038689
+                    },
+                    {
+                        "url": "https://tronscan.org/wp-admin",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.035993
+                    },
+                    {
+                        "url": "https://tronscan.org/wp-content",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.037733
+                    },
+                    {
+                        "url": "https://tronscan.org/wp-includes",
+                        "status_code": 403,
+                        "content_type": "text/html; charset=UTF-8",
+                        "content_length": 5453,
+                        "response_time": 0.038678
+                    }
+                ],
+                "files": [
+                    {
+                        "url": "https://tronscan.org/robots.txt",
+                        "status_code": 200,
+                        "content_type": "text/plain",
+                        "content_length": 185,
+                        "response_time": 0.200595
+                    }
+                ],
+                "total_discovered": 43
+            }
+        }
+    },
+    "architecture_analysis": {
+        "infrastructure": {
+            "load_balancer": {
+                "detected": false,
+                "unique_ips": [
+                    "172.66.40.210"
+                ]
+            },
+            "waf": {
+                "detected": true,
+                "type": "cloudflare"
+            },
+            "cdn": {
+                "detected": true,
+                "provider": "cloudflare"
+            },
+            "dns_configuration": {
+                "spf_record": true,
+                "dmarc_record": true,
+                "dnssec": true
+            }
+        },
+        "tech_stack": {
+            "versions": {
+                "server": "cloudflare"
+            },
+            "libraries": {
+                "javascript": [],
+                "css": []
+            },
+            "frameworks": [],
+            "databases": []
+        }
+    },
+    "manual_testing": {
+        "auth": {},
+        "business_logic": {}
+    },
+    "automated_scanning": {
+        "static": {},
+        "dynamic": {}
+    },
+    "specialized_testing": {
+        "api_security": {},
+        "frontend_security": {}
+    },
+    "indepth_testing": {
+        "crypto_security": {},
+        "network_security": {}
+    },
+    "security_mechanisms": {
+        "waf_testing": {},
+        "ids_testing": {}
+    },
+    "resilience_testing": {
+        "load_testing": {},
+        "failover_testing": {}
+    },
+    "data_analysis": {
+        "data_protection": {},
+        "privacy": {}
+    },
+    "remediation": {},
+    "status": "Technology stack analysis completed",
+    "vulnerabilities": [],
+    "section_status": {
+        "passive_recon": "Passive reconnaissance completed",
+        "active_recon": "Active reconnaissance completed",
+        "infrastructure": "Infrastructure analysis completed",
+        "tech_stack": "Technology stack analysis completed"
+    }
+}

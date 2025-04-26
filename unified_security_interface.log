@@ -1,0 +1,1359 @@
+2025-04-26 15:10:43,936 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:10:43,936 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 15:10:44,559 - SecurityIntegrator - WARNING - Error inspecting .\bandit_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,572 - SecurityIntegrator - WARNING - Error inspecting .\burpsuite_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,597 - SecurityIntegrator - WARNING - Error inspecting .\dirbuster_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,602 - SecurityIntegrator - WARNING - Error inspecting .\exploitdb_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,627 - SecurityIntegrator - WARNING - Error inspecting .\integrate_security_tools.py: No module named 'xmltodict'
+2025-04-26 15:10:44,627 - SecurityIntegrator - WARNING - Error inspecting .\metasploit_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,634 - SecurityIntegrator - WARNING - Error inspecting .\mitmproxy_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,640 - SecurityIntegrator - WARNING - Error inspecting .\nessus_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,644 - SecurityIntegrator - WARNING - Error inspecting .\nuclei_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,649 - SecurityIntegrator - WARNING - Error inspecting .\nvd_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,661 - SecurityIntegrator - WARNING - Error inspecting .\rapid7_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,681 - SecurityIntegrator - WARNING - Error inspecting .\security_tools_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:44,689 - SecurityIntegrator - WARNING - Error inspecting .\sonarqube_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:44,692 - StandaloneSecurityTools - ERROR - Unable to import security_tools_manager. Make sure security_tools_integration.py is available.
+2025-04-26 15:10:44,710 - SecurityIntegrator - WARNING - Error inspecting .\vulners_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,177 - SecurityIntegrator - INFO - Discovered 37 security tools
+2025-04-26 15:10:45,177 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 37 tools
+2025-04-26 15:10:45,177 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 15:10:45,177 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:10:45,177 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:10:45,177 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 15:10:45,226 - SecurityIntegrator - WARNING - Error inspecting .\bandit_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,232 - SecurityIntegrator - WARNING - Error inspecting .\burpsuite_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,250 - SecurityIntegrator - WARNING - Error inspecting .\dirbuster_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,256 - SecurityIntegrator - WARNING - Error inspecting .\exploitdb_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,272 - SecurityIntegrator - WARNING - Error inspecting .\integrate_security_tools.py: cannot import name 'security_tools_manager' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,280 - SecurityIntegrator - WARNING - Error inspecting .\metasploit_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,287 - SecurityIntegrator - WARNING - Error inspecting .\mitmproxy_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,293 - SecurityIntegrator - WARNING - Error inspecting .\nessus_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,302 - SecurityIntegrator - WARNING - Error inspecting .\nuclei_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,308 - SecurityIntegrator - WARNING - Error inspecting .\nvd_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,317 - SecurityIntegrator - WARNING - Error inspecting .\rapid7_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,339 - SecurityIntegrator - WARNING - Error inspecting .\security_tools_integration.py: No module named 'xmltodict'
+2025-04-26 15:10:45,355 - SecurityIntegrator - WARNING - Error inspecting .\sonarqube_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,360 - StandaloneSecurityTools - ERROR - Unable to import security_tools_manager. Make sure security_tools_integration.py is available.
+2025-04-26 15:10:45,394 - SecurityIntegrator - WARNING - Error inspecting .\vulners_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:10:45,802 - SecurityIntegrator - INFO - Discovered 37 security tools
+2025-04-26 15:10:45,802 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 37 tools
+2025-04-26 15:10:45,802 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 15:10:45,802 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: example.com
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 15:10:45,802 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: example.com
+2025-04-26 15:10:45,802 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - Discovered 61 security tools
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: example.com
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - Starting Mode 1: Comprehensive automated testing
+2025-04-26 15:10:45,802 - UnifiedSecurityInterface - INFO - Running comprehensive assessment using UnifiedSecuritySystem
+2025-04-26 15:10:45,802 - UnifiedSecurityTools - INFO - Starting full assessment for target: example.com
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: example.com
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Security platform configured
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Starting full security assessment for example.com
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Starting OSINT assessment
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-26 15:10:45,802 - SecurityPlatform - INFO - Starting comprehensive security testing
+2025-04-26 15:10:45,809 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 15:10:45,809 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-26 15:10:45,809 - SecurityPlatform - INFO - Initializing comprehensive tester
+2025-04-26 15:10:45,810 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-26 15:10:45,812 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: example.com
+2025-04-26 15:10:45,813 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 1745665845 for example.com
+2025-04-26 15:10:45,815 - SecurityPlatform - ERROR - Error during comprehensive testing: 'ComprehensiveTester' object has no attribute 'run_all_tests'
+2025-04-26 15:10:45,815 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-26 15:10:45,815 - VulnerabilityScanner - INFO - Starting vulnerability scan for example.com
+2025-04-26 15:10:45,815 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://example.com
+2025-04-26 15:10:45,816 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://example.com
+2025-04-26 15:10:45,816 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://example.com
+2025-04-26 15:10:45,816 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://example.com
+2025-04-26 15:10:45,816 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://example.com
+2025-04-26 15:10:45,818 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://example.com
+2025-04-26 15:10:45,818 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://example.com
+2025-04-26 15:10:45,818 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 15:10:45,818 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 15:10:45,818 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 15:10:45,819 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 15:10:45,819 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: example.com
+2025-04-26 15:10:45,820 - VulnerabilityScanner - INFO - Scan results saved to vulnerability_scan\scan_20250426_151045\vulnerability_scan_report.json
+2025-04-26 15:10:45,820 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://example.com
+2025-04-26 15:10:45,820 - VulnerabilityScanner - INFO - Report saved to vulnerability_scan\scan_20250426_151045\vulnerability_scan_report.json
+2025-04-26 15:10:45,820 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 15:10:45,822 - ExploitDocumenter - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_151045\exploitation_guide.md
+2025-04-26 15:10:45,822 - VulnerabilityScanner - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_151045\exploitation_guide.md
+2025-04-26 15:10:45,822 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 15:10:45,822 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 15:10:45,822 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 15:10:45,823 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-26 15:10:45,823 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-26 15:10:45,825 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 15:10:45,825 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 15:10:45,825 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: example.com
+2025-04-26 15:10:45,826 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 15:10:45,826 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 15:10:45,826 - SecurityFramework - INFO - Initialized SecurityFramework for target: example.com
+2025-04-26 15:10:45,826 - SecurityFramework - INFO - Starting network security assessment
+2025-04-26 15:10:45,826 - AdvancedNetworkTools - INFO - Starting comprehensive network scan on example.com
+2025-04-26 15:10:45,826 - AdvancedNetworkTools - INFO - Starting enhanced port scan on example.com (ports: 1-1000)
+2025-04-26 15:10:45,828 - SecurityFramework - INFO - Initialized SecurityFramework for target: example.com
+2025-04-26 15:10:45,828 - SecurityFramework - INFO - Starting web vulnerability assessment
+2025-04-26 15:10:45,828 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 20250426_151045 for http://example.com
+2025-04-26 15:10:45,828 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://example.com
+2025-04-26 15:10:45,829 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://example.com
+2025-04-26 15:10:45,829 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://example.com
+2025-04-26 15:10:45,829 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://example.com
+2025-04-26 15:10:45,829 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://example.com
+2025-04-26 15:10:45,829 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://example.com
+2025-04-26 15:10:45,830 - AdvancedNetworkTools - ERROR - Error during port scan: 'nmap program was not found in path. PATH is : c:\\Users\\User\\.cursor\\extensions\\ms-python.python-2024.12.3-win32-x64\\python_files\\deactivate\\powershell;C:\\Users\\User\\Desktop\\dreiner\\venv\\Scripts;c:\\Users\\User\\.cursor\\extensions\\ms-python.python-2024.12.3-win32-x64\\python_files\\deactivate\\powershell;C:\\Users\\User\\Desktop\\dreiner\\venv\\Scripts;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;c:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin;C:\\Users\\User\\AppData\\Roaming\\npm'
+2025-04-26 15:10:45,830 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://example.com
+2025-04-26 15:10:45,830 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://example.com
+2025-04-26 15:10:45,830 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 15:10:45,831 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 15:10:45,831 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 15:10:45,831 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 15:10:45,834 - VulnerabilityScanner - INFO - Scan results saved to unified_security_reports\assessment_20250426_151045\assessment_20250426_151045\framework\report_20250426_151045\web\scan_20250426_151045\vulnerability_scan_report.json
+2025-04-26 15:10:45,834 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://example.com
+2025-04-26 15:10:45,834 - VulnerabilityScanner - INFO - Report saved to unified_security_reports\assessment_20250426_151045\assessment_20250426_151045\framework\report_20250426_151045\web\scan_20250426_151045\vulnerability_scan_report.json
+2025-04-26 15:10:45,834 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 15:10:45,835 - ExploitDocumenter - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_151045\assessment_20250426_151045\framework\report_20250426_151045\web\scan_20250426_151045\exploitation_guide.md
+2025-04-26 15:10:45,835 - VulnerabilityScanner - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_151045\assessment_20250426_151045\framework\report_20250426_151045\web\scan_20250426_151045\exploitation_guide.md
+2025-04-26 15:10:45,835 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 15:10:45,835 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 15:10:45,835 - SecurityFramework - INFO - Web vulnerability scan completed successfully
+2025-04-26 15:10:45,835 - SecurityPlatform - INFO - Web vulnerability scan completed successfully
+2025-04-26 15:10:45,841 - AdvancedNetworkTools - INFO - Starting SSL/TLS analysis for example.com:443
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Completed SSL/TLS analysis for example.com:443
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Starting firewall detection on example.com
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Completed firewall detection: Not detected
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Starting vulnerability correlation analysis
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Completed vulnerability correlation, found 0 issues
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Saved scan results to unified_security_reports\assessment_20250426_151045\assessment_20250426_151045\framework\report_20250426_151045\network\example_com_network_scan_20250426_151046.json
+2025-04-26 15:10:46,169 - AdvancedNetworkTools - INFO - Completed all network scans for example.com
+2025-04-26 15:10:46,169 - SecurityFramework - INFO - Network assessment completed successfully
+2025-04-26 15:10:46,169 - SecurityPlatform - INFO - Network assessment completed successfully
+2025-04-26 15:10:46,169 - SecurityPlatform - INFO - Starting social engineering assessment
+2025-04-26 15:10:46,169 - SecurityFramework - INFO - Preparing social engineering assessment
+2025-04-26 15:10:46,176 - SecurityFramework - ERROR - Error preparing social engineering assessment: 0
+2025-04-26 15:10:46,176 - SecurityPlatform - INFO - Social engineering assessment completed successfully
+2025-04-26 15:10:46,176 - SecurityPlatform - INFO - Starting AI security analysis
+2025-04-26 15:10:46,176 - SecurityPlatform - INFO - Initializing AI security integrator
+2025-04-26 15:10:46,176 - AISecurityIntegrator - INFO - Initialized AISecurityIntegrator for target: example.com
+2025-04-26 15:10:46,176 - AISecurityIntegrator - INFO - Using AI providers: openai, anthropic, gemini
+2025-04-26 15:10:46,178 - AISecurityIntegrator - INFO - Analyzing vulnerabilities with AI
+2025-04-26 15:10:46,602 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:10:46,602 - AISecurityIntegrator - INFO - Determining exploitation paths with AI
+2025-04-26 15:10:46,911 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:10:46,911 - AISecurityIntegrator - INFO - Generating remediation recommendations with AI
+2025-04-26 15:10:46,911 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:10:46,911 - AISecurityIntegrator - INFO - Analyzing attack surface for example.com
+2025-04-26 15:10:47,084 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:10:47,084 - AISecurityIntegrator - INFO - Generating executive summary
+2025-04-26 15:10:47,084 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:10:47,084 - SecurityPlatform - INFO - Initializing advanced AI security tools
+2025-04-26 15:10:47,084 - SecurityPlatform - ERROR - Error during AI security analysis: AdvancedAISecurityTools.__init__() got an unexpected keyword argument 'target'
+2025-04-26 15:10:47,093 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-26 15:10:47,093 - SecurityFramework - INFO - Generating mitigation recommendations
+2025-04-26 15:10:47,093 - SecurityPlatform - INFO - Remediation recommendations generated successfully
+2025-04-26 15:10:47,093 - SecurityPlatform - INFO - Generating executive summary
+2025-04-26 15:10:47,093 - SecurityPlatform - ERROR - Error generating executive summary: 'int' object is not subscriptable
+2025-04-26 15:10:47,093 - SecurityPlatform - INFO - Generating client vulnerability report
+2025-04-26 15:10:47,094 - SecurityPlatform - INFO - Initializing client vulnerability reporter
+2025-04-26 15:10:47,094 - SecurityPlatform - ERROR - Error generating client report: ClientVulnerabilityReport.__init__() got an unexpected keyword argument 'output_dir'
+2025-04-26 15:10:47,094 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250426_151045\assessment_20250426_151045\security_assessment_20250426_151045.json
+2025-04-26 15:10:47,094 - UnifiedSecurityInterface - ERROR - Error running comprehensive automated testing: 'primary_recommendations'
+2025-04-26 15:10:47,094 - UnifiedSecurityInterface - ERROR - No suitable testing system available for comprehensive automated testing
+2025-04-26 15:10:47,094 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating detailed technical report
+2025-04-26 15:10:47,094 - UnifiedSecurityInterface - INFO - Generating technical report using VulnerabilityReporter
+2025-04-26 15:10:47,094 - UnifiedSecurityInterface - ERROR - Error generating technical report: 'VulnerabilityReporter' object has no attribute 'generate_complete_report'
+2025-04-26 15:10:47,094 - UnifiedSecurityInterface - INFO - Generating technical report using ExploitDocumenter
+2025-04-26 15:48:13,678 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 15:48:13,678 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 15:48:13,679 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 15:48:13,953 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:48:13,953 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 15:48:18,953 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 15:48:18,962 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 15:48:19,154 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 15:48:19,175 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 15:48:19,296 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 15:48:19,312 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 15:48:19,319 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 15:48:19,331 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 15:48:19,338 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 15:48:19,350 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 15:48:19,379 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 15:48:19,379 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 15:48:19,379 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 15:48:19,380 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 15:48:19,380 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 15:48:19,380 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 15:48:19,381 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 15:48:19,381 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 15:48:19,381 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 15:48:19,381 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 15:48:19,405 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 15:48:19,420 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 15:48:19,470 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 15:48:20,370 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 15:48:20,370 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 15:48:20,370 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 15:48:20,370 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:48:20,370 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:48:20,370 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 15:48:20,404 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 15:48:20,405 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 15:48:20,407 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 15:48:20,408 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 15:48:20,415 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 15:48:20,416 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 15:48:20,416 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 15:48:20,427 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 15:48:20,428 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 15:48:20,429 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 15:48:20,437 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 15:48:20,437 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 15:48:20,437 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 15:48:20,437 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 15:48:20,437 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 15:48:20,444 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 15:48:20,444 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 15:48:20,444 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 15:48:20,444 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 15:48:20,444 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 15:48:20,455 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 15:48:20,469 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 15:48:21,294 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 15:48:21,294 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 15:48:21,294 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 15:48:21,294 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: example.com
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 15:48:21,294 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: example.com
+2025-04-26 15:48:21,294 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - Discovered 85 security tools
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: example.com
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - Starting Mode 1: Comprehensive automated testing
+2025-04-26 15:48:21,294 - UnifiedSecurityInterface - INFO - Running comprehensive assessment using UnifiedSecuritySystem
+2025-04-26 15:48:21,294 - UnifiedSecurityTools - INFO - Starting full assessment for target: example.com
+2025-04-26 15:48:21,294 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: example.com
+2025-04-26 15:48:21,294 - SecurityPlatform - INFO - Security platform configured
+2025-04-26 15:48:21,294 - SecurityPlatform - INFO - Starting full security assessment for example.com
+2025-04-26 15:48:21,294 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-26 15:48:21,294 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 15:48:21,294 - SecurityPlatform - INFO - Starting OSINT assessment
+2025-04-26 15:48:21,303 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-26 15:48:21,303 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 15:48:21,303 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-26 15:48:21,303 - SecurityPlatform - INFO - Starting comprehensive security testing
+2025-04-26 15:48:21,304 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 1745668101 for example.com
+2025-04-26 15:48:21,304 - SecurityPlatform - INFO - Initializing comprehensive tester
+2025-04-26 15:48:21,304 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-26 15:48:21,304 - VulnerabilityScanner - INFO - Starting vulnerability scan for example.com
+2025-04-26 15:48:21,305 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: example.com
+2025-04-26 15:48:21,308 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-26 15:48:21,310 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://example.com
+2025-04-26 15:48:21,310 - SecurityPlatform - ERROR - Error during comprehensive testing: 'ComprehensiveTester' object has no attribute 'run_all_tests'
+2025-04-26 15:48:21,310 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://example.com
+2025-04-26 15:48:21,311 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://example.com
+2025-04-26 15:48:21,311 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://example.com
+2025-04-26 15:48:21,311 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://example.com
+2025-04-26 15:48:21,311 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://example.com
+2025-04-26 15:48:21,312 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://example.com
+2025-04-26 15:48:21,312 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 15:48:21,312 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 15:48:21,312 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 15:48:21,313 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 15:48:21,314 - VulnerabilityScanner - INFO - Scan results saved to vulnerability_scan\scan_20250426_154821\vulnerability_scan_report.json
+2025-04-26 15:48:21,314 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: example.com
+2025-04-26 15:48:21,314 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://example.com
+2025-04-26 15:48:21,314 - VulnerabilityScanner - INFO - Report saved to vulnerability_scan\scan_20250426_154821\vulnerability_scan_report.json
+2025-04-26 15:48:21,314 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 15:48:21,314 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 15:48:21,316 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 15:48:21,316 - ExploitDocumenter - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_154821\exploitation_guide.md
+2025-04-26 15:48:21,316 - VulnerabilityScanner - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_154821\exploitation_guide.md
+2025-04-26 15:48:21,316 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 15:48:21,316 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 15:48:21,316 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 15:48:21,317 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: example.com
+2025-04-26 15:48:21,317 - OSINTTools - INFO - Initialized OSINTTools for target: example.com
+2025-04-26 15:48:21,317 - SecurityFramework - INFO - Initialized SecurityFramework for target: example.com
+2025-04-26 15:48:21,318 - SecurityFramework - INFO - Starting network security assessment
+2025-04-26 15:48:21,318 - AdvancedNetworkTools - INFO - Starting comprehensive network scan on example.com
+2025-04-26 15:48:21,318 - AdvancedNetworkTools - INFO - Starting enhanced port scan on example.com (ports: 1-1000)
+2025-04-26 15:48:21,319 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: example.com
+2025-04-26 15:48:21,319 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 15:48:21,319 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 15:48:21,321 - SecurityFramework - INFO - Initialized SecurityFramework for target: example.com
+2025-04-26 15:48:21,321 - SecurityFramework - INFO - Starting web vulnerability assessment
+2025-04-26 15:48:21,321 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 20250426_154821 for http://example.com
+2025-04-26 15:48:21,321 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://example.com
+2025-04-26 15:48:21,322 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 15:48:21,324 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 15:48:21,324 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 15:48:21,324 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 15:48:21,326 - VulnerabilityScanner - INFO - Scan results saved to unified_security_reports\assessment_20250426_154820\assessment_20250426_154821\framework\report_20250426_154821\web\scan_20250426_154821\vulnerability_scan_report.json
+2025-04-26 15:48:21,326 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://example.com
+2025-04-26 15:48:21,326 - VulnerabilityScanner - INFO - Report saved to unified_security_reports\assessment_20250426_154820\assessment_20250426_154821\framework\report_20250426_154821\web\scan_20250426_154821\vulnerability_scan_report.json
+2025-04-26 15:48:21,326 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 15:48:21,327 - ExploitDocumenter - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_154820\assessment_20250426_154821\framework\report_20250426_154821\web\scan_20250426_154821\exploitation_guide.md
+2025-04-26 15:48:21,327 - VulnerabilityScanner - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_154820\assessment_20250426_154821\framework\report_20250426_154821\web\scan_20250426_154821\exploitation_guide.md
+2025-04-26 15:48:21,328 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 15:48:21,328 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 15:48:21,328 - SecurityFramework - INFO - Web vulnerability scan completed successfully
+2025-04-26 15:48:21,328 - SecurityPlatform - INFO - Web vulnerability scan completed successfully
+2025-04-26 15:49:33,538 - AdvancedNetworkTools - INFO - Completed enhanced port scan with 3 ports found
+2025-04-26 15:49:33,538 - AdvancedNetworkTools - INFO - Starting SSL/TLS analysis for example.com:443
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Completed SSL/TLS analysis for example.com:443
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Starting firewall detection on example.com
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Completed firewall detection: Not detected
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Starting vulnerability correlation analysis
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Completed vulnerability correlation, found 0 issues
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Saved scan results to unified_security_reports\assessment_20250426_154820\assessment_20250426_154821\framework\report_20250426_154821\network\example_com_network_scan_20250426_154934.json
+2025-04-26 15:49:34,005 - AdvancedNetworkTools - INFO - Completed all network scans for example.com
+2025-04-26 15:49:34,005 - SecurityFramework - INFO - Network assessment completed successfully
+2025-04-26 15:49:34,005 - SecurityPlatform - INFO - Network assessment completed successfully
+2025-04-26 15:49:34,005 - SecurityPlatform - INFO - Starting social engineering assessment
+2025-04-26 15:49:34,005 - SecurityFramework - INFO - Preparing social engineering assessment
+2025-04-26 15:49:34,011 - SecurityFramework - ERROR - Error preparing social engineering assessment: 0
+2025-04-26 15:49:34,011 - SecurityPlatform - INFO - Social engineering assessment completed successfully
+2025-04-26 15:49:34,011 - SecurityPlatform - INFO - Starting AI security analysis
+2025-04-26 15:49:34,011 - SecurityPlatform - INFO - Initializing AI security integrator
+2025-04-26 15:49:34,012 - AISecurityIntegrator - INFO - Initialized AISecurityIntegrator for target: example.com
+2025-04-26 15:49:34,012 - AISecurityIntegrator - INFO - Using AI providers: openai, anthropic, gemini
+2025-04-26 15:49:34,013 - AISecurityIntegrator - INFO - Analyzing vulnerabilities with AI
+2025-04-26 15:49:37,227 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:49:37,227 - AISecurityIntegrator - INFO - Determining exploitation paths with AI
+2025-04-26 15:49:37,412 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:49:37,412 - AISecurityIntegrator - INFO - Generating remediation recommendations with AI
+2025-04-26 15:49:40,594 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:49:40,595 - AISecurityIntegrator - INFO - Analyzing attack surface for example.com
+2025-04-26 15:49:40,781 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:49:40,781 - AISecurityIntegrator - INFO - Generating executive summary
+2025-04-26 15:49:40,963 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 15:49:40,964 - SecurityPlatform - INFO - Initializing advanced AI security tools
+2025-04-26 15:49:40,964 - SecurityPlatform - ERROR - Error during AI security analysis: AdvancedAISecurityTools.__init__() got an unexpected keyword argument 'target'
+2025-04-26 15:49:40,964 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-26 15:49:40,964 - SecurityFramework - INFO - Generating mitigation recommendations
+2025-04-26 15:49:40,965 - SecurityPlatform - INFO - Remediation recommendations generated successfully
+2025-04-26 15:49:40,965 - SecurityPlatform - INFO - Generating executive summary
+2025-04-26 15:49:40,965 - SecurityPlatform - ERROR - Error generating executive summary: 'int' object is not subscriptable
+2025-04-26 15:49:40,965 - SecurityPlatform - INFO - Generating client vulnerability report
+2025-04-26 15:49:40,965 - SecurityPlatform - INFO - Initializing client vulnerability reporter
+2025-04-26 15:49:40,965 - SecurityPlatform - ERROR - Error generating client report: ClientVulnerabilityReport.__init__() got an unexpected keyword argument 'output_dir'
+2025-04-26 15:49:40,968 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250426_154820\assessment_20250426_154821\security_assessment_20250426_154821.json
+2025-04-26 15:49:40,968 - UnifiedSecurityInterface - ERROR - Error running comprehensive automated testing: 'primary_recommendations'
+2025-04-26 15:49:40,969 - UnifiedSecurityInterface - ERROR - No suitable testing system available for comprehensive automated testing
+2025-04-26 15:49:40,969 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating detailed technical report
+2025-04-26 15:49:40,969 - UnifiedSecurityInterface - INFO - Generating technical report using VulnerabilityReporter
+2025-04-26 15:49:40,969 - UnifiedSecurityInterface - ERROR - Error generating technical report: 'VulnerabilityReporter' object has no attribute 'generate_complete_report'
+2025-04-26 15:49:40,969 - UnifiedSecurityInterface - INFO - Generating technical report using ExploitDocumenter
+2025-04-26 16:07:19,844 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:07:19,845 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:07:19,845 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:07:19,845 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:07:19,845 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:07:19,846 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:07:19,847 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:07:19,847 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:07:19,847 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:07:19,848 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:07:47,011 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:07:47,011 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:07:47,011 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:07:47,012 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:07:47,012 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:07:47,012 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:07:47,012 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:07:47,013 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:07:47,013 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:07:47,014 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:07:47,255 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:07:47,255 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 16:07:47,796 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 16:07:47,796 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 16:07:47,821 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 16:07:47,822 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 16:07:47,834 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 16:07:47,835 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 16:07:47,835 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 16:07:47,837 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 16:07:47,838 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 16:07:47,840 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 16:07:47,853 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:07:47,853 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:07:47,853 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:07:47,853 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:07:47,853 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:07:47,854 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:07:47,854 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:07:47,854 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:07:47,854 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:07:47,854 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:07:47,856 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 16:07:47,859 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:07:47,865 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:07:48,739 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 16:07:48,739 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 16:07:48,739 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 16:07:48,739 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:07:48,746 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:07:48,746 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 16:07:48,773 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 16:07:48,774 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 16:07:48,774 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 16:07:48,774 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 16:07:48,784 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 16:07:48,785 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 16:07:48,785 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 16:07:48,787 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 16:07:48,788 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 16:07:48,790 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:07:48,802 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:07:48,804 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:07:48,804 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:07:48,804 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:07:48,806 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 16:07:48,815 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:07:49,664 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 16:07:49,664 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 16:07:49,664 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 16:07:49,664 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: 127.0.0.1
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 16:07:49,664 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: 127.0.0.1
+2025-04-26 16:07:49,664 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - Discovered 85 security tools
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: 127.0.0.1
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - Starting Mode 1: Comprehensive automated testing
+2025-04-26 16:07:49,664 - UnifiedSecurityInterface - INFO - Running comprehensive assessment using UnifiedSecuritySystem
+2025-04-26 16:07:49,664 - UnifiedSecurityTools - INFO - Starting full assessment for target: 127.0.0.1
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: 127.0.0.1
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Security platform configured
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Starting full security assessment for 127.0.0.1
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Starting OSINT assessment
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Starting comprehensive security testing
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-26 16:07:49,664 - SecurityPlatform - INFO - Initializing comprehensive tester
+2025-04-26 16:07:49,664 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 1745669269 for 127.0.0.1
+2025-04-26 16:07:49,671 - VulnerabilityScanner - INFO - Starting vulnerability scan for 127.0.0.1
+2025-04-26 16:07:49,671 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: 127.0.0.1
+2025-04-26 16:07:49,671 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,671 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: 127.0.0.1
+2025-04-26 16:07:49,672 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,672 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,672 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,672 - OSINTTools - INFO - Initialized OSINTTools for target: 127.0.0.1
+2025-04-26 16:07:49,672 - SecurityPlatform - ERROR - Error during comprehensive testing: 'ComprehensiveTester' object has no attribute 'run_all_tests'
+2025-04-26 16:07:49,677 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,677 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,677 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,678 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 16:07:49,678 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 16:07:49,679 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 16:07:49,679 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 16:07:49,681 - VulnerabilityScanner - INFO - Scan results saved to vulnerability_scan\scan_20250426_160749\vulnerability_scan_report.json
+2025-04-26 16:07:49,681 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://127.0.0.1
+2025-04-26 16:07:49,683 - VulnerabilityScanner - INFO - Report saved to vulnerability_scan\scan_20250426_160749\vulnerability_scan_report.json
+2025-04-26 16:07:49,683 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 16:07:49,683 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: 127.0.0.1
+2025-04-26 16:07:49,684 - ExploitDocumenter - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_160749\exploitation_guide.md
+2025-04-26 16:07:49,684 - VulnerabilityScanner - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_160749\exploitation_guide.md
+2025-04-26 16:07:49,684 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 16:07:49,684 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 16:07:49,684 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 16:07:49,685 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 16:07:49,685 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 16:07:49,685 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: 127.0.0.1
+2025-04-26 16:07:49,685 - OSINTTools - INFO - Initialized OSINTTools for target: 127.0.0.1
+2025-04-26 16:07:49,687 - SecurityFramework - INFO - Initialized SecurityFramework for target: 127.0.0.1
+2025-04-26 16:07:49,687 - SecurityFramework - INFO - Starting network security assessment
+2025-04-26 16:07:49,687 - AdvancedNetworkTools - INFO - Starting comprehensive network scan on 127.0.0.1
+2025-04-26 16:07:49,687 - AdvancedNetworkTools - INFO - Starting enhanced port scan on 127.0.0.1 (ports: 1-1000)
+2025-04-26 16:07:49,687 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: 127.0.0.1
+2025-04-26 16:07:49,688 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 16:07:49,689 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 16:07:49,690 - SecurityFramework - INFO - Initialized SecurityFramework for target: 127.0.0.1
+2025-04-26 16:07:49,690 - SecurityFramework - INFO - Starting web vulnerability assessment
+2025-04-26 16:07:49,690 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 20250426_160749 for http://127.0.0.1
+2025-04-26 16:07:49,690 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://127.0.0.1
+2025-04-26 16:07:49,691 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,691 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,691 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,691 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,692 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,692 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,692 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://127.0.0.1
+2025-04-26 16:07:49,692 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 16:07:49,692 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 16:07:49,693 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 16:07:49,693 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 16:07:49,694 - VulnerabilityScanner - INFO - Scan results saved to unified_security_reports\assessment_20250426_160748\assessment_20250426_160749\framework\report_20250426_160749\web\scan_20250426_160749\vulnerability_scan_report.json
+2025-04-26 16:07:49,694 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://127.0.0.1
+2025-04-26 16:07:49,694 - VulnerabilityScanner - INFO - Report saved to unified_security_reports\assessment_20250426_160748\assessment_20250426_160749\framework\report_20250426_160749\web\scan_20250426_160749\vulnerability_scan_report.json
+2025-04-26 16:07:49,695 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 16:07:49,696 - ExploitDocumenter - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_160748\assessment_20250426_160749\framework\report_20250426_160749\web\scan_20250426_160749\exploitation_guide.md
+2025-04-26 16:07:49,696 - VulnerabilityScanner - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_160748\assessment_20250426_160749\framework\report_20250426_160749\web\scan_20250426_160749\exploitation_guide.md
+2025-04-26 16:07:49,697 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 16:07:49,697 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 16:07:49,697 - SecurityFramework - INFO - Web vulnerability scan completed successfully
+2025-04-26 16:07:49,697 - SecurityPlatform - INFO - Web vulnerability scan completed successfully
+2025-04-26 16:08:56,491 - AdvancedNetworkTools - INFO - Completed enhanced port scan with 3 ports found
+2025-04-26 16:08:56,491 - AdvancedNetworkTools - INFO - Starting SSL/TLS analysis for 127.0.0.1:443
+2025-04-26 16:08:58,539 - AdvancedNetworkTools - INFO - Starting firewall detection on 127.0.0.1
+2025-04-26 16:08:58,539 - AdvancedNetworkTools - INFO - Completed firewall detection: Not detected
+2025-04-26 16:08:58,539 - AdvancedNetworkTools - INFO - Starting vulnerability correlation analysis
+2025-04-26 16:08:58,539 - AdvancedNetworkTools - INFO - Completed vulnerability correlation, found 0 issues
+2025-04-26 16:08:58,539 - AdvancedNetworkTools - INFO - Saved scan results to unified_security_reports\assessment_20250426_160748\assessment_20250426_160749\framework\report_20250426_160749\network\127_0_0_1_network_scan_20250426_160858.json
+2025-04-26 16:08:58,539 - AdvancedNetworkTools - INFO - Completed all network scans for 127.0.0.1
+2025-04-26 16:08:58,539 - SecurityFramework - INFO - Network assessment completed successfully
+2025-04-26 16:08:58,539 - SecurityPlatform - INFO - Network assessment completed successfully
+2025-04-26 16:08:58,539 - SecurityPlatform - INFO - Starting social engineering assessment
+2025-04-26 16:08:58,539 - SecurityFramework - INFO - Preparing social engineering assessment
+2025-04-26 16:08:58,548 - SecurityFramework - ERROR - Error preparing social engineering assessment: 0
+2025-04-26 16:08:58,549 - SecurityPlatform - INFO - Social engineering assessment completed successfully
+2025-04-26 16:08:58,549 - SecurityPlatform - INFO - Starting AI security analysis
+2025-04-26 16:08:58,549 - SecurityPlatform - INFO - Initializing AI security integrator
+2025-04-26 16:08:58,550 - AISecurityIntegrator - INFO - Initialized AISecurityIntegrator for target: 127.0.0.1
+2025-04-26 16:08:58,550 - AISecurityIntegrator - INFO - Using AI providers: openai, anthropic, gemini
+2025-04-26 16:08:58,550 - AISecurityIntegrator - INFO - Analyzing vulnerabilities with AI
+2025-04-26 16:08:59,015 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 16:08:59,015 - AISecurityIntegrator - INFO - Determining exploitation paths with AI
+2025-04-26 16:08:59,206 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 16:08:59,206 - AISecurityIntegrator - INFO - Generating remediation recommendations with AI
+2025-04-26 16:08:59,630 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 16:08:59,637 - AISecurityIntegrator - INFO - Analyzing attack surface for 127.0.0.1
+2025-04-26 16:08:59,823 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 16:08:59,823 - AISecurityIntegrator - INFO - Generating executive summary
+2025-04-26 16:09:00,006 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 16:09:00,006 - SecurityPlatform - INFO - Initializing advanced AI security tools
+2025-04-26 16:09:00,006 - SecurityPlatform - ERROR - Error during AI security analysis: AdvancedAISecurityTools.__init__() got an unexpected keyword argument 'target'
+2025-04-26 16:09:00,006 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-26 16:09:00,006 - SecurityFramework - INFO - Generating mitigation recommendations
+2025-04-26 16:09:00,006 - SecurityPlatform - INFO - Remediation recommendations generated successfully
+2025-04-26 16:09:00,006 - SecurityPlatform - INFO - Generating executive summary
+2025-04-26 16:09:00,006 - SecurityPlatform - ERROR - Error generating executive summary: 'int' object is not subscriptable
+2025-04-26 16:09:00,006 - SecurityPlatform - INFO - Generating client vulnerability report
+2025-04-26 16:09:00,006 - SecurityPlatform - INFO - Initializing client vulnerability reporter
+2025-04-26 16:09:00,006 - SecurityPlatform - ERROR - Error generating client report: ClientVulnerabilityReport.__init__() got an unexpected keyword argument 'output_dir'
+2025-04-26 16:09:00,013 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250426_160748\assessment_20250426_160749\security_assessment_20250426_160749.json
+2025-04-26 16:09:00,013 - UnifiedSecurityInterface - ERROR - Error running comprehensive automated testing: 'primary_recommendations'
+2025-04-26 16:09:00,013 - UnifiedSecurityInterface - ERROR - No suitable testing system available for comprehensive automated testing
+2025-04-26 16:09:00,013 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating detailed technical report
+2025-04-26 16:09:00,013 - UnifiedSecurityInterface - INFO - Generating technical report using VulnerabilityReporter
+2025-04-26 16:09:00,013 - UnifiedSecurityInterface - ERROR - Error generating technical report: 'VulnerabilityReporter' object has no attribute 'generate_complete_report'
+2025-04-26 16:09:00,013 - UnifiedSecurityInterface - INFO - Generating technical report using ExploitDocumenter
+2025-04-26 16:23:30,089 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:23:30,090 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:23:30,333 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:23:30,334 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 16:23:30,877 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 16:23:30,878 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 16:23:30,894 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 16:23:30,895 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 16:23:30,905 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 16:23:30,906 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 16:23:30,907 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 16:23:30,909 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 16:23:30,909 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 16:23:30,911 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 16:23:30,923 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:23:30,923 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:23:30,924 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:23:30,925 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 16:23:30,925 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:23:30,933 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:23:31,793 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 16:23:31,793 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 16:23:31,793 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 16:23:31,793 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:23:31,793 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:23:31,793 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 16:23:31,828 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 16:23:31,829 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 16:23:31,830 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 16:23:31,830 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 16:23:31,840 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 16:23:31,840 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 16:23:31,840 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 16:23:31,842 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 16:23:31,843 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 16:23:31,844 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 16:23:31,857 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:23:31,857 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:23:31,857 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:23:31,857 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:23:31,857 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:23:31,858 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:23:31,858 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:23:31,859 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:23:31,859 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:23:31,859 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:23:31,860 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 16:23:31,871 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:23:32,676 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 16:23:32,676 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 16:23:32,676 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 16:23:32,676 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: 127.0.0.1
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 16:23:32,676 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: 127.0.0.1
+2025-04-26 16:23:32,676 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Discovered 85 security tools
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: 127.0.0.1
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Starting Mode 4: Individual tool testing (NmapScanner)
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Running individual tool: NmapScanner
+2025-04-26 16:23:32,676 - SecurityIntegrator - ERROR - Error creating instance of NmapScanner: NmapScanner.__init__() got an unexpected keyword argument 'target'
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - ERROR - Error running tool NmapScanner: NmapScanner.__init__() got an unexpected keyword argument 'target'
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Individual tool testing completed for 1 tools
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating detailed technical report
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Generating technical report using VulnerabilityReporter
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - ERROR - Error generating technical report: 'VulnerabilityReporter' object has no attribute 'generate_complete_report'
+2025-04-26 16:23:32,676 - UnifiedSecurityInterface - INFO - Generating technical report using ExploitDocumenter
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:06:28,943 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:06:29,209 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:06:29,209 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:06:29,822 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:06:29,822 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:06:29,840 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:06:29,842 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:06:29,863 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:06:29,863 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:06:29,863 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:06:29,863 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:06:29,863 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:06:29,863 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:06:29,883 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:06:29,883 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:06:29,883 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:06:29,883 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:06:29,886 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:06:29,886 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:06:29,886 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:06:29,886 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:06:29,886 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:06:29,886 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:06:29,888 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:06:29,890 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:06:29,891 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:06:29,909 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:06:29,909 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:06:29,909 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:06:29,909 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:06:29,909 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:06:29,909 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:06:29,915 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:06:29,916 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:06:29,917 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:06:29,917 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:06:30,834 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:06:30,841 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:06:30,841 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 20:06:30,841 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:06:30,843 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:06:30,843 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:06:30,872 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:06:30,872 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:06:30,873 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:06:30,875 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:06:30,884 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:06:30,885 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:06:30,886 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:06:30,887 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:06:30,887 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:06:30,888 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:06:30,909 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:06:30,909 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:06:30,909 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:06:30,910 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:06:30,929 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:06:30,935 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:06:30,936 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:06:30,937 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:06:30,937 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:06:30,938 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:06:30,939 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:06:30,939 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:06:30,940 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:06:30,940 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:06:30,940 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:06:31,784 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:06:31,784 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:06:31,784 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 20:06:31,784 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 20:06:31,784 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: http://127.0.0.1:5000/
+2025-04-26 20:06:31,789 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 20:06:31,789 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: http://127.0.0.1:5000/
+2025-04-26 20:06:31,789 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 20:06:31,789 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 20:06:31,789 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 20:06:31,792 - SecurityToolsIntegration - INFO - Installing ExploitDB...
+2025-04-26 20:06:31,792 - ExploitDBIntegration - INFO - Cloning Exploit-DB repository...
+2025-04-26 20:07:01,527 - SecurityToolsIntegration - ERROR - Failed to initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:01,527 - ExploitSearchSystem - WARNING - Could not initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:01,543 - SecurityToolsIntegration - INFO - Installing MetasploitExploitDB...
+2025-04-26 20:07:01,543 - MetasploitIntegration - INFO - Please install Metasploit for Windows from https://windows.metasploit.com/
+2025-04-26 20:07:01,543 - ExploitSearchSystem - INFO - Initialized exploit database: MetasploitExploitDB
+2025-04-26 20:07:01,543 - ExploitSearchSystem - WARNING - Could not initialize VulnersScanner: Unknown security tool: VulnersScanner
+2025-04-26 20:07:01,543 - ExploitSearchSystem - INFO - Initialized exploit database: NVDDatabase
+2025-04-26 20:07:01,547 - ExploitSearchSystem - INFO - Initialized exploit database: Rapid7Database
+2025-04-26 20:07:01,547 - ExploitSearchSystem - INFO - Exploit Search System initialized with output directory: detailed_reports_20250426_2006\assessment_20250426_200629\exploit_search\exploit_search_20250426_200631
+2025-04-26 20:07:01,547 - UnifiedSecurityInterface - INFO - ExploitSearchSystem initialized
+2025-04-26 20:07:01,548 - UnifiedSecurityInterface - INFO - Discovered 86 security tools
+2025-04-26 20:07:01,548 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,548 - UnifiedSecurityInterface - INFO - Starting Mode 1: Comprehensive automated testing
+2025-04-26 20:07:01,548 - UnifiedSecurityInterface - INFO - Running comprehensive assessment using UnifiedSecuritySystem
+2025-04-26 20:07:01,548 - UnifiedSecurityTools - INFO - Starting full assessment for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,548 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,548 - SecurityPlatform - INFO - Security platform configured
+2025-04-26 20:07:01,548 - SecurityPlatform - INFO - Starting full security assessment for http://127.0.0.1:5000/
+2025-04-26 20:07:01,548 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-26 20:07:01,550 - SecurityPlatform - INFO - Starting OSINT assessment
+2025-04-26 20:07:01,550 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 20:07:01,550 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-26 20:07:01,550 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 20:07:01,550 - SecurityPlatform - INFO - Starting comprehensive security testing
+2025-04-26 20:07:01,550 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-26 20:07:01,551 - SecurityPlatform - INFO - Initializing comprehensive tester
+2025-04-26 20:07:01,551 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 1745683621 for http://127.0.0.1:5000/
+2025-04-26 20:07:01,551 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,552 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://127.0.0.1:5000/
+2025-04-26 20:07:01,552 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,552 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,552 - OSINTTools - INFO - Initialized OSINTTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,553 - SecurityPlatform - ERROR - Error during comprehensive testing: 'ComprehensiveTester' object has no attribute 'run_all_tests'
+2025-04-26 20:07:01,553 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,553 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,553 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,558 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,558 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,558 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,558 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 20:07:01,558 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 20:07:01,558 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 20:07:01,559 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 20:07:01,561 - VulnerabilityScanner - INFO - Scan results saved to vulnerability_scan\scan_20250426_200701\vulnerability_scan_report.json
+2025-04-26 20:07:01,561 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://127.0.0.1:5000/
+2025-04-26 20:07:01,561 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,561 - VulnerabilityScanner - INFO - Report saved to vulnerability_scan\scan_20250426_200701\vulnerability_scan_report.json
+2025-04-26 20:07:01,561 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 20:07:01,562 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 20:07:01,562 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 20:07:01,563 - ExploitDocumenter - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_200701\exploitation_guide.md
+2025-04-26 20:07:01,563 - VulnerabilityScanner - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_200701\exploitation_guide.md
+2025-04-26 20:07:01,563 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 20:07:01,563 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 20:07:01,563 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 20:07:01,565 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,565 - SecurityFramework - INFO - Initialized SecurityFramework for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,565 - OSINTTools - INFO - Initialized OSINTTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,565 - SecurityFramework - INFO - Starting OSINT assessment
+2025-04-26 20:07:01,565 - OSINTTools - INFO - Starting comprehensive OSINT gathering for 127.0.0.1:5000
+2025-04-26 20:07:01,565 - OSINTTools - INFO - Gathering domain information for 127.0.0.1:5000
+2025-04-26 20:07:01,567 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,567 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 20:07:01,567 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 20:07:01,569 - SecurityFramework - INFO - Initialized SecurityFramework for target: http://127.0.0.1:5000/
+2025-04-26 20:07:01,570 - SecurityFramework - INFO - Starting web vulnerability assessment
+2025-04-26 20:07:01,570 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 20250426_200701 for http://127.0.0.1:5000/
+2025-04-26 20:07:01,570 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://127.0.0.1:5000/
+2025-04-26 20:07:01,570 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,570 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,571 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,571 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,572 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,572 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,573 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:01,573 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 20:07:01,573 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 20:07:01,573 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 20:07:01,574 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 20:07:01,575 - VulnerabilityScanner - INFO - Scan results saved to unified_security_reports\assessment_20250426_200630\assessment_20250426_200701\framework\report_20250426_200701\web\scan_20250426_200701\vulnerability_scan_report.json
+2025-04-26 20:07:01,576 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://127.0.0.1:5000/
+2025-04-26 20:07:01,576 - VulnerabilityScanner - INFO - Report saved to unified_security_reports\assessment_20250426_200630\assessment_20250426_200701\framework\report_20250426_200701\web\scan_20250426_200701\vulnerability_scan_report.json
+2025-04-26 20:07:01,576 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 20:07:01,577 - ExploitDocumenter - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_200630\assessment_20250426_200701\framework\report_20250426_200701\web\scan_20250426_200701\exploitation_guide.md
+2025-04-26 20:07:01,577 - VulnerabilityScanner - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_200630\assessment_20250426_200701\framework\report_20250426_200701\web\scan_20250426_200701\exploitation_guide.md
+2025-04-26 20:07:01,577 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 20:07:01,577 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 20:07:01,578 - SecurityFramework - INFO - Web vulnerability scan completed successfully
+2025-04-26 20:07:01,578 - SecurityPlatform - INFO - Web vulnerability scan completed successfully
+2025-04-26 20:07:01,578 - OSINTTools - INFO - Completed domain information gathering for http://127.0.0.1:5000
+2025-04-26 20:07:01,578 - OSINTTools - INFO - Performing WHOIS lookup for 127.0.0.1:5000
+2025-04-26 20:07:01,584 - OSINTTools - INFO - Completed WHOIS lookup for 127.0.0.1:5000
+2025-04-26 20:07:01,584 - OSINTTools - INFO - Querying DNS records for 127.0.0.1:5000
+2025-04-26 20:07:01,642 - OSINTTools - INFO - Completed DNS records query for 127.0.0.1:5000
+2025-04-26 20:07:01,642 - OSINTTools - INFO - Detecting web technologies for http://127.0.0.1:5000
+2025-04-26 20:07:01,653 - OSINTTools - INFO - Completed web technology detection for http://127.0.0.1:5000
+2025-04-26 20:07:01,653 - OSINTTools - INFO - Harvesting email addresses for 127.0.0.1:5000 with depth 1
+2025-04-26 20:07:01,708 - OSINTTools - INFO - Completed email harvesting, found 0 addresses
+2025-04-26 20:07:01,708 - OSINTTools - INFO - Checking social media presence for '127'
+2025-04-26 20:07:10,608 - OSINTTools - INFO - Completed social media presence check for '127'
+2025-04-26 20:07:10,608 - OSINTTools - INFO - Checking data breaches for 127.0.0.1:5000
+2025-04-26 20:07:10,608 - OSINTTools - INFO - Completed data breach check for 127.0.0.1:5000, found 1 breaches
+2025-04-26 20:07:10,608 - SecurityFramework - ERROR - Error during OSINT assessment: list index out of range
+2025-04-26 20:07:10,608 - SecurityPlatform - INFO - OSINT assessment completed successfully
+2025-04-26 20:07:10,608 - SecurityPlatform - INFO - Starting social engineering assessment
+2025-04-26 20:07:10,608 - SecurityFramework - INFO - Preparing social engineering assessment
+2025-04-26 20:07:10,608 - SecurityFramework - ERROR - Error preparing social engineering assessment: 0
+2025-04-26 20:07:10,608 - SecurityPlatform - INFO - Social engineering assessment completed successfully
+2025-04-26 20:07:10,608 - SecurityPlatform - INFO - Starting AI security analysis
+2025-04-26 20:07:10,608 - SecurityPlatform - INFO - Initializing AI security integrator
+2025-04-26 20:07:10,614 - AISecurityIntegrator - INFO - Initialized AISecurityIntegrator for target: http://127.0.0.1:5000/
+2025-04-26 20:07:10,614 - AISecurityIntegrator - INFO - Using AI providers: openai, anthropic, gemini
+2025-04-26 20:07:10,614 - AISecurityIntegrator - INFO - Analyzing vulnerabilities with AI
+2025-04-26 20:07:10,967 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:10,967 - AISecurityIntegrator - INFO - Determining exploitation paths with AI
+2025-04-26 20:07:10,967 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:10,967 - AISecurityIntegrator - INFO - Generating remediation recommendations with AI
+2025-04-26 20:07:11,133 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:11,133 - AISecurityIntegrator - INFO - Analyzing attack surface for http://127.0.0.1:5000/
+2025-04-26 20:07:11,463 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:11,464 - AISecurityIntegrator - INFO - Generating executive summary
+2025-04-26 20:07:11,630 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Initializing advanced AI security tools
+2025-04-26 20:07:11,630 - SecurityPlatform - ERROR - Error during AI security analysis: AdvancedAISecurityTools.__init__() got an unexpected keyword argument 'target'
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-26 20:07:11,630 - SecurityFramework - INFO - Generating mitigation recommendations
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Remediation recommendations generated successfully
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Generating executive summary
+2025-04-26 20:07:11,630 - SecurityPlatform - ERROR - Error generating executive summary: 'int' object is not subscriptable
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Generating client vulnerability report
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Initializing client vulnerability reporter
+2025-04-26 20:07:11,630 - SecurityPlatform - ERROR - Error generating client report: ClientVulnerabilityReport.__init__() got an unexpected keyword argument 'output_dir'
+2025-04-26 20:07:11,630 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250426_200630\assessment_20250426_200701\security_assessment_20250426_200701.json
+2025-04-26 20:07:11,630 - UnifiedSecurityInterface - ERROR - Error running comprehensive automated testing: 'primary_recommendations'
+2025-04-26 20:07:11,630 - UnifiedSecurityInterface - ERROR - No suitable testing system available for comprehensive automated testing
+2025-04-26 20:07:11,630 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating detailed technical report
+2025-04-26 20:07:11,630 - UnifiedSecurityInterface - ERROR - Error generating technical report: VulnerabilityReporter.generate_report() got an unexpected keyword argument 'report_format'
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:12,800 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:13,019 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:13,019 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:07:13,500 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:07:13,500 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:07:13,500 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:07:13,516 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:07:13,526 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:07:13,526 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:07:13,529 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:07:13,530 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:07:13,531 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:07:13,532 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:13,541 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:07:13,548 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:13,553 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:13,562 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:07:13,563 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:07:13,563 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:07:13,565 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:07:13,566 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:07:13,566 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:07:13,567 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:07:13,568 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:07:13,569 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:07:13,569 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:07:14,401 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:07:14,401 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:07:14,401 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 20:07:14,401 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:14,401 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:14,401 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:07:14,434 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:07:14,434 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:07:14,434 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:07:14,434 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:07:14,444 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:07:14,444 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:07:14,444 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:07:14,450 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:07:14,450 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:07:14,452 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:07:14,465 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:14,465 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:14,466 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:14,467 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:14,468 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:07:14,477 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:14,483 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:07:14,484 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:07:14,484 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:07:14,485 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:07:14,486 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:07:14,486 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:07:14,487 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:07:14,488 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:07:14,489 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:07:14,489 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:07:15,341 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:07:15,341 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:07:15,341 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 20:07:15,341 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 20:07:15,341 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: http://127.0.0.1:5000/
+2025-04-26 20:07:15,341 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 20:07:15,341 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: http://127.0.0.1:5000/
+2025-04-26 20:07:15,341 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 20:07:15,341 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 20:07:15,341 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 20:07:15,350 - SecurityToolsIntegration - INFO - Installing ExploitDB...
+2025-04-26 20:07:15,350 - ExploitDBIntegration - INFO - Cloning Exploit-DB repository...
+2025-04-26 20:07:15,376 - SecurityToolsIntegration - WARNING - Command returned non-zero exit code 128: fatal: destination path 'C:\Users\User\.security_tools\exploitdb' already exists and is not an empty directory.
+
+2025-04-26 20:07:15,376 - ExploitDBIntegration - INFO - Git clone failed, trying direct download...
+2025-04-26 20:07:16,026 - SecurityToolsIntegration - INFO - Downloaded https://github.com/offensive-security/exploitdb/archive/master.zip to C:\Users\User\.security_tools\exploitdb\exploitdb.zip
+2025-04-26 20:07:16,046 - SecurityToolsIntegration - ERROR - Failed to initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:16,047 - ExploitSearchSystem - WARNING - Could not initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:16,057 - SecurityToolsIntegration - INFO - Installing MetasploitExploitDB...
+2025-04-26 20:07:16,057 - MetasploitIntegration - INFO - Please install Metasploit for Windows from https://windows.metasploit.com/
+2025-04-26 20:07:16,059 - ExploitSearchSystem - INFO - Initialized exploit database: MetasploitExploitDB
+2025-04-26 20:07:16,059 - ExploitSearchSystem - WARNING - Could not initialize VulnersScanner: Unknown security tool: VulnersScanner
+2025-04-26 20:07:16,059 - ExploitSearchSystem - INFO - Initialized exploit database: NVDDatabase
+2025-04-26 20:07:16,063 - ExploitSearchSystem - INFO - Initialized exploit database: Rapid7Database
+2025-04-26 20:07:16,063 - ExploitSearchSystem - INFO - Exploit Search System initialized with output directory: detailed_reports_20250426_2006\assessment_20250426_200713\exploit_search\exploit_search_20250426_200715
+2025-04-26 20:07:16,064 - UnifiedSecurityInterface - INFO - ExploitSearchSystem initialized
+2025-04-26 20:07:16,064 - UnifiedSecurityInterface - INFO - Discovered 86 security tools
+2025-04-26 20:07:16,064 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,064 - UnifiedSecurityInterface - INFO - Starting Mode 1: Comprehensive automated testing
+2025-04-26 20:07:16,064 - UnifiedSecurityInterface - INFO - Running comprehensive assessment using UnifiedSecuritySystem
+2025-04-26 20:07:16,064 - UnifiedSecurityTools - INFO - Starting full assessment for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,065 - SecurityPlatform - INFO - Initialized SecurityPlatform for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,065 - SecurityPlatform - INFO - Security platform configured
+2025-04-26 20:07:16,065 - SecurityPlatform - INFO - Starting full security assessment for http://127.0.0.1:5000/
+2025-04-26 20:07:16,066 - SecurityPlatform - INFO - Starting network security assessment
+2025-04-26 20:07:16,066 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 20:07:16,066 - SecurityPlatform - INFO - Starting OSINT assessment
+2025-04-26 20:07:16,067 - SecurityPlatform - INFO - Starting web vulnerability assessment
+2025-04-26 20:07:16,067 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 20:07:16,067 - SecurityPlatform - INFO - Initializing vulnerability scanner
+2025-04-26 20:07:16,067 - SecurityPlatform - INFO - Starting comprehensive security testing
+2025-04-26 20:07:16,068 - SecurityPlatform - INFO - Initializing comprehensive tester
+2025-04-26 20:07:16,068 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 1745683636 for http://127.0.0.1:5000/
+2025-04-26 20:07:16,069 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,069 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://127.0.0.1:5000/
+2025-04-26 20:07:16,069 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,069 - OSINTTools - INFO - Initialized OSINTTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,069 - SecurityPlatform - ERROR - Error during comprehensive testing: 'ComprehensiveTester' object has no attribute 'run_all_tests'
+2025-04-26 20:07:16,069 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,069 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,075 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,075 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,075 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,075 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,076 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,076 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 20:07:16,076 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 20:07:16,076 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 20:07:16,077 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 20:07:16,078 - VulnerabilityScanner - INFO - Scan results saved to vulnerability_scan\scan_20250426_200716\vulnerability_scan_report.json
+2025-04-26 20:07:16,079 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://127.0.0.1:5000/
+2025-04-26 20:07:16,079 - VulnerabilityScanner - INFO - Report saved to vulnerability_scan\scan_20250426_200716\vulnerability_scan_report.json
+2025-04-26 20:07:16,079 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 20:07:16,080 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,080 - ExploitDocumenter - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_200716\exploitation_guide.md
+2025-04-26 20:07:16,080 - VulnerabilityScanner - INFO - Exploitation guide generated at vulnerability_scan\scan_20250426_200716\exploitation_guide.md
+2025-04-26 20:07:16,080 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 20:07:16,080 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 20:07:16,080 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 20:07:16,081 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 20:07:16,081 - SecurityPlatform - INFO - Initializing security framework
+2025-04-26 20:07:16,081 - AdvancedNetworkTools - INFO - Initialized AdvancedNetworkTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,081 - OSINTTools - INFO - Initialized OSINTTools for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,082 - SecurityFramework - INFO - Initialized SecurityFramework for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,082 - SecurityFramework - INFO - Starting network security assessment
+2025-04-26 20:07:16,082 - AdvancedNetworkTools - INFO - Starting comprehensive network scan on 127.0.0.1:5000
+2025-04-26 20:07:16,082 - AdvancedNetworkTools - INFO - Starting enhanced port scan on 127.0.0.1:5000 (ports: 1-1000)
+2025-04-26 20:07:16,083 - W3afAIIntegration - INFO - Initialized W3afAIIntegration for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,084 - IBMWatsonSecurity - WARNING - IBM Watson API credentials not provided. Operating in simulation mode.
+2025-04-26 20:07:16,084 - IBMWatsonSecurity - INFO - Initialized IBM Watson Security Integration
+2025-04-26 20:07:16,085 - SecurityFramework - INFO - Initialized SecurityFramework for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,085 - SecurityFramework - INFO - Starting web vulnerability assessment
+2025-04-26 20:07:16,085 - VulnerabilityScanner - INFO - Starting vulnerability scan with ID 20250426_200716 for http://127.0.0.1:5000/
+2025-04-26 20:07:16,085 - VulnerabilityScanner - INFO - Starting vulnerability scan for http://127.0.0.1:5000/
+2025-04-26 20:07:16,085 - VulnerabilityScanner - INFO - Scanning for XSS vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,086 - VulnerabilityScanner - INFO - Scanning for SQL injection vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,086 - VulnerabilityScanner - INFO - Scanning for CSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,086 - VulnerabilityScanner - INFO - Scanning for open redirect vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,086 - VulnerabilityScanner - INFO - Scanning for XXE vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,087 - VulnerabilityScanner - INFO - Scanning for SSRF vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,087 - VulnerabilityScanner - INFO - Scanning for insecure deserialization vulnerabilities on http://127.0.0.1:5000/
+2025-04-26 20:07:16,087 - VulnerabilityScanner - INFO - Identifying vulnerable components and describing exploits
+2025-04-26 20:07:16,087 - VulnerabilityScanner - INFO - Identified 7 vulnerable components with detailed exploitation instructions
+2025-04-26 20:07:16,087 - VulnerabilityScanner - INFO - Enhancing exploit documentation with ExploitDocumenter
+2025-04-26 20:07:16,087 - VulnerabilityScanner - INFO - Exploit documentation enhanced successfully
+2025-04-26 20:07:16,089 - VulnerabilityScanner - INFO - Scan results saved to unified_security_reports\assessment_20250426_200714\assessment_20250426_200716\framework\report_20250426_200716\web\scan_20250426_200716\vulnerability_scan_report.json
+2025-04-26 20:07:16,089 - VulnerabilityScanner - INFO - Vulnerability scan completed for http://127.0.0.1:5000/
+2025-04-26 20:07:16,089 - VulnerabilityScanner - INFO - Report saved to unified_security_reports\assessment_20250426_200714\assessment_20250426_200716\framework\report_20250426_200716\web\scan_20250426_200716\vulnerability_scan_report.json
+2025-04-26 20:07:16,089 - VulnerabilityScanner - INFO - Generating comprehensive exploitation guide
+2025-04-26 20:07:16,090 - ExploitDocumenter - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_200714\assessment_20250426_200716\framework\report_20250426_200716\web\scan_20250426_200716\exploitation_guide.md
+2025-04-26 20:07:16,091 - VulnerabilityScanner - INFO - Exploitation guide generated at unified_security_reports\assessment_20250426_200714\assessment_20250426_200716\framework\report_20250426_200716\web\scan_20250426_200716\exploitation_guide.md
+2025-04-26 20:07:16,091 - VulnerabilityScanner - INFO - Attempting to restart the server after vulnerability data update
+2025-04-26 20:07:16,091 - VulnerabilityScanner - INFO - Not running in a web framework environment, restart not necessary
+2025-04-26 20:07:16,091 - SecurityFramework - INFO - Web vulnerability scan completed successfully
+2025-04-26 20:07:16,092 - SecurityPlatform - INFO - Web vulnerability scan completed successfully
+2025-04-26 20:07:16,374 - AdvancedNetworkTools - INFO - Completed enhanced port scan with 0 ports found
+2025-04-26 20:07:16,374 - AdvancedNetworkTools - INFO - Target 127.0.0.1:5000 doesn't support HTTPS on port 443, skipping SSL/TLS analysis
+2025-04-26 20:07:16,374 - AdvancedNetworkTools - INFO - Starting firewall detection on 127.0.0.1:5000
+2025-04-26 20:07:16,375 - AdvancedNetworkTools - INFO - Completed firewall detection: Not detected
+2025-04-26 20:07:16,375 - AdvancedNetworkTools - INFO - Starting vulnerability correlation analysis
+2025-04-26 20:07:16,375 - AdvancedNetworkTools - INFO - Completed vulnerability correlation, found 0 issues
+2025-04-26 20:07:16,376 - AdvancedNetworkTools - INFO - Saved scan results to unified_security_reports\assessment_20250426_200714\assessment_20250426_200716\framework\report_20250426_200716\network\127_0_0_1:5000_network_scan_20250426_200716.json
+2025-04-26 20:07:16,376 - AdvancedNetworkTools - INFO - Completed all network scans for 127.0.0.1:5000
+2025-04-26 20:07:16,376 - SecurityFramework - INFO - Network assessment completed successfully
+2025-04-26 20:07:16,377 - SecurityPlatform - INFO - Network assessment completed successfully
+2025-04-26 20:07:16,377 - SecurityPlatform - INFO - Starting social engineering assessment
+2025-04-26 20:07:16,377 - SecurityFramework - INFO - Preparing social engineering assessment
+2025-04-26 20:07:16,380 - SecurityFramework - ERROR - Error preparing social engineering assessment: 0
+2025-04-26 20:07:16,380 - SecurityPlatform - INFO - Social engineering assessment completed successfully
+2025-04-26 20:07:16,381 - SecurityPlatform - INFO - Starting AI security analysis
+2025-04-26 20:07:16,381 - SecurityPlatform - INFO - Initializing AI security integrator
+2025-04-26 20:07:16,381 - AISecurityIntegrator - INFO - Initialized AISecurityIntegrator for target: http://127.0.0.1:5000/
+2025-04-26 20:07:16,382 - AISecurityIntegrator - INFO - Using AI providers: openai, anthropic, gemini
+2025-04-26 20:07:16,382 - AISecurityIntegrator - INFO - Analyzing vulnerabilities with AI
+2025-04-26 20:07:16,382 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:16,382 - AISecurityIntegrator - INFO - Determining exploitation paths with AI
+2025-04-26 20:07:16,752 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:16,752 - AISecurityIntegrator - INFO - Generating remediation recommendations with AI
+2025-04-26 20:07:16,917 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:16,917 - AISecurityIntegrator - INFO - Analyzing attack surface for http://127.0.0.1:5000/
+2025-04-26 20:07:17,277 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:17,277 - AISecurityIntegrator - INFO - Generating executive summary
+2025-04-26 20:07:17,277 - AISecurityIntegrator - INFO - Simulating AI response
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Initializing advanced AI security tools
+2025-04-26 20:07:17,277 - SecurityPlatform - ERROR - Error during AI security analysis: AdvancedAISecurityTools.__init__() got an unexpected keyword argument 'target'
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Generating unified remediation recommendations
+2025-04-26 20:07:17,277 - SecurityFramework - INFO - Generating mitigation recommendations
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Remediation recommendations generated successfully
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Generating executive summary
+2025-04-26 20:07:17,277 - SecurityPlatform - ERROR - Error generating executive summary: 'int' object is not subscriptable
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Generating client vulnerability report
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Initializing client vulnerability reporter
+2025-04-26 20:07:17,277 - SecurityPlatform - ERROR - Error generating client report: ClientVulnerabilityReport.__init__() got an unexpected keyword argument 'output_dir'
+2025-04-26 20:07:17,277 - SecurityPlatform - INFO - Assessment results saved to unified_security_reports\assessment_20250426_200714\assessment_20250426_200716\security_assessment_20250426_200716.json
+2025-04-26 20:07:17,277 - UnifiedSecurityInterface - ERROR - Error running comprehensive automated testing: 'primary_recommendations'
+2025-04-26 20:07:17,277 - UnifiedSecurityInterface - ERROR - No suitable testing system available for comprehensive automated testing
+2025-04-26 20:07:17,277 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating component technical report
+2025-04-26 20:07:17,277 - UnifiedSecurityInterface - WARNING - No reports were generated
+2025-04-26 20:07:18,534 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:18,541 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:18,542 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:18,542 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:18,763 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:18,763 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:07:19,284 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:07:19,284 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:07:19,306 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:07:19,307 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:07:19,318 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:07:19,318 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:07:19,318 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:07:19,318 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:07:19,318 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:07:19,318 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:19,334 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:07:19,339 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:19,344 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:19,352 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:07:19,352 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:07:19,353 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:07:19,358 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:07:20,235 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:07:20,235 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:07:20,235 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 20:07:20,235 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:20,235 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:20,235 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:07:20,271 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:07:20,272 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:07:20,274 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:07:20,276 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:07:20,284 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:07:20,284 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:07:20,285 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:07:20,287 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:07:20,287 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:07:20,289 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:20,302 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:07:20,312 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:20,319 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:07:20,320 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:07:20,321 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:07:20,321 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:07:20,321 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:07:20,321 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:07:20,321 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:07:20,324 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:07:20,325 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:07:20,327 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:07:21,183 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:07:21,183 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:07:21,183 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 20:07:21,184 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 20:07:21,184 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: http://127.0.0.1:5000/
+2025-04-26 20:07:21,184 - UnifiedSecurityInterface - INFO - ComprehensiveTester initialized
+2025-04-26 20:07:21,184 - AIVulnerabilityScanner - INFO - Initialized AIVulnerabilityScanner for target: http://127.0.0.1:5000/
+2025-04-26 20:07:21,184 - AIVulnerabilityScanner - INFO - Scanner initialized
+2025-04-26 20:07:21,184 - UnifiedSecurityInterface - INFO - AIVulnerabilityScanner initialized
+2025-04-26 20:07:21,184 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 20:07:21,184 - SecurityToolsIntegration - INFO - Installing ExploitDB...
+2025-04-26 20:07:21,184 - ExploitDBIntegration - INFO - Cloning Exploit-DB repository...
+2025-04-26 20:07:21,213 - SecurityToolsIntegration - WARNING - Command returned non-zero exit code 128: fatal: destination path 'C:\Users\User\.security_tools\exploitdb' already exists and is not an empty directory.
+
+2025-04-26 20:07:21,214 - ExploitDBIntegration - INFO - Git clone failed, trying direct download...
+2025-04-26 20:07:21,658 - SecurityToolsIntegration - INFO - Downloaded https://github.com/offensive-security/exploitdb/archive/master.zip to C:\Users\User\.security_tools\exploitdb\exploitdb.zip
+2025-04-26 20:07:21,665 - SecurityToolsIntegration - ERROR - Failed to initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:21,665 - ExploitSearchSystem - WARNING - Could not initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:21,677 - SecurityToolsIntegration - INFO - Installing MetasploitExploitDB...
+2025-04-26 20:07:21,677 - MetasploitIntegration - INFO - Please install Metasploit for Windows from https://windows.metasploit.com/
+2025-04-26 20:07:21,677 - ExploitSearchSystem - INFO - Initialized exploit database: MetasploitExploitDB
+2025-04-26 20:07:21,677 - ExploitSearchSystem - WARNING - Could not initialize VulnersScanner: Unknown security tool: VulnersScanner
+2025-04-26 20:07:21,678 - ExploitSearchSystem - INFO - Initialized exploit database: NVDDatabase
+2025-04-26 20:07:21,681 - ExploitSearchSystem - INFO - Initialized exploit database: Rapid7Database
+2025-04-26 20:07:21,683 - ExploitSearchSystem - INFO - Exploit Search System initialized with output directory: detailed_reports_20250426_2006\assessment_20250426_200718\exploit_search\exploit_search_20250426_200721
+2025-04-26 20:07:21,683 - UnifiedSecurityInterface - INFO - ExploitSearchSystem initialized
+2025-04-26 20:07:21,683 - UnifiedSecurityInterface - INFO - Discovered 86 security tools
+2025-04-26 20:07:21,683 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: http://127.0.0.1:5000/
+2025-04-26 20:07:21,683 - UnifiedSecurityInterface - INFO - Starting Mode 6: Exploit search for detected services
+2025-04-26 20:07:21,684 - UnifiedSecurityInterface - INFO - Detecting services on target: http://127.0.0.1:5000/
+2025-04-26 20:07:21,684 - ExploitSearchSystem - INFO - Detecting services on target: http://127.0.0.1:5000/
+2025-04-26 20:07:21,706 - SecurityToolsIntegration - INFO - Running Nmap scan against http://127.0.0.1:5000/ with arguments: -sS -sV -sC -A -O
+2025-04-26 20:07:21,976 - ExploitSearchSystem - INFO - Detected 0 services using Nmap
+2025-04-26 20:07:21,986 - SecurityToolsIntegration - INFO - Installing NucleiScanner...
+2025-04-26 20:07:21,986 - NucleiIntegration - INFO - Finding latest Nuclei release...
+2025-04-26 20:07:22,309 - NucleiIntegration - ERROR - Failed to get latest release info: Could not find download for nuclei_windows_amd64.zip in release v3.4.2
+2025-04-26 20:07:22,309 - NucleiIntegration - INFO - Using hardcoded download URL for Nuclei...
+2025-04-26 20:07:22,309 - NucleiIntegration - INFO - Downloading Nuclei v2.9.4 from https://github.com/projectdiscovery/nuclei/releases/download/v2.9.4/nuclei_windows_amd64.zip
+2025-04-26 20:07:22,883 - SecurityToolsIntegration - ERROR - Failed to download https://github.com/projectdiscovery/nuclei/releases/download/v2.9.4/nuclei_windows_amd64.zip: 404 Client Error: Not Found for url: https://github.com/projectdiscovery/nuclei/releases/download/v2.9.4/nuclei_windows_amd64.zip
+2025-04-26 20:07:22,891 - SecurityToolsIntegration - ERROR - Failed to initialize NucleiScanner: Failed to download Nuclei
+2025-04-26 20:07:22,891 - ExploitSearchSystem - WARNING - No services detected via security tools, attempting manual detection
+2025-04-26 20:07:22,893 - ExploitSearchSystem - INFO - Service detection completed. Found 0 services.
+2025-04-26 20:07:22,893 - UnifiedSecurityInterface - ERROR - No services detected or provided for exploit search
+2025-04-26 20:07:22,893 - UnifiedSecurityInterface - INFO - Starting Mode 5: Generating exploit technical report
+2025-04-26 20:07:22,893 - UnifiedSecurityInterface - WARNING - No reports were generated
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:24,090 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:24,310 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:24,310 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:07:24,788 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:07:24,788 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:07:24,802 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:07:24,804 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:07:24,814 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:07:24,814 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:07:24,814 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:07:24,814 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:07:24,814 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:07:24,814 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:07:24,831 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:24,831 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:24,832 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:24,834 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:07:24,835 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:24,843 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:24,847 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:07:24,849 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:07:25,714 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:07:25,714 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:07:25,714 - UnifiedSecurityInterface - INFO - SecurityToolIntegrator initialized
+2025-04-26 20:07:25,714 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:25,714 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 20:07:25,714 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 20:07:25,747 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 20:07:25,747 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 20:07:25,761 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 20:07:25,761 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 20:07:25,766 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 20:07:25,766 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 20:07:25,766 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 20:07:25,766 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 20:07:25,766 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 20:07:25,766 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 20:07:25,777 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 20:07:25,777 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 20:07:25,777 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 20:07:25,777 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 20:07:25,777 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 20:07:25,787 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 20:07:25,787 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 20:07:25,787 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 20:07:25,787 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 20:07:25,787 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 20:07:25,787 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 20:07:25,793 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\beefframework.py: invalid syntax (beefframework.py, line 65)
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\metasploitframework.py: invalid syntax (metasploitframework.py, line 65)
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\niktoscanner.py: invalid syntax (niktoscanner.py, line 65)
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\nmapscanner.py: invalid syntax (nmapscanner.py, line 65)
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\owaspzap.py: invalid syntax (owaspzap.py, line 65)
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\sqlmaptool.py: invalid syntax (sqlmaptool.py, line 65)
+2025-04-26 20:07:25,793 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\tcpdumpanalyzer.py: invalid syntax (tcpdumpanalyzer.py, line 65)
+2025-04-26 20:07:25,809 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\w3afscanner.py: invalid syntax (w3afscanner.py, line 65)
+2025-04-26 20:07:25,809 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\wiresharkanalyzer.py: invalid syntax (wiresharkanalyzer.py, line 65)
+2025-04-26 20:07:25,809 - SecurityIntegrator - WARNING - Error inspecting .\standalone_tools\xssertool.py: invalid syntax (xssertool.py, line 65)
+2025-04-26 20:07:26,692 - SecurityIntegrator - INFO - Discovered 62 security tools
+2025-04-26 20:07:26,692 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 62 tools
+2025-04-26 20:07:26,692 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 20:07:26,692 - UnifiedSecurityInterface - INFO - UnifiedSecuritySystem initialized
+2025-04-26 20:07:26,699 - UnifiedSecurityInterface - INFO - VulnerabilityReporter initialized
+2025-04-26 20:07:26,699 - SecurityToolsIntegration - INFO - Installing ExploitDB...
+2025-04-26 20:07:26,699 - ExploitDBIntegration - INFO - Cloning Exploit-DB repository...
+2025-04-26 20:07:26,715 - SecurityToolsIntegration - WARNING - Command returned non-zero exit code 128: fatal: destination path 'C:\Users\User\.security_tools\exploitdb' already exists and is not an empty directory.
+
+2025-04-26 20:07:26,715 - ExploitDBIntegration - INFO - Git clone failed, trying direct download...
+2025-04-26 20:07:27,215 - SecurityToolsIntegration - INFO - Downloaded https://github.com/offensive-security/exploitdb/archive/master.zip to C:\Users\User\.security_tools\exploitdb\exploitdb.zip
+2025-04-26 20:07:27,224 - SecurityToolsIntegration - ERROR - Failed to initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:27,225 - ExploitSearchSystem - WARNING - Could not initialize ExploitDB: Exploit-DB is not installed
+2025-04-26 20:07:27,236 - SecurityToolsIntegration - INFO - Installing MetasploitExploitDB...
+2025-04-26 20:07:27,236 - MetasploitIntegration - INFO - Please install Metasploit for Windows from https://windows.metasploit.com/
+2025-04-26 20:07:27,236 - ExploitSearchSystem - INFO - Initialized exploit database: MetasploitExploitDB
+2025-04-26 20:07:27,236 - ExploitSearchSystem - WARNING - Could not initialize VulnersScanner: Unknown security tool: VulnersScanner
+2025-04-26 20:07:27,237 - ExploitSearchSystem - INFO - Initialized exploit database: NVDDatabase
+2025-04-26 20:07:27,241 - ExploitSearchSystem - INFO - Initialized exploit database: Rapid7Database
+2025-04-26 20:07:27,241 - ExploitSearchSystem - INFO - Exploit Search System initialized with output directory: detailed_reports_20250426_2006\assessment_20250426_200724\exploit_search\exploit_search_20250426_200726
+2025-04-26 20:07:27,241 - UnifiedSecurityInterface - INFO - ExploitSearchSystem initialized
+2025-04-26 20:07:27,241 - UnifiedSecurityInterface - INFO - Discovered 86 security tools
+2025-04-26 20:07:27,241 - UnifiedSecurityInterface - INFO - Unified Security Interface initialized for target: None

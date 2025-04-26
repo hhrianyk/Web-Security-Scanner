@@ -1,0 +1,20 @@
+{
+    "timestamp": "20250425_214042",
+    "target": "example.com",
+    "summary": {
+        "error": "SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'"
+    },
+    "network": {
+        "error": "SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'"
+    },
+    "osint": {},
+    "web": {
+        "error": "VulnerabilityScanner.__init__() got an unexpected keyword argument 'target_url'"
+    },
+    "ai_analysis": {},
+    "social_engineering": {},
+    "comprehensive_tests": {},
+    "remediation": {
+        "error": "SecurityScanner.__init__() missing 2 required positional arguments: 'target_url' and 'scan_id'"
+    }
+}

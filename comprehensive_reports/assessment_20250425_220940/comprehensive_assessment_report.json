@@ -1,0 +1,144 @@
+{
+    "scan_id": "1745604579",
+    "timestamp": "20250425_220940",
+    "target": "http://example.com",
+    "summary": {},
+    "reconnaissance": {
+        "passive": {
+            "whois": {
+                "domain_name": "EXAMPLE.COM",
+                "registrar": "RESERVED-Internet Assigned Numbers Authority",
+                "creation_date": "1995-08-14 04:00:00",
+                "expiration_date": "2025-08-13 04:00:00",
+                "name_servers": [
+                    "A.IANA-SERVERS.NET",
+                    "B.IANA-SERVERS.NET"
+                ],
+                "status": [
+                    "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+                    "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+                    "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+                ],
+                "emails": null
+            },
+            "dns": {
+                "a_records": [
+                    "23.215.0.138",
+                    "23.215.0.136",
+                    "23.192.228.80",
+                    "96.7.128.198",
+                    "96.7.128.175",
+                    "23.192.228.84"
+                ],
+                "aaaa_records": [
+                    "2600:1406:3a00:21::173e:2e65",
+                    "2600:1408:ec00:36::1736:7f24",
+                    "2600:1408:ec00:36::1736:7f31",
+                    "2600:1406:3a00:21::173e:2e66",
+                    "2600:1406:bc00:53::b81e:94c8",
+                    "2600:1406:bc00:53::b81e:94ce"
+                ],
+                "mx_records": [
+                    "0 ."
+                ],
+                "ns_records": [
+                    "a.iana-servers.net.",
+                    "b.iana-servers.net."
+                ],
+                "txt_records": [
+                    "\"v=spf1 -all\"",
+                    "\"_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9\""
+                ],
+                "cname_records": []
+            },
+            "subdomains": {
+                "status": "OSINT module not available"
+            },
+            "wayback_machine": {
+                "available": false
+            }
+        },
+        "active": {
+            "port_scan": {
+                "error": "'nmap program was not found in path. PATH is : c:\\\\Users\\\\User\\\\.cursor\\\\extensions\\\\ms-python.python-2024.12.3-win32-x64\\\\python_files\\\\deactivate\\\\powershell;C:\\\\Users\\\\User\\\\Desktop\\\\dreiner\\\\venv\\\\Scripts;c:\\\\Users\\\\User\\\\.cursor\\\\extensions\\\\ms-python.python-2024.12.3-win32-x64\\\\python_files\\\\deactivate\\\\powershell;C:\\\\Users\\\\User\\\\Desktop\\\\dreiner\\\\venv\\\\Scripts;C:\\\\WINDOWS\\\\system32;C:\\\\WINDOWS;C:\\\\WINDOWS\\\\System32\\\\Wbem;C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\;C:\\\\WINDOWS\\\\System32\\\\OpenSSH\\\\;C:\\\\Program Files (x86)\\\\NVIDIA Corporation\\\\PhysX\\\\Common;C:\\\\Program Files\\\\NVIDIA Corporation\\\\NVIDIA NvDLISR;c:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\cursor\\\\resources\\\\app\\\\bin;C:\\\\Program Files\\\\nodejs\\\\;C:\\\\Program Files\\\\Git\\\\cmd;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Launcher\\\\;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\cursor\\\\resources\\\\app\\\\bin;C:\\\\Users\\\\User\\\\AppData\\\\Roaming\\\\npm'"
+            },
+            "site_structure": {
+                "total_links_found": 0,
+                "unique_paths": []
+            },
+            "technologies": [],
+            "directories": {
+                "error": "'VulnerabilityScanner' object has no attribute 'discover_directories'"
+            }
+        }
+    },
+    "architecture_analysis": {
+        "infrastructure": {
+            "load_balancer": {
+                "detected": false,
+                "unique_ips": [
+                    "23.192.228.84"
+                ]
+            },
+            "waf": {
+                "detected": false,
+                "type": "Unknown"
+            },
+            "cdn": {
+                "detected": false,
+                "provider": "Unknown"
+            },
+            "dns_configuration": {
+                "spf_record": true,
+                "dmarc_record": true,
+                "dnssec": true
+            }
+        },
+        "tech_stack": {
+            "versions": {},
+            "libraries": {
+                "javascript": [],
+                "css": []
+            },
+            "frameworks": [],
+            "databases": []
+        }
+    },
+    "manual_testing": {
+        "auth": {},
+        "business_logic": {}
+    },
+    "automated_scanning": {
+        "static": {},
+        "dynamic": {}
+    },
+    "specialized_testing": {
+        "api_security": {},
+        "frontend_security": {}
+    },
+    "indepth_testing": {
+        "crypto_security": {},
+        "network_security": {}
+    },
+    "security_mechanisms": {
+        "waf_testing": {},
+        "ids_testing": {}
+    },
+    "resilience_testing": {
+        "load_testing": {},
+        "failover_testing": {}
+    },
+    "data_analysis": {
+        "data_protection": {},
+        "privacy": {}
+    },
+    "remediation": {},
+    "status": "Technology stack analysis completed",
+    "vulnerabilities": [],
+    "section_status": {
+        "passive_recon": "Passive reconnaissance completed",
+        "active_recon": "Active reconnaissance completed",
+        "infrastructure": "Infrastructure analysis completed",
+        "tech_stack": "Technology stack analysis completed"
+    }
+}

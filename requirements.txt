@@ -1,0 +1,93 @@
+# Core requirements
+requests>=2.28.1
+flask>=2.2.2
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+colorama>=0.4.6
+tqdm>=4.64.1
+beautifulsoup4>=4.11.1
+jsonschema>=4.17.3
+jinja2>=3.1.2
+xmltodict>=0.13.0
+
+# Network scanning tools
+python-nmap>=0.7.1
+scapy>=2.5.0
+netifaces>=0.11.0
+pyshark>=0.6
+
+# Web vulnerability scanning
+selenium>=4.7.2
+mechanize>=0.4.8
+w3lib>=2.1.1
+lxml>=4.9.2
+
+# Parsing and reporting
+markdown>=3.4.1
+mdx-gh-links>=0.2
+xhtml2pdf>=0.2.8
+reportlab>=3.6.12
+pygments>=2.14.0
+pdfkit>=1.0.0
+
+# AI components (optional)
+# torch>=2.0.0
+# transformers>=4.26.0
+# nltk>=3.8.1
+openai>=1.0.0
+anthropic>=0.21.0
+# google-generativeai>=0.7.0
+
+# Authentication and security
+bcrypt>=4.0.1
+cryptography>=39.0.0
+jwt>=1.3.1
+pyjwt>=2.7.0
+
+# Database
+pymongo>=4.3.3
+sqlalchemy>=2.0.15
+
+# API clients
+shodan>=1.28.0
+censys>=2.1.8
+dnspython>=2.3.0
+python-whois>=0.7.3
+
+# Exploit databases and vulnerability APIs
+vulners>=1.5.13
+exploitdb>=2.1.0
+pymetasploit3>=1.0.3
+nvdlib>=0.7.3
+rapid7vmconsole>=0.0.18
+
+# Analysis and visualization
+numpy>=1.24.3
+pandas>=1.5.3
+matplotlib>=3.7.0
+seaborn>=0.12.2
+tabulate>=0.9.0
+plotly>=5.15.0
+wordcloud>=1.9.0
+
+# Web framework extensions
+flask-wtf>=1.1.1
+flask-login>=0.6.2
+flask-restful>=0.3.9
+
+# Additional utilities
+gunicorn==20.1.0
+Werkzeug>=2.0.1
+argparse>=1.4.0
+aiohttp>=3.8.4
+urllib3>=1.26.15
+packaging>=23.1
+scrapy>=2.8.0
+concurrent-log-handler>=0.9.20
+retrying>=1.3.4
+python-dateutil>=2.8.2
+rich>=13.3.5
+
+# Testing
+pytest>=7.3.1
+pytest-cov>=4.1.0 

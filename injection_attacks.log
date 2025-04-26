@@ -1,0 +1,15 @@
+2025-04-26 14:54:59,617 - ComprehensiveTester - INFO - Initialized ComprehensiveTester for target: example.com
+2025-04-26 14:54:59,618 - ComprehensiveTester - INFO - Starting passive reconnaissance
+2025-04-26 14:54:59,624 - ComprehensiveTester - INFO - WHOIS data collected
+2025-04-26 14:54:59,823 - ComprehensiveTester - INFO - DNS records collected
+2025-04-26 14:55:00,809 - ComprehensiveTester - INFO - Error checking historical site data: Expecting value: line 1 column 1 (char 0)
+2025-04-26 14:55:00,810 - ComprehensiveTester - INFO - Passive reconnaissance completed
+2025-04-26 14:55:00,811 - ComprehensiveTester - INFO - Starting active reconnaissance
+2025-04-26 14:55:00,812 - ComprehensiveTester - INFO - Error during port scanning: 'nmap program was not found in path. PATH is : c:\\Users\\User\\.cursor\\extensions\\ms-python.python-2024.12.3-win32-x64\\python_files\\deactivate\\powershell;C:\\Users\\User\\Desktop\\dreiner\\venv\\Scripts;c:\\Users\\User\\.cursor\\extensions\\ms-python.python-2024.12.3-win32-x64\\python_files\\deactivate\\powershell;C:\\Users\\User\\Desktop\\dreiner\\venv\\Scripts;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;c:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\User\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin;C:\\Users\\User\\AppData\\Roaming\\npm'
+2025-04-26 14:55:00,812 - ComprehensiveTester - INFO - Error during site structure analysis: Invalid URL 'example.com': No scheme supplied. Perhaps you meant https://example.com?
+2025-04-26 14:55:00,813 - ComprehensiveTester - INFO - Error during technology identification: cannot access local variable 'response' where it is not associated with a value
+2025-04-26 14:55:00,813 - VulnerabilityScanner - INFO - Starting directory discovery for example.com
+2025-04-26 14:55:00,841 - VulnerabilityScanner - INFO - Directory discovery completed. Found 0 directories and 0 files
+2025-04-26 14:55:00,841 - ComprehensiveTester - INFO - Directory discovery completed, found 4 directories
+2025-04-26 14:55:00,842 - ComprehensiveTester - INFO - Active reconnaissance completed
+2025-04-26 14:55:00,842 - ComprehensiveTester - INFO - Assessment results saved to security_assessment\assessment_20250426_145459\comprehensive_assessment_report.json

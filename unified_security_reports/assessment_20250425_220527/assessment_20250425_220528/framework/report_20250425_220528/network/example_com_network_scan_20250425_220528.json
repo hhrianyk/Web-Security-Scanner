@@ -1,0 +1,165 @@
+{
+    "timestamp": "2025-04-25 22:05:28",
+    "target": "example.com",
+    "port_scan": {
+        "error": "Error during port scan: 'nmap program was not found in path. PATH is : c:\\\\Users\\\\User\\\\.cursor\\\\extensions\\\\ms-python.python-2024.12.3-win32-x64\\\\python_files\\\\deactivate\\\\powershell;C:\\\\Users\\\\User\\\\Desktop\\\\dreiner\\\\venv\\\\Scripts;c:\\\\Users\\\\User\\\\.cursor\\\\extensions\\\\ms-python.python-2024.12.3-win32-x64\\\\python_files\\\\deactivate\\\\powershell;C:\\\\Users\\\\User\\\\Desktop\\\\dreiner\\\\venv\\\\Scripts;C:\\\\WINDOWS\\\\system32;C:\\\\WINDOWS;C:\\\\WINDOWS\\\\System32\\\\Wbem;C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\;C:\\\\WINDOWS\\\\System32\\\\OpenSSH\\\\;C:\\\\Program Files (x86)\\\\NVIDIA Corporation\\\\PhysX\\\\Common;C:\\\\Program Files\\\\NVIDIA Corporation\\\\NVIDIA NvDLISR;c:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\cursor\\\\resources\\\\app\\\\bin;C:\\\\Program Files\\\\nodejs\\\\;C:\\\\Program Files\\\\Git\\\\cmd;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Launcher\\\\;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\cursor\\\\resources\\\\app\\\\bin;C:\\\\Users\\\\User\\\\AppData\\\\Roaming\\\\npm'"
+    },
+    "ssl_analysis": {
+        "certificate": {
+            "subject": {
+                "countryName": "US",
+                "stateOrProvinceName": "California",
+                "localityName": "Los Angeles",
+                "organizationName": "Internet Corporation for Assigned Names and Numbers",
+                "commonName": "*.example.com"
+            },
+            "issuer": {
+                "countryName": "US",
+                "organizationName": "DigiCert Inc",
+                "commonName": "DigiCert Global G3 TLS ECC SHA384 2020 CA1"
+            },
+            "valid_from": "Jan 15 00:00:00 2025 GMT",
+            "valid_until": "Jan 15 23:59:59 2026 GMT",
+            "san": [
+                [
+                    "DNS",
+                    "*.example.com"
+                ],
+                [
+                    "DNS",
+                    "example.com"
+                ]
+            ]
+        },
+        "connection": {
+            "protocol": "TLSv1.3",
+            "cipher_suite": "TLS_AES_256_GCM_SHA384",
+            "encryption_method": "TLSv1.3",
+            "bits": 256
+        },
+        "security_assessment": {
+            "is_secure_protocol": true,
+            "recommendations": []
+        }
+    },
+    "network_devices": {},
+    "traffic_analysis": {},
+    "firewall_detection": {
+        "target": "example.com",
+        "firewall_detected": false,
+        "firewall_type": "Unknown",
+        "port_responses": {
+            "21": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "22": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "25": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "80": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "443": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "3306": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "3389": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            }
+        },
+        "behavior_analysis": {}
+    },
+    "vulnerability_correlation": {
+        "vulnerabilities_found": 0,
+        "severity_summary": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "low": 0,
+            "info": 0
+        },
+        "vulnerabilities": [],
+        "correlation_timestamp": "2025-04-25 22:05:28"
+    }
+}

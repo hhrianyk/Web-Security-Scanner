@@ -1,0 +1,61 @@
+2025-04-26 15:30:21,489 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:30:21,489 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 15:30:21,489 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 15:30:25,798 - SecurityIntegrator - WARNING - Error inspecting .\bandit_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:25,807 - SecurityIntegrator - WARNING - Error inspecting .\burpsuite_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:25,981 - SecurityIntegrator - WARNING - Error inspecting .\dirbuster_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:25,996 - SecurityIntegrator - WARNING - Error inspecting .\exploitdb_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,094 - SecurityIntegrator - WARNING - Error inspecting .\integrate_security_tools.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,098 - SecurityIntegrator - WARNING - Error inspecting .\metasploit_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,115 - SecurityIntegrator - WARNING - Error inspecting .\mitmproxy_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,125 - SecurityIntegrator - WARNING - Error inspecting .\nessus_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,140 - SecurityIntegrator - WARNING - Error inspecting .\nuclei_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,149 - SecurityIntegrator - WARNING - Error inspecting .\nvd_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,165 - SecurityIntegrator - WARNING - Error inspecting .\rapid7_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,183 - SecurityIntegrator - WARNING - Error inspecting .\security_tools_integration.py: (unicode error) 'unicodeescape' codec can't decode bytes in position 16-17: malformed \N character escape (security_tools_integration.py, line 895)
+2025-04-26 15:30:26,204 - SecurityIntegrator - WARNING - Error inspecting .\sonarqube_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:30:26,210 - StandaloneSecurityTools - ERROR - Unable to import security_tools_manager. Make sure security_tools_integration.py is available.
+2025-04-26 15:30:26,265 - SecurityIntegrator - WARNING - Error inspecting .\vulners_integration.py: cannot import name 'SecurityToolBase' from 'security_tools_integration' (C:\Users\User\Desktop\dreiner\.\security_tools_integration.py)
+2025-04-26 15:30:26,757 - SecurityIntegrator - INFO - Discovered 37 security tools
+2025-04-26 15:30:26,757 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 37 tools
+2025-04-26 15:30:26,757 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:25:35,741 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:25:35,984 - UnifiedSecurityTools - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:25:35,985 - SecurityIntegrator - INFO - Loaded unified configuration from unified_config.json
+2025-04-26 16:25:35,985 - SecurityIntegrator - INFO - Discovering security tools in .
+2025-04-26 16:25:36,490 - SecurityToolsIntegration - INFO - Registered security tool: Bandit
+2025-04-26 16:25:36,491 - SecurityToolsIntegration - INFO - Registered security tool: BurpSuiteCommunity
+2025-04-26 16:25:36,507 - SecurityToolsIntegration - INFO - Registered security tool: DirBuster
+2025-04-26 16:25:36,508 - SecurityToolsIntegration - INFO - Registered security tool: ExploitDB
+2025-04-26 16:25:36,521 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitExploitDB
+2025-04-26 16:25:36,522 - SecurityToolsIntegration - INFO - Registered security tool: Mitmproxy
+2025-04-26 16:25:36,522 - SecurityToolsIntegration - INFO - Registered security tool: NessusScanner
+2025-04-26 16:25:36,524 - SecurityToolsIntegration - INFO - Registered security tool: NucleiScanner
+2025-04-26 16:25:36,525 - SecurityToolsIntegration - INFO - Registered security tool: NVDDatabase
+2025-04-26 16:25:36,526 - SecurityToolsIntegration - INFO - Registered security tool: Rapid7Database
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: OwaspZAP
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: NiktoScanner
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: W3afScanner
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: NmapScanner
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: WiresharkAnalyzer
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: TCPDumpAnalyzer
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: SQLMapTool
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: XSSerTool
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: MetasploitFramework
+2025-04-26 16:25:36,537 - SecurityToolsIntegration - INFO - Registered security tool: BeEFFramework
+2025-04-26 16:25:36,541 - SecurityToolsIntegration - INFO - Registered security tool: SonarQubeCommunity
+2025-04-26 16:25:36,541 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:25:36,552 - SecurityToolsIntegration - INFO - Registered security tool: VulnersScanner
+2025-04-26 16:25:37,360 - SecurityIntegrator - INFO - Discovered 61 security tools
+2025-04-26 16:25:37,361 - SecurityIntegrator - INFO - Initialized SecurityToolIntegrator with 61 tools
+2025-04-26 16:25:37,361 - UnifiedSecurityTools - INFO - Unified Security System initialized
+2025-04-26 16:25:37,361 - UnifiedSecurityTools - INFO - Starting web interface on http://127.0.0.1:5000

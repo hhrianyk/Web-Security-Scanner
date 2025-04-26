@@ -1,0 +1,23 @@
+# Core dependencies
+requests>=2.26.0
+beautifulsoup4>=4.10.0
+dnspython>=2.1.0
+python-whois>=0.7.3
+python-nmap>=0.7.1
+
+# Security tools
+cryptography>=36.0.0
+pyOpenSSL>=21.0.0
+
+# For JSON and XML parsing
+lxml>=4.6.3
+
+# For terminal output
+colorama>=0.4.4
+tqdm>=4.62.3
+
+# For HTTP communications
+urllib3>=1.26.7
+
+# For HTML report generation
+jinja2>=3.0.3 

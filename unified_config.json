@@ -1,0 +1,157 @@
+{
+  "output_dir": "unified_security_reports",
+  "data_dir": "security_data",
+  "temp_dir": "temp",
+  "parallel_execution": true,
+  "max_workers": 8,
+  "timeout": 1800,
+  "default_modules": [
+    "network",
+    "osint",
+    "web",
+    "ai",
+    "social",
+    "comprehensive",
+    "report",
+    "dns",
+    "exploit"
+  ],
+  "report_formats": [
+    "json",
+    "html",
+    "pdf"
+  ],
+  "save_raw_data": true,
+  "web_interface": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 5000,
+    "debug": false,
+    "open_browser": true
+  },
+  "notifications": {
+    "enabled": false,
+    "email": {
+      "enabled": false,
+      "smtp_server": "smtp.example.com",
+      "smtp_port": 587,
+      "sender": "security@example.com",
+      "recipients": []
+    },
+    "slack": {
+      "enabled": false,
+      "webhook_url": ""
+    },
+    "webhook": {
+      "enabled": false,
+      "url": ""
+    }
+  },
+  "tool_discovery": {
+    "scan_subfolders": true,
+    "exclude_patterns": [
+      "__pycache__",
+      "venv",
+      ".git",
+      "node_modules"
+    ],
+    "require_capability_method": true
+  },
+  "execution": {
+    "parallel_execution": true,
+    "max_workers": 8,
+    "timeout": 1800
+  },
+  "reporting": {
+    "save_results": true,
+    "results_dir": "unified_security_reports",
+    "formats": [
+      "json",
+      "html",
+      "pdf"
+    ]
+  },
+  "integration": {
+    "web_interface": true,
+    "api_interface": true,
+    "cli_interface": true,
+    "notifications": false
+  },
+  "scheduling": {
+    "enabled": false,
+    "interval": "daily",
+    "time": "03:00"
+  },
+  "modules": {
+    "network_scanning": {
+      "enabled": true,
+      "port_range": "1-1000",
+      "scan_speed": "normal",
+      "detect_os": true,
+      "service_detection": true
+    },
+    "osint_reconnaissance": {
+      "enabled": true,
+      "whois_lookup": true,
+      "dns_lookup": true,
+      "email_harvesting": true,
+      "social_media_search": true
+    },
+    "web_vulnerability_scanning": {
+      "enabled": true,
+      "scan_depth": "deep",
+      "active_scanning": true,
+      "passive_scanning": true,
+      "authenticated_scan": false,
+      "target_frameworks": []
+    },
+    "ai_security_analysis": {
+      "enabled": true,
+      "analyze_results": true,
+      "generate_recommendations": true,
+      "risk_assessment": true
+    },
+    "social_engineering": {
+      "enabled": false,
+      "phishing_templates": false,
+      "social_media_analysis": true
+    },
+    "dns_spoofing": {
+      "enabled": false,
+      "require_root": true,
+      "test_mode_only": true
+    },
+    "exploitation": {
+      "enabled": false,
+      "passive_only": true,
+      "safe_checks": true
+    },
+    "comprehensive_testing": {
+      "enabled": true,
+      "include_all_modules": true,
+      "advanced_techniques": false
+    },
+    "client_reporting": {
+      "enabled": true,
+      "executive_summary": true,
+      "technical_details": true,
+      "remediation_steps": true,
+      "include_evidence": true,
+      "risk_scoring": true
+    }
+  },
+  "credentials": {
+    "web_targets": {
+      "default": {
+        "username": "",
+        "password": ""
+      }
+    },
+    "api_keys": {
+      "shodan": "",
+      "censys": "",
+      "virustotal": "",
+      "securitytrails": ""
+    }
+  }
+} 

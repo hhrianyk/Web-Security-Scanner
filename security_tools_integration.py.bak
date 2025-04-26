@@ -1,0 +1,2792 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import json
+import logging
+import subprocess
+import shutil
+import requests
+from typing import Dict, List, Any, Optional, Union
+import importlib
+import platform
+import tempfile
+import time
+import datetime
+import dotenv
+import zipfile
+import tarfile
+import re
+import xmltodict
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("security_tools_integration.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger("SecurityToolsIntegration")
+
+# Load environment variables
+dotenv.load_dotenv()
+
+class SecurityToolBase:
+    """Base class for all security tools"""
+    
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": cls.__name__,
+            "description": cls.__doc__.strip() if cls.__doc__ else "No description",
+            "actions": [],
+            "target_types": ["unknown"],
+            "output_formats": ["json", "console"],
+            "dependencies": []
+        }
+    
+    def check_installation(self):
+        """Check if the tool is installed and available"""
+        raise NotImplementedError("Subclasses must implement this method")
+    
+    def install(self):
+        """Install the tool if not already installed"""
+        raise NotImplementedError("Subclasses must implement this method")
+
+    def run_command(self, command, shell=False, timeout=3600):
+        """Run a shell command and return the output"""
+        try:
+            logger.debug(f"Running command: {command}")
+            process = subprocess.Popen(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                shell=shell,
+                universal_newlines=True
+            )
+            stdout, stderr = process.communicate(timeout=timeout)
+            
+            if process.returncode != 0:
+                logger.warning(f"Command returned non-zero exit code {process.returncode}: {stderr}")
+            
+            return {
+                "returncode": process.returncode,
+                "stdout": stdout,
+                "stderr": stderr
+            }
+        except subprocess.TimeoutExpired:
+            process.kill()
+            logger.error(f"Command timed out after {timeout} seconds: {command}")
+            return {
+                "returncode": -1,
+                "stdout": "",
+                "stderr": f"Command timed out after {timeout} seconds"
+            }
+        except Exception as e:
+            logger.error(f"Error running command {command}: {str(e)}")
+            return {
+                "returncode": -1,
+                "stdout": "",
+                "stderr": str(e)
+            }
+
+
+class SecurityToolsManager:
+    """Manager class for all security tools"""
+    
+    def __init__(self):
+        self.tools = {}
+        self.initialized_tools = {}
+    
+    def register_tool(self, tool_class):
+        """Register a security tool"""
+        tool_name = tool_class.__name__
+        self.tools[tool_name] = tool_class
+        logger.info(f"Registered security tool: {tool_name}")
+        return tool_class
+    
+    def get_tool(self, tool_name, initialize=True, **kwargs):
+        """Get a security tool instance"""
+        if tool_name not in self.tools:
+            raise ValueError(f"Unknown security tool: {tool_name}")
+        
+        # Return existing instance if already initialized
+        if tool_name in self.initialized_tools:
+            return self.initialized_tools[tool_name]
+        
+        # Create and initialize a new instance
+        if initialize:
+            tool = self.tools[tool_name]()
+            try:
+                # Check if tool is installed
+                if not tool.check_installation():
+                    logger.info(f"Installing {tool_name}...")
+                    tool.install()
+                
+                self.initialized_tools[tool_name] = tool
+                return tool
+            except Exception as e:
+                logger.error(f"Failed to initialize {tool_name}: {e}")
+                raise
+        else:
+            return self.tools[tool_name]()
+    
+    def list_tools(self):
+        """List all registered security tools"""
+        return {name: tool.get_capabilities() for name, tool in self.tools.items()}
+
+
+# Create a global manager instance
+security_tools_manager = SecurityToolsManager()
+
+# Decorator for registering tools
+def register_tool(cls):
+    """Decorator to register a security tool"""
+    return security_tools_manager.register_tool(cls)
+
+
+# Utility functions
+def download_file(url, output_path):
+    """Download a file from a URL to a local path"""
+    try:
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+        
+        with open(output_path, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+                
+        logger.info(f"Downloaded {url} to {output_path}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to download {url}: {e}")
+        return False
+
+
+def get_tools_directory():
+    """Get or create a directory for security tools"""
+    tools_dir = os.path.join(os.path.expanduser("~"), ".security_tools")
+    os.makedirs(tools_dir, exist_ok=True)
+    return tools_dir
+
+
+# Now we'll implement specific security tools
+
+@register_tool
+class OwaspZAP(SecurityToolBase):
+    """
+    OWASP ZAP (Zed Attack Proxy) - An open-source web application security scanner.
+    
+    Features:
+    - Automated scanning
+    - Traffic interception
+    - Active and passive scanning
+    - Script support
+    - CI/CD integration
+    """
+    
+    def __init__(self):
+        self.zap_path = os.path.join(get_tools_directory(), "zap")
+        self.zap_jar = os.path.join(self.zap_path, "zap.jar")
+        self.api_key = os.environ.get("ZAP_API_KEY", "")
+        self.zap_port = 8080
+        self.zap_api_url = f"http://localhost:{self.zap_port}/JSON"
+        self.zap_process = None
+        
+        # Try to import Python ZAP API
+        try:
+            from zapv2 import ZAPv2
+            self.zap_module_available = True
+        except ImportError:
+            self.zap_module_available = False
+            
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "OWASP ZAP",
+            "description": "Open-source web application security scanner",
+            "actions": ["web_scan", "active_scan", "passive_scan", "spider", "ajax_spider"],
+            "target_types": ["web_application", "api"],
+            "output_formats": ["json", "xml", "html", "console"],
+            "dependencies": ["java"]
+        }
+        
+    def check_installation(self):
+        """Check if ZAP is installed"""
+        if os.path.exists(self.zap_jar):
+            return True
+            
+        # Check if ZAP is in PATH
+        zap_in_path = shutil.which("zap.sh") or shutil.which("zap.bat") or shutil.which("zap")
+        if zap_in_path:
+            logger.info(f"Found ZAP in PATH: {zap_in_path}")
+            return True
+            
+        return False
+        
+    def install(self):
+        """Install ZAP"""
+        os.makedirs(self.zap_path, exist_ok=True)
+        
+        # Determine download URL based on platform
+        system = platform.system().lower()
+        if system == "windows":
+            url = "https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_windows.zip"
+            download_path = os.path.join(self.zap_path, "zap.zip")
+        elif system == "darwin":  # macOS
+            url = "https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_macos.dmg"
+            download_path = os.path.join(self.zap_path, "zap.dmg")
+        else:  # Linux and others
+            url = "https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_unix.sh"
+            download_path = os.path.join(self.zap_path, "zap_installer.sh")
+            
+        # Download ZAP
+        if not download_file(url, download_path):
+            raise Exception("Failed to download ZAP")
+            
+        # Extract or install ZAP
+        if system == "windows":
+            with zipfile.ZipFile(download_path, 'r') as zip_ref:
+                zip_ref.extractall(self.zap_path)
+            # Find the ZAP directory and zap.jar
+            for root, dirs, files in os.walk(self.zap_path):
+                if "zap.jar" in files:
+                    self.zap_jar = os.path.join(root, "zap.jar")
+                    break
+        elif system == "darwin":
+            logger.info("Please manually install ZAP from the downloaded .dmg file")
+            return False
+        else:
+            # Make the script executable
+            os.chmod(download_path, 0o755)
+            # Run the installer
+            result = self.run_command([download_path, "-d", self.zap_path])
+            if result["returncode"] != 0:
+                raise Exception(f"Failed to install ZAP: {result['stderr']}")
+                
+        # Install Python API if not available
+        if not self.zap_module_available:
+            self.run_command([sys.executable, "-m", "pip", "install", "python-owasp-zap-v2.4"])
+            
+        return self.check_installation()
+        
+    def start_zap(self, headless=True):
+        """Start ZAP process"""
+        if not self.check_installation():
+            raise Exception("ZAP is not installed")
+            
+        if self.is_zap_running():
+            logger.info("ZAP is already running")
+            return True
+            
+        java_path = shutil.which("java")
+        if not java_path:
+            raise Exception("Java is not installed")
+            
+        cmd = [
+            java_path, "-jar", self.zap_jar, 
+            "-daemon", 
+            "-port", str(self.zap_port)
+        ]
+        
+        if headless:
+            cmd.append("-config api.disablekey=true")
+            
+        if self.api_key:
+            cmd.extend(["-config", f"api.key={self.api_key}"])
+            
+        logger.info(f"Starting ZAP: {' '.join(cmd)}")
+        
+        try:
+            self.zap_process = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                universal_newlines=True
+            )
+            
+            # Wait for ZAP to start
+            time.sleep(10)
+            
+            # Check if ZAP started successfully
+            if not self.is_zap_running():
+                stdout, stderr = self.zap_process.communicate(timeout=5)
+                logger.error(f"Failed to start ZAP: {stderr}")
+                return False
+                
+            logger.info("ZAP started successfully")
+            return True
+        except Exception as e:
+            logger.error(f"Error starting ZAP: {str(e)}")
+            return False
+            
+    def is_zap_running(self):
+        """Check if ZAP is running"""
+        try:
+            response = requests.get(f"{self.zap_api_url}/core/view/version", timeout=5)
+            return response.status_code == 200
+        except:
+            return False
+            
+    def stop_zap(self):
+        """Stop ZAP process"""
+        if self.is_zap_running():
+            try:
+                # Try to stop ZAP gracefully
+                requests.get(f"{self.zap_api_url}/core/action/shutdown?apikey={self.api_key}")
+                # Wait for ZAP to stop
+                time.sleep(5)
+            except:
+                pass
+                
+        # Force kill if still running
+        if self.zap_process and self.zap_process.poll() is None:
+            self.zap_process.terminate()
+            try:
+                self.zap_process.wait(timeout=10)
+            except:
+                self.zap_process.kill()
+                
+        logger.info("ZAP stopped")
+        
+    def scan(self, target_url, scan_type="all", timeout=3600):
+        """Run a ZAP scan against a target URL"""
+        if not target_url.startswith(('http://', 'https://')):
+            target_url = f"https://{target_url}"
+            
+        # Start ZAP if not running
+        if not self.is_zap_running():
+            self.start_zap()
+            
+        # Use Python API if available
+        if self.zap_module_available:
+            try:
+                from zapv2 import ZAPv2
+                
+                # Connect to ZAP
+                zap = ZAPv2(apikey=self.api_key, proxies={"http": f"http://localhost:{self.zap_port}", "https": f"http://localhost:{self.zap_port}"})
+                
+                logger.info(f"ZAP version: {zap.core.version}")
+                
+                # Access the target
+                logger.info(f"Accessing target: {target_url}")
+                zap.urlopen(target_url)
+                
+                # Spider the target
+                logger.info(f"Spidering target: {target_url}")
+                scan_id = zap.spider.scan(target_url)
+                
+                # Wait for spider to complete
+                time.sleep(2)
+                while int(zap.spider.status(scan_id)) < 100:
+                    logger.info(f"Spider progress: {zap.spider.status(scan_id)}%")
+                    time.sleep(5)
+                    
+                logger.info("Spider completed")
+                
+                # Run active scan if requested
+                if scan_type in ["active", "all"]:
+                    logger.info(f"Active scanning target: {target_url}")
+                    scan_id = zap.ascan.scan(target_url)
+                    
+                    # Wait for active scan to complete
+                    time.sleep(5)
+                    while int(zap.ascan.status(scan_id)) < 100:
+                        logger.info(f"Active scan progress: {zap.ascan.status(scan_id)}%")
+                        time.sleep(10)
+                        
+                    logger.info("Active scan completed")
+                
+                # Get alerts
+                alerts = zap.core.alerts()
+                
+                # Generate report
+                report = {
+                    "scan_info": {
+                        "target": target_url,
+                        "scan_type": scan_type,
+                        "zap_version": zap.core.version,
+                        "timestamp": datetime.datetime.now().isoformat()
+                    },
+                    "alerts": alerts
+                }
+                
+                return report
+                
+            except Exception as e:
+                logger.error(f"Error using ZAP API: {str(e)}")
+                
+        # Fallback to command line if API not available
+        report_path = os.path.join(tempfile.gettempdir(), f"zap_report_{int(time.time())}.json")
+        
+        cmd = [
+            "java", "-jar", self.zap_jar,
+            "-cmd",
+            "-quickurl", target_url,
+            "-quickout", report_path
+        ]
+        
+        if scan_type == "active":
+            cmd.append("-quickprogress")
+            
+        result = self.run_command(cmd, timeout=timeout)
+        
+        if result["returncode"] != 0:
+            logger.error(f"ZAP scan failed: {result['stderr']}")
+            return {"error": result["stderr"]}
+            
+        # Read report
+        try:
+            with open(report_path, 'r') as f:
+                report_data = json.load(f)
+                
+            # Clean up
+            try:
+                os.remove(report_path)
+            except:
+                pass
+                
+            return report_data
+        except Exception as e:
+            logger.error(f"Error reading ZAP report: {str(e)}")
+            return {"error": str(e)}
+
+@register_tool
+class NiktoScanner(SecurityToolBase):
+    """
+    Nikto - Open Source web server scanner that performs comprehensive tests against web servers for vulnerabilities
+    
+    Features:
+    - Web server scanning
+    - Outdated version checks
+    - Insecure file checks
+    - Server configuration checks
+    - CMS vulnerability detection
+    """
+    
+    def __init__(self):
+        self.nikto_path = os.path.join(get_tools_directory(), "nikto")
+        self.nikto_script = os.path.join(self.nikto_path, "program", "nikto.pl")
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "Nikto Scanner",
+            "description": "Web server vulnerability scanner",
+            "actions": ["web_scan", "server_scan", "config_check"],
+            "target_types": ["web_server", "web_application"],
+            "output_formats": ["json", "xml", "csv", "txt"],
+            "dependencies": ["perl"]
+        }
+        
+    def check_installation(self):
+        """Check if Nikto is installed"""
+        # Check local installation
+        if os.path.exists(self.nikto_script):
+            return True
+            
+        # Check if in PATH
+        nikto_in_path = shutil.which("nikto") or shutil.which("nikto.pl")
+        if nikto_in_path:
+            self.nikto_script = nikto_in_path
+            return True
+            
+        return False
+        
+    def install(self):
+        """Install Nikto"""
+        os.makedirs(self.nikto_path, exist_ok=True)
+        
+        # Check if perl is installed
+        perl_path = shutil.which("perl")
+        if not perl_path:
+            raise Exception("Perl is required but not installed")
+            
+        # Clone Nikto repository
+        result = self.run_command(["git", "clone", "https://github.com/sullo/nikto", self.nikto_path])
+        
+        if result["returncode"] != 0:
+            # If git failed, try downloading as a zip file
+            download_url = "https://github.com/sullo/nikto/archive/master.zip"
+            zip_path = os.path.join(self.nikto_path, "nikto.zip")
+            
+            if not download_file(download_url, zip_path):
+                raise Exception("Failed to download Nikto")
+                
+            # Extract the zip file
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(self.nikto_path)
+                
+            # Find the extracted directory
+            for item in os.listdir(self.nikto_path):
+                item_path = os.path.join(self.nikto_path, item)
+                if os.path.isdir(item_path) and "nikto" in item.lower():
+                    # Move contents up one level
+                    for subitem in os.listdir(item_path):
+                        shutil.move(
+                            os.path.join(item_path, subitem),
+                            os.path.join(self.nikto_path, subitem)
+                        )
+                    # Remove the now-empty directory
+                    try:
+                        os.rmdir(item_path)
+                    except:
+                        pass
+                        
+            # Clean up zip file
+            try:
+                os.remove(zip_path)
+            except:
+                pass
+                
+        # Update nikto_script path
+        if os.path.exists(os.path.join(self.nikto_path, "program", "nikto.pl")):
+            self.nikto_script = os.path.join(self.nikto_path, "program", "nikto.pl")
+        else:
+            # Look for nikto.pl in the installation directory
+            for root, dirs, files in os.walk(self.nikto_path):
+                if "nikto.pl" in files:
+                    self.nikto_script = os.path.join(root, "nikto.pl")
+                    break
+                    
+        return self.check_installation()
+        
+    def scan(self, target, options=None, output_format="json"):
+        """Run a Nikto scan against a target"""
+        if not self.check_installation():
+            raise Exception("Nikto is not installed")
+            
+        # Prepare target URL
+        if not target.startswith(('http://', 'https://')):
+            target = f"http://{target}"
+            
+        # Create output file
+        output_file = os.path.join(tempfile.gettempdir(), f"nikto_scan_{int(time.time())}.{output_format}")
+        
+        # Build command
+        cmd = ["perl", self.nikto_script, "-h", target, "-o", output_file]
+        
+        if output_format in ["json", "csv", "xml", "txt"]:
+            cmd.extend(["-Format", output_format])
+            
+        # Add custom options
+        if options:
+            for option, value in options.items():
+                if option.startswith('-'):
+                    cmd.append(option)
+                    if value:
+                        cmd.append(str(value))
+                else:
+                    cmd.append(f"-{option}")
+                    if value:
+                        cmd.append(str(value))
+                        
+        # Run scan
+        logger.info(f"Running Nikto scan against {target}")
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.warning(f"Nikto scan ended with non-zero exit code: {result['returncode']}")
+            
+        # Check if output file was created
+        if not os.path.exists(output_file):
+            logger.error("Nikto did not generate an output file")
+            return {
+                "error": "No output file was generated",
+                "stdout": result["stdout"],
+                "stderr": result["stderr"]
+            }
+            
+        # Read and parse output file
+        try:
+            with open(output_file, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+                
+            # Parse based on format
+            if output_format == "json":
+                scan_results = json.loads(content)
+            elif output_format == "xml":
+                scan_results = xmltodict.parse(content)
+            else:
+                scan_results = {
+                    "raw_output": content,
+                    "stdout": result["stdout"]
+                }
+                
+            # Clean up
+            try:
+                os.remove(output_file)
+            except:
+                pass
+                
+            return {
+                "target": target,
+                "scan_time": datetime.datetime.now().isoformat(),
+                "results": scan_results
+            }
+            
+        except Exception as e:
+            logger.error(f"Error parsing Nikto output: {str(e)}")
+            return {
+                "error": str(e),
+                "stdout": result["stdout"],
+                "stderr": result["stderr"]
+            }
+
+@register_tool
+class W3afScanner(SecurityToolBase):
+    """
+    W3af - Open Source Web Application Attack and Audit Framework
+    
+    Features:
+    - Web application auditing
+    - Modular architecture
+    - Plugin support
+    - GUI and console interfaces
+    - Automated testing
+    """
+    
+    def __init__(self):
+        self.w3af_path = os.path.join(get_tools_directory(), "w3af")
+        self.w3af_script = os.path.join(self.w3af_path, "w3af_console")
+        self.profile_dir = os.path.join(self.w3af_path, "profiles")
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "W3af Scanner",
+            "description": "Web application attack and audit framework",
+            "actions": ["web_scan", "web_audit", "vulnerability_assessment"],
+            "target_types": ["web_application", "web_service"],
+            "output_formats": ["json", "xml", "html", "text"],
+            "dependencies": ["python2", "git"]
+        }
+        
+    def check_installation(self):
+        """Check if W3af is installed"""
+        if os.path.exists(self.w3af_script):
+            return True
+            
+        # Check if in PATH
+        w3af_in_path = shutil.which("w3af_console")
+        if w3af_in_path:
+            self.w3af_script = w3af_in_path
+            self.w3af_path = os.path.dirname(os.path.dirname(w3af_in_path))
+            self.profile_dir = os.path.join(self.w3af_path, "profiles")
+            return True
+            
+        return False
+        
+    def install(self):
+        """Install W3af"""
+        os.makedirs(self.w3af_path, exist_ok=True)
+        
+        # Clone W3af repository
+        result = self.run_command(["git", "clone", "https://github.com/andresriancho/w3af.git", self.w3af_path])
+        
+        if result["returncode"] != 0:
+            raise Exception(f"Failed to clone W3af repository: {result['stderr']}")
+            
+        # Install dependencies
+        logger.info("Installing W3af dependencies... This may take some time.")
+        
+        # Determine the right script to run
+        if platform.system().lower() == "windows":
+            setup_script = os.path.join(self.w3af_path, "w3af_dependency_install.bat")
+        else:
+            setup_script = os.path.join(self.w3af_path, "w3af_dependency_install.sh")
+            # Make the script executable
+            try:
+                os.chmod(setup_script, 0o755)
+            except:
+                pass
+                
+        if os.path.exists(setup_script):
+            result = self.run_command([setup_script], timeout=1800)  # 30-minute timeout
+            if result["returncode"] != 0:
+                logger.warning(f"W3af dependency installation may have issues: {result['stderr']}")
+        else:
+            logger.warning(f"W3af dependency installation script not found at {setup_script}")
+            
+        return self.check_installation()
+        
+    def create_profile(self, profile_name, plugins=None):
+        """Create a W3af profile with specified plugins"""
+        if not plugins:
+            plugins = {
+                "audit": ["xss", "sqli", "file_upload", "ldapi", "rfi", "csrf"],
+                "crawl": ["web_spider"],
+                "grep": ["all"],
+                "output": ["console", "text_file"]
+            }
+            
+        profile_path = os.path.join(self.profile_dir, f"{profile_name}.pw3af")
+        
+        with open(profile_path, 'w') as f:
+            f.write("[profile]\n")
+            f.write("description = Auto-generated profile\n")
+            f.write("name = {}\n\n".format(profile_name))
+            
+            # Write plugin configurations
+            for plugin_type, plugin_list in plugins.items():
+                f.write("[{}]\n".format(plugin_type))
+                for plugin in plugin_list:
+                    f.write("{}\n".format(plugin))
+                f.write("\n")
+                
+        return profile_path
+        
+    def scan(self, target, profile=None, output_file=None, options=None):
+        """Run a W3af scan against a target"""
+        if not self.check_installation():
+            raise Exception("W3af is not installed")
+            
+        # Prepare target URL
+        if not target.startswith(('http://', 'https://')):
+            target = f"http://{target}"
+            
+        # Use a default profile or create one if not specified
+        if not profile:
+            profile = "OWASP_TOP10"
+            if not os.path.exists(os.path.join(self.profile_dir, f"{profile}.pw3af")):
+                profile = "fast_scan"
+                if not os.path.exists(os.path.join(self.profile_dir, f"{profile}.pw3af")):
+                    profile_path = self.create_profile("custom_scan")
+                    profile = "custom_scan"
+        
+        # Set output file
+        if not output_file:
+            output_dir = tempfile.gettempdir()
+            output_file = os.path.join(output_dir, f"w3af_report_{int(time.time())}.json")
+            
+        # Create script file for w3af_console
+        script_file = os.path.join(tempfile.gettempdir(), f"w3af_script_{int(time.time())}.w3af")
+        with open(script_file, 'w') as f:
+            f.write(f"profiles use {profile}\n")
+            f.write(f"target set target {target}\n")
+            f.write("output config text_file\n")
+            f.write(f"set output_file {output_file}\n")
+            f.write("set verbose True\n")
+            f.write("back\n")
+            
+            # Add custom options
+            if options:
+                for section, settings in options.items():
+                    f.write(f"{section}\n")
+                    for key, value in settings.items():
+                        f.write(f"set {key} {value}\n")
+                    f.write("back\n")
+                    
+            f.write("start\n")
+            f.write("exit\n")
+            
+        # Run scan
+        logger.info(f"Running W3af scan against {target} using profile {profile}")
+        result = self.run_command([self.w3af_script, "-s", script_file], timeout=7200)  # 2-hour timeout
+        
+        # Clean up script file
+        try:
+            os.remove(script_file)
+        except:
+            pass
+            
+        # Check scan results
+        if not os.path.exists(output_file):
+            logger.error("W3af did not generate an output file")
+            return {
+                "error": "No output file was generated",
+                "stdout": result["stdout"],
+                "stderr": result["stderr"]
+            }
+            
+        # Parse output file
+        try:
+            with open(output_file, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+                
+            # Try to extract JSON data if available
+            json_data = {}
+            try:
+                # Look for JSON data in the output
+                json_match = re.search(r'({[\s\S]*})', content)
+                if json_match:
+                    json_data = json.loads(json_match.group(1))
+            except:
+                pass
+                
+            # Clean up
+            try:
+                os.remove(output_file)
+            except:
+                pass
+                
+            return {
+                "target": target,
+                "profile": profile,
+                "scan_time": datetime.datetime.now().isoformat(),
+                "results": json_data or {"raw_output": content},
+                "stdout": result["stdout"]
+            }
+            
+        except Exception as e:
+            logger.error(f"Error parsing W3af output: {str(e)}")
+            return {
+                "error": str(e),
+                "stdout": result["stdout"],
+                "stderr": result["stderr"]
+            } 
+
+@register_tool
+class NmapScanner(SecurityToolBase):
+    """
+    Nmap - Network Mapper is a security scanner for network exploration and security auditing
+    
+    Features:
+    - Port scanning
+    - OS detection
+    - Service detection
+    - NSE scripting engine
+    - Version scanning
+    """
+    
+    def __init__(self):
+        self.nmap_path = shutil.which("nmap")
+        
+        # Try to import python-nmap
+        try:
+            import nmap
+            self.nmap_module_available = True
+        except ImportError:
+            self.nmap_module_available = False
+            
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "Nmap Scanner",
+            "description": "Network exploration and security auditing tool",
+            "actions": ["port_scan", "os_detection", "service_detection", "script_scan", "version_detection"],
+            "target_types": ["network", "host", "ip_range", "domain"],
+            "output_formats": ["normal", "xml", "json", "grepable"],
+            "dependencies": []
+        }
+        
+    def check_installation(self):
+        """Check if Nmap is installed"""
+        return self.nmap_path is not None
+        
+    def install(self):
+        """Install Nmap"""
+        system = platform.system().lower()
+        
+        if system == "windows":
+            logger.info("Please install Nmap for Windows from https://nmap.org/download.html")
+            return False
+        elif system == "darwin":  # macOS
+            return self.run_command(["brew", "install", "nmap"])["returncode"] == 0
+        else:  # Linux
+            # Try apt for Debian/Ubuntu
+            apt_result = self.run_command(["apt-get", "update", "&&", "apt-get", "install", "-y", "nmap"], shell=True)
+            if apt_result["returncode"] == 0:
+                self.nmap_path = shutil.which("nmap")
+                return True
+                
+            # Try yum for RHEL/CentOS
+            yum_result = self.run_command(["yum", "install", "-y", "nmap"], shell=True)
+            if yum_result["returncode"] == 0:
+                self.nmap_path = shutil.which("nmap")
+                return True
+                
+            return False
+            
+    def scan(self, targets, arguments="-sV -sC -O", xml_output=None, json_output=None):
+        """Run an Nmap scan against one or more targets"""
+        if not self.check_installation():
+            raise Exception("Nmap is not installed")
+            
+        # Prepare targets
+        if isinstance(targets, list):
+            targets = " ".join(targets)
+            
+        # Check if python-nmap is available
+        if self.nmap_module_available:
+            try:
+                import nmap
+                nm = nmap.PortScanner()
+                logger.info(f"Running Nmap scan against {targets} with arguments: {arguments}")
+                nm.scan(hosts=targets, arguments=arguments)
+                
+                # Generate outputs if requested
+                if xml_output:
+                    with open(xml_output, 'w') as f:
+                        f.write(nm.get_nmap_last_output().decode('utf-8'))
+                        
+                if json_output:
+                    with open(json_output, 'w') as f:
+                        json.dump(nm.all_hosts(), f, indent=4)
+                        
+                return {
+                    "targets": targets,
+                    "arguments": arguments,
+                    "scan_time": datetime.datetime.now().isoformat(),
+                    "results": nm.all_hosts()
+                }
+            except Exception as e:
+                logger.error(f"Error using python-nmap: {str(e)}")
+                # Fall back to command-line version
+        
+        # Use command-line nmap
+        # Create output files if not specified
+        if not xml_output:
+            xml_output = os.path.join(tempfile.gettempdir(), f"nmap_scan_{int(time.time())}.xml")
+            
+        cmd = [self.nmap_path, "-oX", xml_output]
+        
+        # Add custom arguments
+        if arguments:
+            cmd.extend(arguments.split())
+            
+        # Add targets
+        cmd.append(targets)
+        
+        # Run scan
+        logger.info(f"Running Nmap scan: {' '.join(cmd)}")
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.error(f"Nmap scan failed: {result['stderr']}")
+            return {
+                "error": "Nmap scan failed",
+                "stdout": result["stdout"],
+                "stderr": result["stderr"]
+            }
+            
+        # Parse XML output
+        try:
+            with open(xml_output, 'r', encoding='utf-8') as f:
+                xml_content = f.read()
+                
+            # Convert XML to JSON
+            parsed_results = xmltodict.parse(xml_content)
+            
+            # Write JSON output if requested
+            if json_output:
+                with open(json_output, 'w') as f:
+                    json.dump(parsed_results, f, indent=4)
+                    
+            # Clean up XML file if it was auto-generated
+            if not xml_output:
+                try:
+                    os.remove(xml_output)
+                except:
+                    pass
+                    
+            return {
+                "targets": targets,
+                "arguments": arguments,
+                "scan_time": datetime.datetime.now().isoformat(),
+                "results": parsed_results
+            }
+            
+        except Exception as e:
+            logger.error(f"Error parsing Nmap output: {str(e)}")
+            return {
+                "error": str(e),
+                "stdout": result["stdout"],
+                "stderr": result["stderr"]
+            }
+            
+    def run_script(self, targets, script_name, script_args=None):
+        """Run an NSE script against targets"""
+        script_arg = f"--script={script_name}"
+        if script_args:
+            script_arg += f" --script-args={script_args}"
+            
+        return self.scan(targets, arguments=script_arg)
+        
+    def service_detection(self, targets):
+        """Detect services running on targets"""
+        return self.scan(targets, arguments="-sV")
+        
+    def os_detection(self, targets):
+        """Detect operating systems of targets"""
+        return self.scan(targets, arguments="-O")
+        
+    def comprehensive_scan(self, targets):
+        """Run a comprehensive scan against targets"""
+        return self.scan(targets, arguments="-sS -sV -sC -A -O")
+
+@register_tool
+class WiresharkAnalyzer(SecurityToolBase):
+    """
+    Wireshark - Network protocol analyzer for network troubleshooting and analysis
+    
+    Features:
+    - Network traffic analysis
+    - Packet capture
+    - Deep protocol analysis
+    - Traffic filtering
+    - Data export
+    """
+    
+    def __init__(self):
+        self.tshark_path = shutil.which("tshark")
+        self.dumpcap_path = shutil.which("dumpcap")
+        self.wireshark_path = shutil.which("wireshark")
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "Wireshark Analyzer",
+            "description": "Network protocol analyzer for traffic analysis",
+            "actions": ["capture", "analyze", "filter", "export"],
+            "target_types": ["network", "interface", "pcap_file"],
+            "output_formats": ["pcap", "pcapng", "json", "csv", "xml"],
+            "dependencies": []
+        }
+        
+    def check_installation(self):
+        """Check if Wireshark/TShark is installed"""
+        return self.tshark_path is not None
+        
+    def install(self):
+        """Install Wireshark"""
+        system = platform.system().lower()
+        
+        if system == "windows":
+            logger.info("Please install Wireshark for Windows from https://www.wireshark.org/download.html")
+            return False
+        elif system == "darwin":  # macOS
+            return self.run_command(["brew", "install", "wireshark"], shell=True)["returncode"] == 0
+        else:  # Linux
+            # Try apt for Debian/Ubuntu
+            apt_result = self.run_command(["apt-get", "update", "&&", "apt-get", "install", "-y", "wireshark", "tshark"], shell=True)
+            if apt_result["returncode"] == 0:
+                self.tshark_path = shutil.which("tshark")
+                self.dumpcap_path = shutil.which("dumpcap")
+                self.wireshark_path = shutil.which("wireshark")
+                return True
+                
+            # Try yum for RHEL/CentOS
+            yum_result = self.run_command(["yum", "install", "-y", "wireshark", "wireshark-cli"], shell=True)
+            if yum_result["returncode"] == 0:
+                self.tshark_path = shutil.which("tshark")
+                self.dumpcap_path = shutil.which("dumpcap")
+                self.wireshark_path = shutil.which("wireshark")
+                return True
+                
+            return False
+            
+    def capture(self, interface, output_file, duration=60, filter_expr=None, packet_count=None):
+        """Capture network traffic on an interface"""
+        if not self.check_installation():
+            raise Exception("Wireshark/TShark is not installed")
+            
+        # Use dumpcap for capture if available (more efficient than tshark)
+        capture_tool = self.dumpcap_path if self.dumpcap_path else self.tshark_path
+        
+        cmd = [capture_tool, "-i", interface, "-w", output_file]
+        
+        # Add capture filter
+        if filter_expr:
+            cmd.extend(["-f", filter_expr])
+            
+        # Add duration limit
+        if duration:
+            cmd.extend(["-a", f"duration:{duration}"])
+            
+        # Add packet count limit
+        if packet_count:
+            cmd.extend(["-c", str(packet_count)])
+            
+        # Run capture
+        logger.info(f"Starting traffic capture on interface {interface}")
+        
+        # Run with timeout
+        result = self.run_command(cmd, timeout=duration+10)
+        
+        if result["returncode"] != 0:
+            logger.error(f"Traffic capture failed: {result['stderr']}")
+            return {
+                "error": "Traffic capture failed",
+                "stderr": result["stderr"]
+            }
+            
+        if not os.path.exists(output_file):
+            return {
+                "error": "Capture file was not created",
+                "stderr": result["stderr"]
+            }
+            
+        return {
+            "interface": interface,
+            "capture_file": output_file,
+            "duration": duration,
+            "filter": filter_expr,
+            "status": "completed"
+        }
+        
+    def analyze(self, input_file, display_filter=None, output_format="json", output_file=None):
+        """Analyze a packet capture file"""
+        if not self.check_installation():
+            raise Exception("Wireshark/TShark is not installed")
+            
+        if not os.path.exists(input_file):
+            raise Exception(f"Input file not found: {input_file}")
+            
+        # Set default output file if not provided
+        if not output_file:
+            output_file = os.path.join(tempfile.gettempdir(), f"tshark_analysis_{int(time.time())}.{output_format}")
+            
+        cmd = [self.tshark_path, "-r", input_file]
+        
+        # Add display filter
+        if display_filter:
+            cmd.extend(["-Y", display_filter])
+            
+        # Configure output format
+        if output_format == "json":
+            cmd.extend(["-T", "json"])
+        elif output_format == "csv":
+            cmd.extend(["-T", "fields", "-E", "header=y", "-E", "separator=,"])
+        elif output_format == "xml":
+            cmd.extend(["-T", "pdml"])
+            
+        # Add output file
+        cmd.extend(["-w", output_file])
+        
+        # Run analysis
+        logger.info(f"Analyzing packet capture {input_file}")
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.error(f"Packet analysis failed: {result['stderr']}")
+            return {
+                "error": "Packet analysis failed",
+                "stderr": result["stderr"]
+            }
+            
+        # Read and parse output file
+        try:
+            if output_format == "json":
+                with open(output_file, 'r') as f:
+                    analysis_data = json.load(f)
+            elif output_format in ["csv", "xml"]:
+                with open(output_file, 'r') as f:
+                    analysis_data = f.read()
+            else:
+                analysis_data = result["stdout"]
+                
+            return {
+                "input_file": input_file,
+                "filter": display_filter,
+                "output_format": output_format,
+                "output_file": output_file,
+                "analysis": analysis_data
+            }
+            
+        except Exception as e:
+            logger.error(f"Error parsing analysis output: {str(e)}")
+            return {
+                "error": str(e),
+                "stderr": result["stderr"]
+            }
+    
+    def packet_statistics(self, input_file):
+        """Get statistics about packets in a capture file"""
+        if not self.check_installation():
+            raise Exception("Wireshark/TShark is not installed")
+            
+        if not os.path.exists(input_file):
+            raise Exception(f"Input file not found: {input_file}")
+            
+        # Run capinfos to get capture statistics
+        capinfos_path = shutil.which("capinfos")
+        if not capinfos_path:
+            capinfos_path = os.path.join(os.path.dirname(self.tshark_path), "capinfos")
+            
+        if os.path.exists(capinfos_path):
+            stats_cmd = [capinfos_path, "-T", "-m", input_file]
+            stats_result = self.run_command(stats_cmd)
+            
+            if stats_result["returncode"] == 0:
+                # Parse capinfos output
+                stats = {}
+                for line in stats_result["stdout"].split("\n"):
+                    if ":" in line:
+                        key, value = line.split(":", 1)
+                        stats[key.strip()] = value.strip()
+                        
+                return {
+                    "input_file": input_file,
+                    "statistics": stats
+                }
+        
+        # Fallback to using tshark for statistics
+        cmd = [self.tshark_path, "-r", input_file, "-q", "-z", "io,stat,1"]
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.error(f"Packet statistics failed: {result['stderr']}")
+            return {
+                "error": "Packet statistics failed",
+                "stderr": result["stderr"]
+            }
+            
+        return {
+            "input_file": input_file,
+            "statistics": result["stdout"]
+        }
+
+@register_tool
+class TCPDumpAnalyzer(SecurityToolBase):
+    """
+    TCPDump - Command-line packet analyzer
+    
+    Features:
+    - Console-based packet analyzer
+    - Traffic capture and analysis
+    - Protocol filtering
+    - Dump saving
+    - Network troubleshooting
+    """
+    
+    def __init__(self):
+        self.tcpdump_path = shutil.which("tcpdump")
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "TCPDump Analyzer",
+            "description": "Command-line packet analyzer for network traffic",
+            "actions": ["capture", "analyze", "filter"],
+            "target_types": ["network", "interface", "pcap_file"],
+            "output_formats": ["pcap", "text"],
+            "dependencies": []
+        }
+        
+    def check_installation(self):
+        """Check if TCPDump is installed"""
+        return self.tcpdump_path is not None
+        
+    def install(self):
+        """Install TCPDump"""
+        system = platform.system().lower()
+        
+        if system == "windows":
+            logger.info("TCPDump is not available for Windows. Please use WinDump or Wireshark instead.")
+            return False
+        elif system == "darwin":  # macOS
+            return self.run_command(["brew", "install", "tcpdump"])["returncode"] == 0
+        else:  # Linux
+            # Try apt for Debian/Ubuntu
+            apt_result = self.run_command(["apt-get", "update", "&&", "apt-get", "install", "-y", "tcpdump"], shell=True)
+            if apt_result["returncode"] == 0:
+                self.tcpdump_path = shutil.which("tcpdump")
+                return True
+                
+            # Try yum for RHEL/CentOS
+            yum_result = self.run_command(["yum", "install", "-y", "tcpdump"], shell=True)
+            if yum_result["returncode"] == 0:
+                self.tcpdump_path = shutil.which("tcpdump")
+                return True
+                
+            return False
+            
+    def capture(self, interface, output_file=None, filter_expr=None, packet_count=None, snaplen=None, verbose=False):
+        """Capture network traffic on an interface"""
+        if not self.check_installation():
+            raise Exception("TCPDump is not installed")
+            
+        # Create default output file if not specified
+        if not output_file:
+            output_file = os.path.join(tempfile.gettempdir(), f"tcpdump_capture_{int(time.time())}.pcap")
+            
+        cmd = [self.tcpdump_path, "-i", interface, "-w", output_file]
+        
+        # Add capture filter
+        if filter_expr:
+            cmd.append(filter_expr)
+            
+        # Add packet count limit
+        if packet_count:
+            cmd.extend(["-c", str(packet_count)])
+            
+        # Add snapshot length
+        if snaplen:
+            cmd.extend(["-s", str(snaplen)])
+            
+        # Add verbosity
+        if verbose:
+            cmd.append("-v")
+            
+        # Run capture
+        logger.info(f"Starting TCPDump capture on interface {interface}")
+        
+        # Determine timeout
+        timeout = 3600  # Default 1 hour
+        if packet_count:
+            # Estimate 1 second per 10 packets with a minimum of 10 seconds
+            timeout = max(10, packet_count / 10)
+            
+        # Run with timeout
+        result = self.run_command(cmd, timeout=timeout)
+        
+        if result["returncode"] != 0:
+            logger.error(f"TCPDump capture failed: {result['stderr']}")
+            return {
+                "error": "TCPDump capture failed",
+                "stderr": result["stderr"]
+            }
+            
+        if not os.path.exists(output_file):
+            return {
+                "error": "Capture file was not created",
+                "stderr": result["stderr"]
+            }
+            
+        return {
+            "interface": interface,
+            "capture_file": output_file,
+            "filter": filter_expr,
+            "status": "completed"
+        }
+        
+    def analyze(self, input_file, filter_expr=None, verbose=False, count=None, decode_protocol=None):
+        """Analyze a packet capture file"""
+        if not self.check_installation():
+            raise Exception("TCPDump is not installed")
+            
+        if not os.path.exists(input_file):
+            raise Exception(f"Input file not found: {input_file}")
+            
+        cmd = [self.tcpdump_path, "-r", input_file]
+        
+        # Add filter
+        if filter_expr:
+            cmd.append(filter_expr)
+            
+        # Add verbosity
+        if verbose:
+            cmd.append("-v")
+            
+        # Add packet count limit
+        if count:
+            cmd.extend(["-c", str(count)])
+            
+        # Add protocol decoding
+        if decode_protocol:
+            cmd.extend(["-X"])
+            
+        # Run analysis
+        logger.info(f"Analyzing packet capture {input_file}")
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.error(f"TCPDump analysis failed: {result['stderr']}")
+            return {
+                "error": "TCPDump analysis failed",
+                "stderr": result["stderr"]
+            }
+            
+        return {
+            "input_file": input_file,
+            "filter": filter_expr,
+            "analysis": result["stdout"]
+        }
+        
+    def quick_test(self, interface, filter_expr="tcp", packet_count=10):
+        """Run a quick test capture and analysis"""
+        if not self.check_installation():
+            raise Exception("TCPDump is not installed")
+            
+        cmd = [self.tcpdump_path, "-i", interface, "-c", str(packet_count)]
+        
+        if filter_expr:
+            cmd.append(filter_expr)
+            
+        logger.info(f"Running quick TCPDump test on {interface}")
+        result = self.run_command(cmd, timeout=30)
+        
+        return {
+            "interface": interface,
+            "filter": filter_expr,
+            "packet_count": packet_count,
+            "output": result["stdout"],
+            "status": "success" if result["returncode"] == 0 else "failed"
+        } 
+
+@register_tool
+class SQLMapTool(SecurityToolBase):
+    """
+    SQLMap - Automatic SQL injection and database takeover tool
+    
+    Features:
+    - Automated SQL injection detection and exploitation
+    - Support for multiple database systems
+    - WAF bypass capabilities
+    - Data extraction
+    - Password cracking
+    """
+    
+    def __init__(self):
+        self.sqlmap_path = os.path.join(get_tools_directory(), "sqlmap")
+        self.sqlmap_py = os.path.join(self.sqlmap_path, "sqlmap.py")
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "SQLMap Tool",
+            "description": "Automated SQL injection and database takeover tool",
+            "actions": ["sql_injection", "database_enumeration", "data_extraction", "os_command_execution"],
+            "target_types": ["web_application", "url", "request_file"],
+            "output_formats": ["json", "csv", "xml", "sqlite"],
+            "dependencies": ["python"]
+        }
+        
+    def check_installation(self):
+        """Check if SQLMap is installed"""
+        if os.path.exists(self.sqlmap_py):
+            return True
+            
+        # Check if sqlmap is in PATH
+        sqlmap_in_path = shutil.which("sqlmap") or shutil.which("sqlmap.py")
+        if sqlmap_in_path:
+            self.sqlmap_py = sqlmap_in_path
+            return True
+            
+        return False
+        
+    def install(self):
+        """Install SQLMap"""
+        os.makedirs(self.sqlmap_path, exist_ok=True)
+        
+        # Clone SQLMap repository
+        result = self.run_command(["git", "clone", "https://github.com/sqlmapproject/sqlmap.git", self.sqlmap_path])
+        
+        if result["returncode"] != 0:
+            # Try downloading as zip if git fails
+            download_url = "https://github.com/sqlmapproject/sqlmap/archive/master.zip"
+            zip_path = os.path.join(self.sqlmap_path, "sqlmap.zip")
+            
+            if not download_file(download_url, zip_path):
+                raise Exception("Failed to download SQLMap")
+                
+            # Extract the zip file
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(self.sqlmap_path)
+                
+            # Find the extracted directory
+            for item in os.listdir(self.sqlmap_path):
+                item_path = os.path.join(self.sqlmap_path, item)
+                if os.path.isdir(item_path) and "sqlmap" in item.lower():
+                    # Move contents up one level
+                    for subitem in os.listdir(item_path):
+                        shutil.move(
+                            os.path.join(item_path, subitem),
+                            os.path.join(self.sqlmap_path, subitem)
+                        )
+                    # Remove the now-empty directory
+                    try:
+                        os.rmdir(item_path)
+                    except:
+                        pass
+                        
+            # Clean up zip file
+            try:
+                os.remove(zip_path)
+            except:
+                pass
+                
+        return self.check_installation()
+        
+    def scan(self, target, options=None, output_dir=None, risk_level=1, level=1, techniques=None, dbms=None, data=None, cookie=None, threads=1):
+        """Run a SQLMap scan against a target"""
+        if not self.check_installation():
+            raise Exception("SQLMap is not installed")
+            
+        # Create output directory if not specified
+        if not output_dir:
+            output_dir = os.path.join(tempfile.gettempdir(), f"sqlmap_output_{int(time.time())}")
+            os.makedirs(output_dir, exist_ok=True)
+            
+        # Build command
+        cmd = [sys.executable, self.sqlmap_py, "-u", target]
+        
+        # Add standard options
+        cmd.extend(["--batch", "--output-dir", output_dir])
+        
+        # Add risk level
+        if risk_level:
+            cmd.extend(["--risk", str(risk_level)])
+            
+        # Add level
+        if level:
+            cmd.extend(["--level", str(level)])
+            
+        # Add techniques
+        if techniques:
+            cmd.extend(["--technique", techniques])
+            
+        # Add DBMS
+        if dbms:
+            cmd.extend(["--dbms", dbms])
+            
+        # Add POST data
+        if data:
+            cmd.extend(["--data", data])
+            
+        # Add cookie
+        if cookie:
+            cmd.extend(["--cookie", cookie])
+            
+        # Add threads
+        if threads:
+            cmd.extend(["--threads", str(threads)])
+            
+        # Add JSON output
+        cmd.extend(["--forms", "--crawl=3", "--output-format", "JSON"])
+        
+        # Add custom options
+        if options:
+            for option, value in options.items():
+                if option.startswith('--'):
+                    cmd.append(option)
+                    if value:
+                        cmd.append(str(value))
+                else:
+                    cmd.append(f"--{option}")
+                    if value:
+                        cmd.append(str(value))
+                        
+        # Run scan
+        logger.info(f"Running SQLMap scan against {target}")
+        result = self.run_command(cmd, timeout=3600)  # 1-hour timeout
+        
+        if result["returncode"] != 0:
+            logger.warning(f"SQLMap scan ended with non-zero exit code: {result['returncode']}")
+            
+        # Look for SQLMap results
+        json_output = None
+        for root, dirs, files in os.walk(output_dir):
+            for file in files:
+                if file.endswith(".json"):
+                    with open(os.path.join(root, file), 'r') as f:
+                        try:
+                            json_output = json.load(f)
+                            break
+                        except:
+                            pass
+                            
+        return {
+            "target": target,
+            "scan_time": datetime.datetime.now().isoformat(),
+            "output_dir": output_dir,
+            "results": json_output,
+            "stdout": result["stdout"],
+            "stderr": result["stderr"]
+        }
+        
+    def database_scan(self, target, options=None):
+        """Perform database enumeration on a vulnerable target"""
+        options = options or {}
+        options.update({
+            "dbs": True,
+            "tables": True,
+            "columns": True,
+            "dump": True
+        })
+        
+        return self.scan(target, options=options)
+        
+    def waf_bypass_scan(self, target, options=None):
+        """Perform a scan with WAF bypass capabilities"""
+        options = options or {}
+        options.update({
+            "tamper": "between,charencode,charunicodeencode,equaltolike,space2comment,randomcase",
+            "random-agent": True,
+            "tor": True,
+            "check-tor": True
+        })
+        
+        return self.scan(target, options=options, risk_level=3, level=5)
+
+@register_tool
+class XSSerTool(SecurityToolBase):
+    """
+    XSSer - Cross-Site Scripting (XSS) testing framework
+    
+    Features:
+    - XSS vulnerability testing framework
+    - Automatic XSS detection
+    - Payload generation
+    - Filter bypassing
+    - Reporting
+    """
+    
+    def __init__(self):
+        self.xsser_path = os.path.join(get_tools_directory(), "xsser")
+        self.xsser_script = os.path.join(self.xsser_path, "xsser")
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "XSSer Tool",
+            "description": "XSS vulnerability testing framework",
+            "actions": ["xss_scan", "payload_generation", "filter_bypass"],
+            "target_types": ["web_application", "url", "form"],
+            "output_formats": ["json", "xml", "txt"],
+            "dependencies": ["python", "git"]
+        }
+        
+    def check_installation(self):
+        """Check if XSSer is installed"""
+        # Check direct installation
+        if os.path.exists(self.xsser_script):
+            return True
+            
+        # Check if XSSer is in PATH
+        xsser_in_path = shutil.which("xsser")
+        if xsser_in_path:
+            self.xsser_script = xsser_in_path
+            return True
+            
+        # Check if installed as Python package
+        try:
+            result = self.run_command([sys.executable, "-m", "xsser", "--version"])
+            if result["returncode"] == 0:
+                self.xsser_script = "xsser"
+                return True
+        except:
+            pass
+            
+        return False
+        
+    def install(self):
+        """Install XSSer"""
+        os.makedirs(self.xsser_path, exist_ok=True)
+        
+        # Try to install via pip
+        pip_result = self.run_command([sys.executable, "-m", "pip", "install", "xsser"])
+        if pip_result["returncode"] == 0:
+            self.xsser_script = "xsser"
+            return True
+            
+        # Clone XSSer repository
+        git_result = self.run_command(["git", "clone", "https://github.com/epsylon/xsser.git", self.xsser_path])
+        
+        if git_result["returncode"] != 0:
+            # Try downloading as zip if git fails
+            download_url = "https://github.com/epsylon/xsser/archive/master.zip"
+            zip_path = os.path.join(self.xsser_path, "xsser.zip")
+            
+            if not download_file(download_url, zip_path):
+                raise Exception("Failed to download XSSer")
+                
+            # Extract the zip file
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(self.xsser_path)
+                
+            # Find the extracted directory
+            for item in os.listdir(self.xsser_path):
+                item_path = os.path.join(self.xsser_path, item)
+                if os.path.isdir(item_path) and "xsser" in item.lower():
+                    # Move contents up one level
+                    for subitem in os.listdir(item_path):
+                        shutil.move(
+                            os.path.join(item_path, subitem),
+                            os.path.join(self.xsser_path, subitem)
+                        )
+                    # Remove the now-empty directory
+                    try:
+                        os.rmdir(item_path)
+                    except:
+                        pass
+                        
+            # Clean up zip file
+            try:
+                os.remove(zip_path)
+            except:
+                pass
+                
+        # Install requirements
+        requirements_file = os.path.join(self.xsser_path, "requirements.txt")
+        if os.path.exists(requirements_file):
+            self.run_command([sys.executable, "-m", "pip", "install", "-r", requirements_file])
+            
+        # Install the package
+        setup_file = os.path.join(self.xsser_path, "setup.py")
+        if os.path.exists(setup_file):
+            self.run_command([sys.executable, setup_file, "install"])
+            
+        return self.check_installation()
+        
+    def scan(self, target, method="GET", params=None, data=None, cookie=None, output_file=None, crawling=False, verbose=False, bypass_techniques=False):
+        """Run an XSSer scan against a target"""
+        if not self.check_installation():
+            raise Exception("XSSer is not installed")
+            
+        # Create output file if not specified
+        if not output_file:
+            output_file = os.path.join(tempfile.gettempdir(), f"xsser_report_{int(time.time())}.xml")
+            
+        # Build command
+        if self.xsser_script == "xsser":
+            cmd = [sys.executable, "-m", "xsser"]
+        else:
+            cmd = [sys.executable, self.xsser_script]
+            
+        # Add target
+        cmd.extend(["--url", target])
+        
+        # Add method
+        if method.upper() == "POST":
+            cmd.append("--post")
+        
+        # Add parameters
+        if params:
+            for param in params:
+                cmd.extend(["--Xp", param])
+                
+        # Add data
+        if data:
+            cmd.extend(["--data", data])
+            
+        # Add cookie
+        if cookie:
+            cmd.extend(["--cookie", cookie])
+            
+        # Add crawling
+        if crawling:
+            cmd.append("--crawl")
+            
+        # Add verbosity
+        if verbose:
+            cmd.append("--verbose")
+            
+        # Add bypass techniques
+        if bypass_techniques:
+            cmd.extend([
+                "--Str",  # String transformation
+                "--Une",  # URL encode
+                "--Mix",  # Mixed encoding
+                "--Dec",  # Decimal encoding
+                "--Hex",  # Hexadecimal encoding
+                "--Hes",  # Hexadecimal with semicolons
+                "--Dwo",  # Double words
+                "--Doo",  # Double URL encoding
+            ])
+            
+        # Add output file
+        cmd.extend(["--xml", output_file])
+        
+        # Run scan
+        logger.info(f"Running XSSer scan against {target}")
+        result = self.run_command(cmd, timeout=1800)  # 30-minute timeout
+        
+        if result["returncode"] != 0:
+            logger.warning(f"XSSer scan ended with non-zero exit code: {result['returncode']}")
+            
+        # Check if output file was created
+        if os.path.exists(output_file):
+            try:
+                with open(output_file, 'r') as f:
+                    xml_content = f.read()
+                    
+                # Parse XML to JSON
+                try:
+                    results = xmltodict.parse(xml_content)
+                except:
+                    results = {"raw_xml": xml_content}
+            except Exception as e:
+                logger.error(f"Error reading XSSer output file: {str(e)}")
+                results = {}
+        else:
+            results = {}
+            
+        return {
+            "target": target,
+            "method": method,
+            "scan_time": datetime.datetime.now().isoformat(),
+            "output_file": output_file,
+            "results": results,
+            "stdout": result["stdout"],
+            "stderr": result["stderr"]
+        }
+        
+    def generate_payloads(self, output_file=None):
+        """Generate XSS payloads"""
+        if not self.check_installation():
+            raise Exception("XSSer is not installed")
+            
+        # Create output file if not specified
+        if not output_file:
+            output_file = os.path.join(tempfile.gettempdir(), f"xsser_payloads_{int(time.time())}.txt")
+            
+        # Build command
+        if self.xsser_script == "xsser":
+            cmd = [sys.executable, "-m", "xsser"]
+        else:
+            cmd = [sys.executable, self.xsser_script]
+            
+        # Add payload generation options
+        cmd.extend(["--auto-payload", "--payload-list", "-o", output_file])
+        
+        # Run command
+        logger.info("Generating XSS payloads")
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.warning(f"XSSer payload generation ended with non-zero exit code: {result['returncode']}")
+            
+        # Check if output file was created
+        if os.path.exists(output_file):
+            try:
+                with open(output_file, 'r') as f:
+                    payloads = f.read().splitlines()
+            except Exception as e:
+                logger.error(f"Error reading XSSer payloads file: {str(e)}")
+                payloads = []
+        else:
+            payloads = []
+            
+        return {
+            "output_file": output_file,
+            "payloads": payloads,
+            "count": len(payloads),
+            "stdout": result["stdout"],
+            "stderr": result["stderr"]
+        } 
+
+@register_tool
+class MetasploitFramework(SecurityToolBase):
+    """
+    Metasploit Framework - Advanced open-source platform for developing, testing, and executing exploits
+    
+    Features:
+    - Exploit database
+    - Payload generation
+    - Post-exploitation modules
+    - Vulnerability scanning
+    - Social engineering
+    """
+    
+    def __init__(self):
+        self.msf_path = None
+        self.msfconsole_path = shutil.which("msfconsole")
+        self.msfvenom_path = shutil.which("msfvenom")
+        
+        if self.msfconsole_path:
+            self.msf_path = os.path.dirname(os.path.dirname(self.msfconsole_path))
+            
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "Metasploit Framework",
+            "description": "Advanced exploitation framework",
+            "actions": ["exploit", "payload_generation", "vulnerability_scan", "post_exploitation"],
+            "target_types": ["host", "network", "application"],
+            "output_formats": ["json", "xml", "txt"],
+            "dependencies": ["ruby"]
+        }
+        
+    def check_installation(self):
+        """Check if Metasploit is installed"""
+        return self.msfconsole_path is not None and self.msfvenom_path is not None
+        
+    def install(self):
+        """Install Metasploit"""
+        system = platform.system().lower()
+        
+        # Metasploit installation varies significantly by platform
+        if system == "windows":
+            logger.info("Please install Metasploit for Windows from https://windows.metasploit.com/")
+            return False
+        elif system == "darwin":  # macOS
+            logger.info("Installing Metasploit on macOS...")
+            return self.run_command(["brew", "install", "metasploit"])["returncode"] == 0
+        else:  # Linux
+            logger.info("Installing Metasploit on Linux...")
+            
+            # Try the installer script
+            installer_cmd = "curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall"
+            
+            install_result = self.run_command(installer_cmd, shell=True, timeout=1800)
+            
+            if install_result["returncode"] == 0:
+                # Update paths after installation
+                self.msfconsole_path = shutil.which("msfconsole")
+                self.msfvenom_path = shutil.which("msfvenom")
+                
+                if self.msfconsole_path:
+                    self.msf_path = os.path.dirname(os.path.dirname(self.msfconsole_path))
+                    
+                return True
+                
+            # Try apt for Debian/Ubuntu
+            apt_result = self.run_command(["apt-get", "update", "&&", "apt-get", "install", "-y", "metasploit-framework"], shell=True)
+            if apt_result["returncode"] == 0:
+                self.msfconsole_path = shutil.which("msfconsole")
+                self.msfvenom_path = shutil.which("msfvenom")
+                
+                if self.msfconsole_path:
+                    self.msf_path = os.path.dirname(os.path.dirname(self.msfconsole_path))
+                    
+                return True
+                
+            return False
+            
+    def run_rc_script(self, script_content, output_file=None):
+        """Run a Metasploit resource script"""
+        if not self.check_installation():
+            raise Exception("Metasploit is not installed")
+            
+        # Create temporary resource script
+        script_file = os.path.join(tempfile.gettempdir(), f"msf_script_{int(time.time())}.rc")
+        with open(script_file, 'w') as f:
+            f.write(script_content)
+            
+        # Create output file if specified
+        output_redirect = ""
+        if output_file:
+            output_redirect = f" > {output_file} 2>&1"
+            
+        # Run the resource script
+        cmd = f"{self.msfconsole_path} -q -r {script_file}{output_redirect}"
+        
+        logger.info(f"Running Metasploit resource script")
+        result = self.run_command(cmd, shell=True, timeout=1800)  # 30-minute timeout
+        
+        # Clean up script file
+        try:
+            os.remove(script_file)
+        except:
+            pass
+            
+        # Read output file if created
+        output = None
+        if output_file and os.path.exists(output_file):
+            with open(output_file, 'r') as f:
+                output = f.read()
+                
+        return {
+            "returncode": result["returncode"],
+            "output": output or result["stdout"],
+            "error": result["stderr"]
+        }
+        
+    def generate_payload(self, payload_type, options=None, output_file=None, format_type="raw"):
+        """Generate a Metasploit payload"""
+        if not self.check_installation():
+            raise Exception("Metasploit is not installed")
+            
+        # Build command
+        cmd = [self.msfvenom_path, "-p", payload_type]
+        
+        # Add options
+        if options:
+            for option, value in options.items():
+                cmd.extend([f"{option}={value}"])
+                
+        # Add output format
+        cmd.extend(["-f", format_type])
+        
+        # Add output file
+        if output_file:
+            cmd.extend(["-o", output_file])
+            
+        # Run command
+        logger.info(f"Generating Metasploit payload: {payload_type}")
+        result = self.run_command(cmd)
+        
+        if result["returncode"] != 0:
+            logger.error(f"Payload generation failed: {result['stderr']}")
+            return {
+                "error": "Payload generation failed",
+                "stderr": result["stderr"]
+            }
+            
+        # Read output file if created
+        output = None
+        if output_file and os.path.exists(output_file):
+            try:
+                with open(output_file, 'rb') as f:
+                    output = f.read()
+            except:
+                pass
+                
+        return {
+            "payload_type": payload_type,
+            "options": options,
+            "format": format_type,
+            "output_file": output_file,
+            "output": output or result["stdout"],
+            "status": "success"
+        }
+        
+    def db_scan(self, target, scan_type="nmap", options=None):
+        """Run a scan and store results in the Metasploit database"""
+        if not self.check_installation():
+            raise Exception("Metasploit is not installed")
+            
+        # Create resource script for database scan
+        script_content = f"""
+        db_status
+        workspace -a {int(time.time())}
+        db_nmap {options or ''} {target}
+        hosts
+        services
+        vulns
+        """
+        
+        output_file = os.path.join(tempfile.gettempdir(), f"msf_scan_{int(time.time())}.txt")
+        
+        return self.run_rc_script(script_content, output_file)
+        
+    def exploit(self, module, target, options=None):
+        """Run a Metasploit exploit module"""
+        if not self.check_installation():
+            raise Exception("Metasploit is not installed")
+            
+        # Create options string
+        options_str = ""
+        if options:
+            for option, value in options.items():
+                options_str += f"set {option} {value}\n"
+                
+        # Create resource script for exploit
+        script_content = f"""
+        use {module}
+        {options_str}
+        set RHOSTS {target}
+        exploit
+        """
+        
+        output_file = os.path.join(tempfile.gettempdir(), f"msf_exploit_{int(time.time())}.txt")
+        
+        return self.run_rc_script(script_content, output_file)
+        
+    def list_modules(self, module_type=None):
+        """List available Metasploit modules"""
+        if not self.check_installation():
+            raise Exception("Metasploit is not installed")
+            
+        # Determine module search command
+        search_cmd = "search"
+        if module_type:
+            search_cmd += f" type:{module_type}"
+            
+        # Create resource script for module listing
+        script_content = f"""
+        {search_cmd}
+        exit
+        """
+        
+        output_file = os.path.join(tempfile.gettempdir(), f"msf_modules_{int(time.time())}.txt")
+        
+        result = self.run_rc_script(script_content, output_file)
+        
+        # Parse module list
+        modules = []
+        if "output" in result and result["output"]:
+            for line in result["output"].splitlines():
+                if " - " in line:
+                    try:
+                        # Parse module name and description
+                        parts = line.split(" - ", 1)
+                        if len(parts) == 2:
+                            module_path = parts[0].strip()
+                            module_desc = parts[1].strip()
+                            
+                            # Skip non-module lines
+                            if module_path.startswith("#") or module_path.startswith("="):
+                                continue
+                                
+                            modules.append({
+                                "path": module_path,
+                                "description": module_desc
+                            })
+                    except:
+                        pass
+                        
+        return {
+            "module_type": module_type,
+            "modules": modules,
+            "count": len(modules)
+        }
+
+@register_tool
+class BeEFFramework(SecurityToolBase):
+    """
+    BeEF (Browser Exploitation Framework) - A penetration testing tool focused on web browsers
+    
+    Features:
+    - Browser exploitation framework
+    - XSS exploitation
+    - Social engineering
+    - Session hijacking
+    - DOM manipulation
+    """
+    
+    def __init__(self):
+        self.beef_path = os.path.join(get_tools_directory(), "beef")
+        self.beef_script = os.path.join(self.beef_path, "beef")
+        self.config_file = os.path.join(self.beef_path, "config.yaml")
+        self.credentials = {
+            "user": "beef",
+            "password": "beef"
+        }
+        self.server_url = None
+        self.api_token = None
+        self.beef_process = None
+        
+    @classmethod
+    def get_capabilities(cls):
+        """Return the capabilities of this security tool"""
+        return {
+            "name": "BeEF Framework",
+            "description": "Browser exploitation framework",
+            "actions": ["browser_exploitation", "social_engineering", "session_hijacking", "dom_manipulation"],
+            "target_types": ["browser", "web_client"],
+            "output_formats": ["json", "html"],
+            "dependencies": ["ruby", "git"]
+        }
+        
+    def check_installation(self):
+        """Check if BeEF is installed"""
+        if os.path.exists(self.beef_script):
+            return True
+            
+        # Check if BeEF is in PATH
+        beef_in_path = shutil.which("beef") or shutil.which("beef-xss")
+        if beef_in_path:
+            self.beef_script = beef_in_path
+            self.beef_path = os.path.dirname(self.beef_script)
+            self.config_file = os.path.join(self.beef_path, "config.yaml")
+            return True
+            
+        return False
+        
+    def install(self):
+        """Install BeEF"""
+        os.makedirs(self.beef_path, exist_ok=True)
+        
+        system = platform.system().lower()
+        
+        # Check if Ruby is installed
+        ruby_path = shutil.which("ruby")
+        if not ruby_path:
+            raise Exception("Ruby is required but not installed")
+            
+        # Clone BeEF repository
+        result = self.run_command(["git", "clone", "https://github.com/beefproject/beef.git", self.beef_path])
+        
+        if result["returncode"] != 0:
+            # Try downloading as zip if git fails
+            download_url = "https://github.com/beefproject/beef/archive/master.zip"
+            zip_path = os.path.join(self.beef_path, "beef.zip")
+            
+            if not download_file(download_url, zip_path):
+                raise Exception("Failed to download BeEF")
+                
+            # Extract the zip file
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(self.beef_path)
+                
+            # Find the extracted directory
+            for item in os.listdir(self.beef_path):
+                item_path = os.path.join(self.beef_path, item)
+                if os.path.isdir(item_path) and "beef" in item.lower():
+                    # Move contents up one level
+                    for subitem in os.listdir(item_path):
+                        shutil.move(
+                            os.path.join(item_path, subitem),
+                            os.path.join(self.beef_path, subitem)
+                        )
+                    # Remove the now-empty directory
+                    try:
+                        os.rmdir(item_path)
+                    except:
+                        pass
+                        
+            # Clean up zip file
+            try:
+                os.remove(zip_path)
+            except:
+                pass
+                
+        # Install dependencies
+        if system == "windows":
+            # Windows requires manual setup for BeEF
+            logger.info("Please follow manual setup instructions for BeEF on Windows")
+        else:
+            # Change to BeEF directory
+            os.chdir(self.beef_path)
+            
+            # Install Ruby dependencies
+            self.run_command(["bundle", "install"], timeout=1800)
+            
+        # Update beef_script path
+        if system == "windows":
+            self.beef_script = os.path.join(self.beef_path, "beef.bat")
+        else:
+            self.beef_script = os.path.join(self.beef_path, "beef")
+            # Make the script executable
+            os.chmod(self.beef_script, 0o755)
+            
+        return self.check_installation()
+        
+    def start_server(self, host="127.0.0.1", port=3000, hook_port=None):
+        """Start the BeEF server"""
+        if not self.check_installation():
+            raise Exception("BeEF is not installed")
+            
+        if self.is_server_running():
+            logger.info("BeEF server is already running")
+            return {
+                "status": "success",
+                "message": "Server already running",
+                "server_url": self.server_url
+            }
+            
+        # Update configuration if needed
+        if host != "127.0.0.1" or port != 3000 or hook_port:
+            self.update_config(host, port, hook_port)
+            
+        # Start BeEF
+        logger.info(f"Starting BeEF server on {host}:{port}")
+        
+        # Build command
+        cmd = [self.beef_script]
+        
+        try:
+            # Start BeEF process
+            self.beef_process = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                universal_newlines=True,
+                cwd=self.beef_path
+            )
+            
+            # Wait for BeEF to start
+            time.sleep(10)
+            
+            # Check if BeEF started successfully
+            if not self.is_server_running():
+                stdout, stderr = self.beef_process.communicate(timeout=5)
+                logger.error(f"Failed to start BeEF: {stderr}")
+                return {
+                    "status": "error",
+                    "message": f"Failed to start BeEF: {stderr}"
+                }
+                
+            # Set server URL
+            hook_port_str = f":{hook_port}" if hook_port and hook_port != port else f":{port}"
+            self.server_url = f"http://{host}{hook_port_str}/hook.js"
+            
+            # Try to get API token
+            self.api_token = self.get_api_token()
+            
+            logger.info(f"BeEF server started successfully")
+            return {
+                "status": "success",
+                "message": "Server started",
+                "server_url": self.server_url,
+                "hook_url": self.server_url,
+                "admin_ui": f"http://{host}:{port}/ui/panel"
+            }
+        except Exception as e:
+            logger.error(f"Error starting BeEF: {str(e)}")
+            return {
+                "status": "error",
+                "message": f"Error starting BeEF: {str(e)}"
+            }
+            
+    def is_server_running(self):
+        """Check if BeEF server is running"""
+        # Check if process is running
+        if self.beef_process and self.beef_process.poll() is None:
+            return True
+            
+        # Try connecting to the server
+        try:
+            response = requests.get(f"http://127.0.0.1:3000/api/admin/login", timeout=5)
+            return response.status_code == 200
+        except:
+            return False
+            
+    def stop_server(self):
+        """Stop the BeEF server"""
+        if not self.is_server_running():
+            return {
+                "status": "success",
+                "message": "Server not running"
+            }
+            
+        # Try to stop gracefully first
+        try:
+            # Get the process ID
+            if platform.system().lower() != "windows":
+                # Use ps and grep to find BeEF process
+                ps_result = self.run_command(["ps", "aux", "|", "grep", "beef", "|", "grep", "-v", "grep"], shell=True)
+                
+                for line in ps_result["stdout"].splitlines():
+                    if "beef" in line and "ruby" in line:
+                        # Extract PID
+                        parts = line.split()
+                        if len(parts) > 1:
+                            try:
+                                pid = int(parts[1])
+                                # Kill the process
+                                os.kill(pid, 15)  # SIGTERM
+                                time.sleep(2)
+                                if self.is_server_running():
+                                    os.kill(pid, 9)  # SIGKILL
+                            except:
+                                pass
+        except:
+            pass
+            
+        # Force kill if still running
+        if self.beef_process and self.beef_process.poll() is None:
+            self.beef_process.terminate()
+            try:
+                self.beef_process.wait(timeout=10)
+            except:
+                self.beef_process.kill()
+                
+        logger.info("BeEF server stopped")
+        return {
+            "status": "success",
+            "message": "Server stopped"
+        }
+        
+    def update_config(self, host="127.0.0.1", port=3000, hook_port=None):
+        """Update BeEF configuration"""
+        if not os.path.exists(self.config_file):
+            logger.warning(f"BeEF configuration file not found: {self.config_file}")
+            return False
+            
+        try:
+            import yaml
+            
+            # Read current config
+            with open(self.config_file, 'r') as f:
+                config = yaml.safe_load(f)
+                
+            # Update configuration
+            if "beef" in config:
+                if "http" in config["beef"]:
+                    config["beef"]["http"]["host"] = host
+                    config["beef"]["http"]["port"] = port
+                    
+                    if hook_port:
+                        config["beef"]["http"]["hook_file_path"] = f"/{hook_port}/"
+                        
+            # Write updated config
+            with open(self.config_file, 'w') as f:
+                yaml.dump(config, f)
+                
+            return True
+        except Exception as e:
+            logger.error(f"Error updating BeEF configuration: {str(e)}")
+            return False
+            
+    def get_api_token(self):
+        """Get BeEF API authentication token"""
+        if not self.is_server_running():
+            raise Exception("BeEF server is not running")
+            
+        try:
+            # Login to get API token
+            response = requests.post(
+                "http://127.0.0.1:3000/api/admin/login",
+                json={
+                    "username": self.credentials["user"],
+                    "password": self.credentials["password"]
+                }
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                if "token" in data:
+                    return data["token"]
+        except Exception as e:
+            logger.error(f"Error getting BeEF API token: {str(e)}")
+            
+        return None
+        
+    def get_hooked_browsers(self):
+        """Get a list of hooked browsers"""
+        if not self.is_server_running():
+            raise Exception("BeEF server is not running")
+            
+        if not self.api_token:
+            self.api_token = self.get_api_token()
+            
+        if not self.api_token:
+            raise Exception("Failed to get BeEF API token")
+            
+        try:
+            # Get hooked browsers
+            response = requests.get(
+                "http://127.0.0.1:3000/api/hooks",
+                headers={"Authorization": self.api_token}
+            )
+            
+            if response.status_code == 200:
+                return response.json()
+        except Exception as e:
+            logger.error(f"Error getting hooked browsers: {str(e)}")
+            
+        return []
+        
+    def execute_module(self, browser_id, module_id, options=None):
+        """Execute a BeEF module on a hooked browser"""
+        if not self.is_server_running():
+            raise Exception("BeEF server is not running")
+            
+        if not self.api_token:
+            self.api_token = self.get_api_token()
+            
+        if not self.api_token:
+            raise Exception("Failed to get BeEF API token")
+            
+        try:
+            # Prepare request data
+            data = {
+                "hb": browser_id,
+                "mod": module_id
+            }
+            
+            if options:
+                data["options"] = options
+                
+            # Execute module
+            response = requests.post(
+                "http://127.0.0.1:3000/api/modules",
+                json=data,
+                headers={"Authorization": self.api_token}
+            )
+            
+            if response.status_code == 200:
+                return {
+                    "status": "success",
+                    "browser_id": browser_id,
+                    "module_id": module_id,
+                    "result": response.json()
+                }
+        except Exception as e:
+            logger.error(f"Error executing BeEF module: {str(e)}")
+            
+        return {
+            "status": "error",
+            "browser_id": browser_id,
+            "module_id": module_id,
+            "error": "Failed to execute module"
+        }
+        
+    def get_module_results(self, command_id):
+        """Get the results of a module execution"""
+        if not self.is_server_running():
+            raise Exception("BeEF server is not running")
+            
+        if not self.api_token:
+            self.api_token = self.get_api_token()
+            
+        if not self.api_token:
+            raise Exception("Failed to get BeEF API token")
+            
+        try:
+            # Get module results
+            response = requests.get(
+                f"http://127.0.0.1:3000/api/modules/{command_id}",
+                headers={"Authorization": self.api_token}
+            )
+            
+            if response.status_code == 200:
+                return response.json()
+        except Exception as e:
+            logger.error(f"Error getting module results: {str(e)}")
+            
+        return {
+            "status": "error",
+            "command_id": command_id,
+            "error": "Failed to get module results"
+        }
+        
+    def get_browser_details(self, browser_id):
+        """Get details about a hooked browser"""
+        if not self.is_server_running():
+            raise Exception("BeEF server is not running")
+            
+        if not self.api_token:
+            self.api_token = self.get_api_token()
+            
+        if not self.api_token:
+            raise Exception("Failed to get BeEF API token")
+            
+        try:
+            # Get browser details
+            response = requests.get(
+                f"http://127.0.0.1:3000/api/hooks/{browser_id}",
+                headers={"Authorization": self.api_token}
+            )
+            
+            if response.status_code == 200:
+                return response.json()
+        except Exception as e:
+            logger.error(f"Error getting browser details: {str(e)}")
+            
+        return {
+            "status": "error",
+            "browser_id": browser_id,
+            "error": "Failed to get browser details"
+        } 
+
+def integrate_with_security_platform():
+    """
+    Integrate all security tools with the existing security platform.
+    This function adds all the registered tools to the security platform.
+    """
+    try:
+        # Import the security integrator module
+        from security_integrator import SecurityToolIntegrator, SecurityAPIHandler
+        
+        logger.info("Integrating security tools with the security platform...")
+        
+        # Get all registered tools
+        tools = security_tools_manager.list_tools()
+        
+        # Create a SecurityToolIntegrator instance
+        integrator = SecurityToolIntegrator()
+        
+        # Register each tool with the security platform
+        for tool_name, tool_capabilities in tools.items():
+            logger.info(f"Registering {tool_name} with the security platform")
+            
+            # Get the tool class from our manager
+            tool_class = security_tools_manager.tools[tool_name]
+            
+            # Add the tool to the integrator's tools
+            integrator.tools[tool_name] = {
+                "class": tool_class,
+                "module": __name__,
+                "file_path": __file__,
+                "capabilities": tool_capabilities
+            }
+            
+            # Log the registration
+            logger.info(f"Successfully registered {tool_name}")
+            
+        logger.info(f"Successfully integrated {len(tools)} security tools with the platform")
+        return True
+    except ImportError:
+        logger.warning("Could not import SecurityToolIntegrator. Running in standalone mode.")
+        return False
+    except Exception as e:
+        logger.error(f"Error integrating tools with security platform: {str(e)}")
+        return False
+
+
+def update_requirements():
+    """
+    Update the requirements.txt file with dependencies needed for the security tools
+    """
+    try:
+        requirements_file = "requirements_updated.txt"
+        
+        # Check if requirements file exists
+        if not os.path.exists("requirements.txt"):
+            logger.warning("requirements.txt not found, creating new file")
+            requirements = []
+        else:
+            # Read existing requirements
+            with open("requirements.txt", "r") as f:
+                requirements = f.read().splitlines()
+                
+        # New dependencies for security tools
+        new_dependencies = [
+            "python-owasp-zap-v2.4>=0.1.0",  # For ZAP integration
+            "python-nmap>=0.7.1",            # For Nmap integration
+            "pymetasploit3>=1.0.3",          # For Metasploit integration
+            "xmltodict>=0.13.0",             # For XML parsing
+            "PyYAML>=6.0",                   # For YAML configuration
+            "beef-api>=0.1.0",               # For BeEF integration
+            "sqlmap>=1.6.11",                # For SQLMap integration
+            "xsser>=1.8.1",                  # For XSSer integration
+            "pcapy>=0.11.5",                 # For packet capture
+            "scapy>=2.4.5",                  # For packet manipulation
+            "pyshark>=0.4.5"                 # For Wireshark integration
+        ]
+        
+        # Add new dependencies if not already present
+        for dependency in new_dependencies:
+            package_name = dependency.split(">=")[0]
+            if not any(req.startswith(package_name) for req in requirements):
+                requirements.append(dependency)
+                logger.info(f"Added {dependency} to requirements")
+                
+        # Write updated requirements
+        with open(requirements_file, "w") as f:
+            f.write("\n".join(requirements))
+            
+        logger.info(f"Updated requirements written to {requirements_file}")
+        return True
+    except Exception as e:
+        logger.error(f"Error updating requirements: {str(e)}")
+        return False
+
+
+def test_security_tools():
+    """
+    Test if security tools are correctly installed and functioning
+    """
+    results = {}
+    
+    # Test each tool
+    for tool_name, tool_class in security_tools_manager.tools.items():
+        logger.info(f"Testing {tool_name}...")
+        
+        try:
+            # Create an instance of the tool
+            tool = tool_class()
+            
+            # Check if the tool is installed
+            installation_status = tool.check_installation()
+            
+            results[tool_name] = {
+                "installed": installation_status,
+                "error": None
+            }
+            
+            logger.info(f"{tool_name}: {'Installed' if installation_status else 'Not installed'}")
+        except Exception as e:
+            logger.error(f"Error testing {tool_name}: {str(e)}")
+            results[tool_name] = {
+                "installed": False,
+                "error": str(e)
+            }
+            
+    return results
+
+
+def main():
+    """
+    Main function to run the security tools integration
+    """
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Security Tools Integration")
+    parser.add_argument("--list", action="store_true", help="List all available security tools")
+    parser.add_argument("--test", action="store_true", help="Test security tools installation")
+    parser.add_argument("--integrate", action="store_true", help="Integrate with the security platform")
+    parser.add_argument("--install-all", action="store_true", help="Install all security tools")
+    parser.add_argument("--update-requirements", action="store_true", help="Update requirements.txt with dependencies")
+    parser.add_argument("--tool", help="Specify a tool to operate on")
+    parser.add_argument("--action", help="Specify an action to perform with the tool")
+    parser.add_argument("--target", help="Specify a target for the tool")
+    parser.add_argument("--options", help="JSON string with options for the tool action")
+    
+    args = parser.parse_args()
+    
+    # List all tools
+    if args.list:
+        print("Available Security Tools:")
+        for name, capabilities in security_tools_manager.list_tools().items():
+            print(f"- {name}: {capabilities['description']}")
+            print(f"  Actions: {', '.join(capabilities['actions'])}")
+            print(f"  Target Types: {', '.join(capabilities['target_types'])}")
+            print(f"  Output Formats: {', '.join(capabilities['output_formats'])}")
+            print(f"  Dependencies: {', '.join(capabilities['dependencies'])}")
+            print()
+        return
+        
+    # Test tools
+    if args.test:
+        print("Testing Security Tools:")
+        results = test_security_tools()
+        
+        # Print results
+        for tool_name, status in results.items():
+            status_str = "Installed" if status["installed"] else "Not installed"
+            error_str = f" (Error: {status['error']})" if status["error"] else ""
+            print(f"- {tool_name}: {status_str}{error_str}")
+        return
+        
+    # Integrate with security platform
+    if args.integrate:
+        if integrate_with_security_platform():
+            print("Successfully integrated security tools with the security platform")
+        else:
+            print("Failed to integrate security tools with the security platform")
+        return
+        
+    # Update requirements
+    if args.update_requirements:
+        if update_requirements():
+            print("Successfully updated requirements.txt")
+        else:
+            print("Failed to update requirements.txt")
+        return
+        
+    # Install all tools
+    if args.install_all:
+        print("Installing all security tools:")
+        for name in security_tools_manager.tools:
+            try:
+                print(f"- Installing {name}...")
+                tool = security_tools_manager.get_tool(name, initialize=True)
+                print(f"  {name} installed successfully")
+            except Exception as e:
+                print(f"  Error installing {name}: {str(e)}")
+        return
+        
+    # Run a specific tool action
+    if args.tool and args.action:
+        try:
+            # Parse options
+            options = {}
+            if args.options:
+                options = json.loads(args.options)
+                
+            # Get the tool
+            tool = security_tools_manager.get_tool(args.tool)
+            
+            # Run the action
+            if args.action and hasattr(tool, args.action) and callable(getattr(tool, args.action)):
+                action_method = getattr(tool, args.action)
+                
+                # Call the action with appropriate arguments
+                if args.target:
+                    result = action_method(args.target, **options)
+                else:
+                    result = action_method(**options)
+                    
+                # Print result
+                print(json.dumps(result, indent=2))
+            else:
+                print(f"Error: Action {args.action} not found for tool {args.tool}")
+        except Exception as e:
+            print(f"Error: {str(e)}")
+        return
+        
+    # If no arguments provided, show help
+    parser.print_help()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,268 @@
+{
+    "scan_id": "1745671251",
+    "timestamp": "20250426_164051",
+    "target": "https://trustwallet.com/",
+    "summary": {},
+    "reconnaissance": {
+        "passive": {
+            "whois": {
+                "domain_name": [
+                    "TRUSTWALLET.COM",
+                    "trustwallet.com"
+                ],
+                "registrar": "MarkMonitor, Inc.",
+                "creation_date": "2005-10-14 15:25:35",
+                "expiration_date": "2030-06-12 15:14:06",
+                "name_servers": [
+                    "ROXY.NS.CLOUDFLARE.COM",
+                    "WEST.NS.CLOUDFLARE.COM",
+                    "roxy.ns.cloudflare.com",
+                    "west.ns.cloudflare.com"
+                ],
+                "status": [
+                    "ok https://icann.org/epp#ok",
+                    "OK (https://www.icann.org/epp#OK)"
+                ],
+                "emails": [
+                    "abusecomplaints@markmonitor.com",
+                    "whoisrequest@markmonitor.com"
+                ]
+            },
+            "dns": {
+                "a_records": [
+                    "172.67.18.31",
+                    "104.20.73.207",
+                    "104.20.74.207"
+                ],
+                "aaaa_records": [
+                    "2606:4700:10::6814:4acf",
+                    "2606:4700:10::ac43:121f",
+                    "2606:4700:10::6814:49cf"
+                ],
+                "mx_records": [
+                    "10 alt4.aspmx.l.google.com.",
+                    "5 alt1.aspmx.l.google.com.",
+                    "5 alt2.aspmx.l.google.com.",
+                    "10 alt3.aspmx.l.google.com."
+                ],
+                "ns_records": [
+                    "west.ns.cloudflare.com.",
+                    "roxy.ns.cloudflare.com."
+                ],
+                "txt_records": [
+                    "\"google-site-verification=czh4UV6jFuJ4Dc-PsU1EHQP6Yw0Oo4jQt-qkweerfqI\"",
+                    "\"google-site-verification=xyPli7qg46MqMMXqQ74fzGLyVUT7HDgW4o6c6a0ysZs\"",
+                    "\"v=spf1 include:_spf.google.com -all\"",
+                    "\"yandex-verification: 6063a86f38c0e8f4\"",
+                    "\"yandex-verification: 710e53064df2d086\"",
+                    "\"1password-site-verification=EXMX5IDEEZBGJGDRBDW45M4LJE\"",
+                    "\"OSSRH-46289\"",
+                    "\"bio=2e7c55685c08bc768f3a6a9a92c199a40a948946\"",
+                    "\"google-site-verification=cB4TLYjVW96_F985B1qzh1QO-YGZQliz21XRIdepZQk\"",
+                    "\"facebook-domain-verification=ne5cjn3ef0yzo7ev5qkuv5dnfp85xw\"",
+                    "\"google-site-verification=8wsizO07ccSKdOe-0P_NEB7F9iN684mtQMEpoJW6JZA\"",
+                    "\"google-site-verification=FI2qTGGMhPHtq3Kfvelc0U9YLok2QkPDHqOY74jOyLM\""
+                ],
+                "cname_records": []
+            },
+            "subdomains": {
+                "error": "'OSINTScanner' object has no attribute 'discover_subdomains'"
+            },
+            "wayback_machine": {
+                "available": true,
+                "url": "http://web.archive.org/web/20240812102238/https://trustwallet.com/",
+                "timestamp": "20240812102238"
+            }
+        },
+        "active": {
+            "port_scan": [
+                {
+                    "port": 80,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 443,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 3000,
+                    "state": "filtered",
+                    "service": "ppp",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 4000,
+                    "state": "filtered",
+                    "service": "remoteanything",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 4443,
+                    "state": "filtered",
+                    "service": "pharos",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 5000,
+                    "state": "filtered",
+                    "service": "upnp",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 8000,
+                    "state": "filtered",
+                    "service": "http-alt",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 8008,
+                    "state": "filtered",
+                    "service": "http",
+                    "product": "",
+                    "version": ""
+                },
+                {
+                    "port": 8080,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 8443,
+                    "state": "open",
+                    "service": "http",
+                    "product": "Cloudflare http proxy",
+                    "version": ""
+                },
+                {
+                    "port": 8800,
+                    "state": "filtered",
+                    "service": "sunwebadmin",
+                    "product": "",
+                    "version": ""
+                }
+            ],
+            "site_structure": {
+                "total_links_found": 0,
+                "unique_paths": []
+            },
+            "technologies": [
+                "Server: cloudflare"
+            ],
+            "directories": {
+                "target": "https://trustwallet.com/",
+                "directories": [
+                    {
+                        "url": "https://trustwallet.com/beta",
+                        "status_code": 301,
+                        "content_type": "text/html",
+                        "content_length": 167,
+                        "response_time": 0.114667
+                    },
+                    {
+                        "url": "https://trustwallet.com/security",
+                        "status_code": 200,
+                        "content_type": "text/html; charset=utf-8",
+                        "content_length": 538105,
+                        "response_time": 0.217024
+                    }
+                ],
+                "files": [
+                    {
+                        "url": "https://trustwallet.com/robots.txt",
+                        "status_code": 200,
+                        "content_type": "text/plain",
+                        "content_length": 68,
+                        "response_time": 0.238519
+                    }
+                ],
+                "total_discovered": 3
+            }
+        }
+    },
+    "architecture_analysis": {
+        "infrastructure": {
+            "load_balancer": {
+                "detected": false,
+                "unique_ips": [
+                    "104.20.74.207"
+                ]
+            },
+            "waf": {
+                "detected": true,
+                "type": "cloudflare"
+            },
+            "cdn": {
+                "detected": true,
+                "provider": "cloudflare"
+            },
+            "dns_configuration": {
+                "spf_record": true,
+                "dmarc_record": true,
+                "dnssec": true
+            }
+        },
+        "tech_stack": {
+            "versions": {
+                "server": "cloudflare"
+            },
+            "libraries": {
+                "javascript": [],
+                "css": []
+            },
+            "frameworks": [],
+            "databases": [
+                "mongodb"
+            ]
+        }
+    },
+    "manual_testing": {
+        "auth": {},
+        "business_logic": {}
+    },
+    "automated_scanning": {
+        "static": {},
+        "dynamic": {}
+    },
+    "specialized_testing": {
+        "api_security": {},
+        "frontend_security": {}
+    },
+    "indepth_testing": {
+        "crypto_security": {},
+        "network_security": {}
+    },
+    "security_mechanisms": {
+        "waf_testing": {},
+        "ids_testing": {}
+    },
+    "resilience_testing": {
+        "load_testing": {},
+        "failover_testing": {}
+    },
+    "data_analysis": {
+        "data_protection": {},
+        "privacy": {}
+    },
+    "remediation": {},
+    "status": "Technology stack analysis completed",
+    "vulnerabilities": [],
+    "section_status": {
+        "passive_recon": "Passive reconnaissance completed",
+        "active_recon": "Active reconnaissance completed",
+        "infrastructure": "Infrastructure analysis completed",
+        "tech_stack": "Technology stack analysis completed"
+    }
+}

@@ -1,0 +1,142 @@
+{
+    "scan_id": "1745605455",
+    "timestamp": "20250425_222416",
+    "target": "https://tronscan.org/#/",
+    "summary": {},
+    "reconnaissance": {
+        "passive": {
+            "whois": {
+                "domain_name": "tronscan.org",
+                "registrar": "GoDaddy.com, LLC",
+                "creation_date": "2018-03-23 07:51:17",
+                "expiration_date": "2026-03-23 07:51:17",
+                "name_servers": [
+                    "jerome.ns.cloudflare.com",
+                    "meera.ns.cloudflare.com"
+                ],
+                "status": [
+                    "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+                    "clientRenewProhibited https://icann.org/epp#clientRenewProhibited",
+                    "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+                    "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+                ],
+                "emails": "domainops@godaddy.com"
+            },
+            "dns": {
+                "a_records": [
+                    "172.66.40.210",
+                    "172.66.43.46"
+                ],
+                "aaaa_records": [
+                    "2606:4700:3108::ac42:28d2",
+                    "2606:4700:3108::ac42:2b2e"
+                ],
+                "mx_records": [
+                    "10 inbound-smtp.us-east-1.amazonaws.com."
+                ],
+                "ns_records": [
+                    "meera.ns.cloudflare.com.",
+                    "jerome.ns.cloudflare.com."
+                ],
+                "txt_records": [
+                    "\"59a8t01lj2a73cmmspq8ak9f7q\"",
+                    "\"v=spf1 include:amazonses.com -all\"",
+                    "\"google-site-verification=R5lmiTToRWqZt2hCe7CghHP17H4_vO-sl9tE2wHelNQ\""
+                ],
+                "cname_records": []
+            },
+            "subdomains": {
+                "status": "OSINT module not available"
+            },
+            "wayback_machine": {
+                "available": false
+            }
+        },
+        "active": {
+            "port_scan": {
+                "error": "'nmap program was not found in path. PATH is : c:\\\\Users\\\\User\\\\.cursor\\\\extensions\\\\ms-python.python-2024.12.3-win32-x64\\\\python_files\\\\deactivate\\\\powershell;C:\\\\Users\\\\User\\\\Desktop\\\\dreiner\\\\venv\\\\Scripts;c:\\\\Users\\\\User\\\\.cursor\\\\extensions\\\\ms-python.python-2024.12.3-win32-x64\\\\python_files\\\\deactivate\\\\powershell;C:\\\\Users\\\\User\\\\Desktop\\\\dreiner\\\\venv\\\\Scripts;C:\\\\WINDOWS\\\\system32;C:\\\\WINDOWS;C:\\\\WINDOWS\\\\System32\\\\Wbem;C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\;C:\\\\WINDOWS\\\\System32\\\\OpenSSH\\\\;C:\\\\Program Files (x86)\\\\NVIDIA Corporation\\\\PhysX\\\\Common;C:\\\\Program Files\\\\NVIDIA Corporation\\\\NVIDIA NvDLISR;c:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\cursor\\\\resources\\\\app\\\\bin;C:\\\\Program Files\\\\nodejs\\\\;C:\\\\Program Files\\\\Git\\\\cmd;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Launcher\\\\;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps;C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\cursor\\\\resources\\\\app\\\\bin;C:\\\\Users\\\\User\\\\AppData\\\\Roaming\\\\npm'"
+            },
+            "site_structure": {
+                "total_links_found": 0,
+                "unique_paths": []
+            },
+            "technologies": [
+                "Server: cloudflare"
+            ],
+            "directories": {
+                "error": "'VulnerabilityScanner' object has no attribute 'discover_directories'"
+            }
+        }
+    },
+    "architecture_analysis": {
+        "infrastructure": {
+            "load_balancer": {
+                "detected": false,
+                "unique_ips": [
+                    "172.66.43.46"
+                ]
+            },
+            "waf": {
+                "detected": true,
+                "type": "cloudflare"
+            },
+            "cdn": {
+                "detected": true,
+                "provider": "cloudflare"
+            },
+            "dns_configuration": {
+                "spf_record": true,
+                "dmarc_record": true,
+                "dnssec": true
+            }
+        },
+        "tech_stack": {
+            "versions": {
+                "server": "cloudflare"
+            },
+            "libraries": {
+                "javascript": [],
+                "css": []
+            },
+            "frameworks": [],
+            "databases": []
+        }
+    },
+    "manual_testing": {
+        "auth": {},
+        "business_logic": {}
+    },
+    "automated_scanning": {
+        "static": {},
+        "dynamic": {}
+    },
+    "specialized_testing": {
+        "api_security": {},
+        "frontend_security": {}
+    },
+    "indepth_testing": {
+        "crypto_security": {},
+        "network_security": {}
+    },
+    "security_mechanisms": {
+        "waf_testing": {},
+        "ids_testing": {}
+    },
+    "resilience_testing": {
+        "load_testing": {},
+        "failover_testing": {}
+    },
+    "data_analysis": {
+        "data_protection": {},
+        "privacy": {}
+    },
+    "remediation": {},
+    "status": "Technology stack analysis completed",
+    "vulnerabilities": [],
+    "section_status": {
+        "passive_recon": "Passive reconnaissance completed",
+        "active_recon": "Active reconnaissance completed",
+        "infrastructure": "Infrastructure analysis completed",
+        "tech_stack": "Technology stack analysis completed"
+    }
+}

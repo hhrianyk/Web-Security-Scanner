@@ -1,0 +1,341 @@
+{
+    "timestamp": "2025-04-26 16:07:49",
+    "target": "127.0.0.1",
+    "port_scan": {
+        "127.0.0.1": {
+            "status": "up",
+            "os_detection": [
+                {
+                    "name": "Microsoft Windows 10 1607",
+                    "accuracy": "99",
+                    "line": "69748",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "99",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10:1607"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 11 21H2",
+                    "accuracy": "98",
+                    "line": "108196",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "98",
+                            "cpe": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1703",
+                    "accuracy": "96",
+                    "line": "69820",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10:1703"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1511",
+                    "accuracy": "96",
+                    "line": "69513",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10:1511"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Windows Server 2022",
+                    "accuracy": "96",
+                    "line": "108059",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "2022",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_server_2022"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 7 or 8.1 R1",
+                    "accuracy": "93",
+                    "line": "76929",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "7",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_7"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "8.1",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_8.1:r1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1809 - 2004",
+                    "accuracy": "93",
+                    "line": "69954",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 7 SP1",
+                    "accuracy": "93",
+                    "line": "77655",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "7",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_7::sp1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1709 - 1803",
+                    "accuracy": "93",
+                    "line": "69912",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "93",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 2004",
+                    "accuracy": "93",
+                    "line": "69972",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "93",
+                            "cpe": []
+                        }
+                    ]
+                }
+            ],
+            "ports": {
+                "tcp": {
+                    "135": {
+                        "state": "open",
+                        "service": "msrpc",
+                        "product": "Microsoft Windows RPC",
+                        "version": "",
+                        "extrainfo": "",
+                        "reason": "syn-ack",
+                        "cpe": "cpe:/o:microsoft:windows"
+                    },
+                    "137": {
+                        "state": "filtered",
+                        "service": "netbios-ns",
+                        "product": "",
+                        "version": "",
+                        "extrainfo": "",
+                        "reason": "no-response",
+                        "cpe": ""
+                    },
+                    "445": {
+                        "state": "open",
+                        "service": "microsoft-ds",
+                        "product": "",
+                        "version": "",
+                        "extrainfo": "",
+                        "reason": "syn-ack",
+                        "cpe": ""
+                    }
+                }
+            }
+        }
+    },
+    "ssl_analysis": {
+        "error": "Socket Error: [WinError 10061] \u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u043e, \u0442.\u043a. \u043a\u043e\u043d\u0435\u0447\u043d\u044b\u0439 \u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440 \u043e\u0442\u0432\u0435\u0440\u0433 \u0437\u0430\u043f\u0440\u043e\u0441 \u043d\u0430 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435"
+    },
+    "network_devices": {},
+    "traffic_analysis": {},
+    "firewall_detection": {
+        "target": "127.0.0.1",
+        "firewall_detected": false,
+        "firewall_type": "Unknown",
+        "port_responses": {
+            "21": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "22": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "25": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "80": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "443": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "3306": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            },
+            "3389": {
+                "syn_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "ack_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                },
+                "fin_psh_urg_response": {
+                    "status": "simulated",
+                    "response_type": "RST-ACK"
+                }
+            }
+        },
+        "behavior_analysis": {}
+    },
+    "vulnerability_correlation": {
+        "vulnerabilities_found": 0,
+        "severity_summary": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "low": 0,
+            "info": 0
+        },
+        "vulnerabilities": [],
+        "correlation_timestamp": "2025-04-26 16:08:58"
+    }
+}

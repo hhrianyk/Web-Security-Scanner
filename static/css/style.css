@@ -1,0 +1,74 @@
+/* Custom Styles for Web Security Scanner */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.progress {
+    height: 20px;
+    border-radius: 5px;
+}
+
+pre {
+    font-family: 'Consolas', 'Courier New', monospace;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+}
+
+.severity-critical {
+    color: #dc3545;
+}
+
+.severity-high {
+    color: #fd7e14;
+}
+
+.severity-medium {
+    color: #ffc107;
+}
+
+.severity-low {
+    color: #17a2b8;
+}
+
+.severity-info {
+    color: #6c757d;
+}
+
+/* Print styles */
+@media print {
+    .navbar, footer, .btn {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+        margin-bottom: 15px;
+    }
+} 
